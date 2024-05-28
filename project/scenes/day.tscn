@@ -1,8 +1,30 @@
-[gd_scene load_steps=8 format=3 uid="uid://djjswb7p14526"]
+[gd_scene load_steps=37 format=3 uid="uid://djjswb7p14526"]
 
+[ext_resource type="Theme" uid="uid://bcyi0pjljka6y" path="res://resources/theme_menu.tres" id="1_d4hlm"]
 [ext_resource type="Script" path="res://scenes/day.gd" id="1_l3t6y"]
-[ext_resource type="Texture2D" uid="uid://c34bl1funmto3" path="res://assets/graphics/artwork/take-a-breath.png" id="2_jh4e0"]
+[ext_resource type="FontFile" uid="uid://cppc0gbgscjx4" path="res://assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Bold.ttf" id="3_4f6ma"]
 [ext_resource type="Texture2D" uid="uid://co1w41kjs7e15" path="res://assets/graphics/artwork/nearest-park.png" id="3_qnfxu"]
+[ext_resource type="StyleBox" uid="uid://dkhghgi114fp" path="res://resources/style_button_collection_normal.tres" id="4_fyv8w"]
+[ext_resource type="StyleBox" uid="uid://b23cven8cqtcl" path="res://resources/style_button_collection_pressed.tres" id="5_p3rey"]
+[ext_resource type="FontFile" uid="uid://bx0jv7riwjat8" path="res://assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-BoldItalic.ttf" id="6_dm64j"]
+[ext_resource type="FontFile" uid="uid://cvp4g666av6yk" path="res://assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Regular.ttf" id="7_yhrj8"]
+[ext_resource type="Texture2D" uid="uid://cy36o5sgt8ub8" path="res://assets/graphics/life-is-great.jpg" id="8_yn2o0"]
+[ext_resource type="FontFile" uid="uid://c6qcru2yfy1og" path="res://assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Italic.ttf" id="8_yvekc"]
+[ext_resource type="Texture2D" uid="uid://dqsh67mf0usmj" path="res://icon.svg" id="9_yeco2"]
+[ext_resource type="Texture2D" uid="uid://g1jytvsqpigh" path="res://assets/graphics/lies.png" id="9_yf0ml"]
+[ext_resource type="Texture2D" uid="uid://otre30k5fjsu" path="res://assets/icons/arrow_left_48dp_FILL0_wght400_GRAD0_opsz48.svg" id="10_y7q5x"]
+[ext_resource type="Texture2D" uid="uid://qnxc44ij5nbt" path="res://assets/icons/arrow_right_48dp_FILL0_wght400_GRAD0_opsz48.svg" id="11_0u8gj"]
+[ext_resource type="AudioStream" uid="uid://dttoiu1wt246w" path="res://assets/sounds/ui/toggle_002.ogg" id="12_t3am0"]
+[ext_resource type="AudioStream" uid="uid://duvmxj0fymp1t" path="res://assets/sounds/ui/glass_001.ogg" id="13_ruf0i"]
+
+[sub_resource type="Gradient" id="Gradient_c8370"]
+offsets = PackedFloat32Array(0, 0.993506)
+colors = PackedColorArray(0, 0, 0, 0.8, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lk2jc"]
+gradient = SubResource("Gradient_c8370")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfwbo"]
 bg_color = Color(0.878431, 0.878431, 0.878431, 1)
@@ -25,6 +47,57 @@ border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfvip"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+skew = Vector2(0.2, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+expand_margin_left = 24.0
+expand_margin_right = 24.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jftqe"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.313726, 0.313726, 0.313726, 1)
+skew = Vector2(0.2, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+expand_margin_left = 24.0
+expand_margin_right = 24.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23cfs"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+skew = Vector2(0.2, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+expand_margin_left = 16.0
+expand_margin_right = 16.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mk2vo"]
+draw_center = false
+skew = Vector2(0.2, 0)
+border_width_left = 6
+border_width_right = 6
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 32.0
+expand_margin_right = 32.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kdqni"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4skr7"]
 content_margin_left = 6.0
 content_margin_top = 6.0
@@ -42,6 +115,75 @@ expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qyfsl"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_32j1x"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ydyql"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kkoc7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2lhh"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vdakd"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tio5"]
+bg_color = Color(0.25098, 0.25098, 0.25098, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.188235, 0.188235, 0.188235, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_drff6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g5utv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5uxod"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+skew = Vector2(0.1, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
 [node name="Day" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -50,7 +192,116 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+theme = ExtResource("1_d4hlm")
 script = ExtResource("1_l3t6y")
+
+[node name="Background" type="ColorRect" parent="."]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.890196, 0.341176, 0.12549, 1)
+
+[node name="Stripe1" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -320.0
+offset_right = -1024.0
+offset_bottom = 312.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(64, 640)
+color = Color(0.780392, 0.521569, 0.227451, 1)
+
+[node name="Stripe0" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -360.0
+offset_top = -320.0
+offset_right = -1384.0
+offset_bottom = 312.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(64, 640)
+color = Color(0.780392, 0.521569, 0.227451, 1)
+
+[node name="Stripe2" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 360.0
+offset_top = -320.0
+offset_right = -664.0
+offset_bottom = 312.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(64, 640)
+color = Color(0.780392, 0.521569, 0.227451, 1)
+
+[node name="Stripe3" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 720.0
+offset_top = -320.0
+offset_right = -304.0
+offset_bottom = 312.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(64, 640)
+color = Color(0.780392, 0.521569, 0.227451, 1)
+
+[node name="Stripe4" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1080.0
+offset_top = -320.0
+offset_right = 56.0
+offset_bottom = 312.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(64, 640)
+color = Color(0.780392, 0.521569, 0.227451, 1)
+
+[node name="Stripe5" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1440.0
+offset_top = -320.0
+offset_right = 416.0
+offset_bottom = 312.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(64, 640)
+color = Color(0.780392, 0.521569, 0.227451, 1)
+
+[node name="Gradient" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_lk2jc")
 
 [node name="DayNumber" type="Control" parent="."]
 anchors_preset = 0
@@ -84,7 +335,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 14
 text = "Day"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -98,27 +349,61 @@ offset_top = 22.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("3_4f6ma")
+theme_override_font_sizes/font_size = 48
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StartNight" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -117.0
-offset_top = -55.0
-offset_right = -24.0
-offset_bottom = -24.0
-grow_horizontal = 0
-grow_vertical = 0
+[node name="Actions" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 972.0
+offset_top = 448.0
+offset_right = 1132.0
+offset_bottom = 624.0
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="StartNight" type="Button" parent="Actions"]
+custom_minimum_size = Vector2(128, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_yfvip")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jftqe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_23cfs")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mk2vo")
 text = "Start Night"
 
-[node name="Artworks" type="PanelContainer" parent="."]
+[node name="HSeparator" type="HSeparator" parent="Actions"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kdqni")
+
+[node name="Settings" type="Button" parent="Actions"]
+custom_minimum_size = Vector2(128, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_yfvip")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jftqe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_23cfs")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mk2vo")
+text = "Settings"
+
+[node name="Quit" type="Button" parent="Actions"]
+custom_minimum_size = Vector2(128, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_yfvip")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jftqe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_23cfs")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mk2vo")
+text = "Quit"
+
+[node name="Collection" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -126,76 +411,385 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 12.0
 offset_top = -203.0
-offset_right = -141.0
+offset_right = -200.0
 offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4skr7")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Artworks"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Collection"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Label" type="Label" parent="Artworks/VBoxContainer"]
+[node name="Label" type="Label" parent="Collection/VBoxContainer"]
 layout_mode = 2
 text = "Collected Artworks"
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Artworks/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Collection/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 horizontal_scroll_mode = 2
 vertical_scroll_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Artworks/VBoxContainer/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Collection/VBoxContainer/ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
 
-[node name="1" type="Button" parent="Artworks/VBoxContainer/ScrollContainer/HBoxContainer"]
-custom_minimum_size = Vector2(96, 144)
+[node name="HBoxContainer" type="HBoxContainer" parent="Collection/VBoxContainer/ScrollContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 160)
 layout_mode = 2
-icon = ExtResource("2_jh4e0")
-icon_alignment = 1
-expand_icon = true
+size_flags_vertical = 3
+theme_override_constants/separation = 8
 
-[node name="2" type="Button" parent="Artworks/VBoxContainer/ScrollContainer/HBoxContainer"]
-custom_minimum_size = Vector2(96, 144)
+[node name="Button" type="Button" parent="Collection/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = ExtResource("4_fyv8w")
+theme_override_styles/pressed = ExtResource("5_p3rey")
+toggle_mode = true
 icon = ExtResource("3_qnfxu")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Locations" type="PanelContainer" parent="."]
+[node name="LocationList" type="PanelContainer" parent="."]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 113.0
 offset_right = 204.0
 offset_bottom = 423.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Locations"]
+[node name="VBoxContainer" type="VBoxContainer" parent="LocationList"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Locations/VBoxContainer"]
+[node name="Label" type="Label" parent="LocationList/VBoxContainer"]
 layout_mode = 2
 text = "Locations to Visit"
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="Locations/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="LocationList/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 16
 theme_override_styles/separator = SubResource("StyleBoxEmpty_qyfsl")
 
-[node name="List" type="VBoxContainer" parent="Locations/VBoxContainer"]
+[node name="List" type="VBoxContainer" parent="LocationList/VBoxContainer"]
 layout_mode = 2
 
-[node name="HousingCoop" type="Button" parent="Locations/VBoxContainer/List"]
+[node name="HousingCoop" type="Button" parent="LocationList/VBoxContainer/List"]
 layout_mode = 2
 text = "Anarres"
 
-[node name="Printers" type="Button" parent="Locations/VBoxContainer/List"]
+[node name="Printers" type="Button" parent="LocationList/VBoxContainer/List"]
 layout_mode = 2
 text = "Footprint"
 
-[node name="ArtStudio" type="Button" parent="Locations/VBoxContainer/List"]
+[node name="ArtStudio" type="Button" parent="LocationList/VBoxContainer/List"]
 layout_mode = 2
 text = "Serf"
 
-[connection signal="pressed" from="StartNight" to="." method="_end_day"]
+[node name="Location" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 34.0
+offset_right = 1115.0
+offset_bottom = 422.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_32j1x")
+
+[node name="Tabs" type="TabContainer" parent="Location"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ydyql")
+current_tab = 2
+tabs_visible = false
+
+[node name="Anarres" type="VBoxContainer" parent="Location/Tabs"]
+visible = false
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Location/Tabs/Anarres"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_dm64j")
+theme_override_font_sizes/font_size = 32
+text = "Anarres"
+horizontal_alignment = 1
+
+[node name="Padding1" type="HSeparator" parent="Location/Tabs/Anarres"]
+layout_mode = 2
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kkoc7")
+
+[node name="Info" type="RichTextLabel" parent="Location/Tabs/Anarres"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_yhrj8")
+theme_override_fonts/bold_font = ExtResource("3_4f6ma")
+theme_override_fonts/italics_font = ExtResource("8_yvekc")
+theme_override_fonts/bold_italics_font = ExtResource("6_dm64j")
+bbcode_enabled = true
+text = "[center]A housing coop named after the home of a functioning anarchist society in Ursula Le Guin's book [i]The Dispossessed[/i].
+They make hopeful art, focussing on benefitting the public.[/center]"
+
+[node name="Padding2" type="HSeparator" parent="Location/Tabs/Anarres"]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kkoc7")
+
+[node name="Artwork" type="HBoxContainer" parent="Location/Tabs/Anarres"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="1" type="Button" parent="Location/Tabs/Anarres/Artwork"]
+custom_minimum_size = Vector2(100, 141)
+layout_mode = 2
+icon = ExtResource("9_yeco2")
+icon_alignment = 1
+expand_icon = true
+
+[node name="PaddingBottom" type="HSeparator" parent="Location/Tabs/Anarres"]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kkoc7")
+
+[node name="Footprint" type="VBoxContainer" parent="Location/Tabs"]
+visible = false
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Location/Tabs/Footprint"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_dm64j")
+theme_override_font_sizes/font_size = 32
+text = "Footprint"
+horizontal_alignment = 1
+
+[node name="Padding1" type="HSeparator" parent="Location/Tabs/Footprint"]
+layout_mode = 2
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kkoc7")
+
+[node name="Info" type="RichTextLabel" parent="Location/Tabs/Footprint"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_yhrj8")
+theme_override_fonts/bold_font = ExtResource("3_4f6ma")
+theme_override_fonts/italics_font = ExtResource("8_yvekc")
+theme_override_fonts/bold_italics_font = ExtResource("6_dm64j")
+bbcode_enabled = true
+text = "[center]A radical workers' coop providing printing services. 
+They make professional prints, satirising existing adverts.[/center]"
+
+[node name="Padding2" type="HSeparator" parent="Location/Tabs/Footprint"]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kkoc7")
+
+[node name="Artwork" type="HBoxContainer" parent="Location/Tabs/Footprint"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="1" type="Button" parent="Location/Tabs/Footprint/Artwork"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+icon = ExtResource("9_yeco2")
+icon_alignment = 1
+expand_icon = true
+
+[node name="PaddingBottom" type="HSeparator" parent="Location/Tabs/Footprint"]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kkoc7")
+
+[node name="Serf" type="VBoxContainer" parent="Location/Tabs"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Location/Tabs/Serf"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_dm64j")
+theme_override_font_sizes/font_size = 32
+text = "Serf"
+horizontal_alignment = 1
+
+[node name="Padding1" type="HSeparator" parent="Location/Tabs/Serf"]
+layout_mode = 2
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kkoc7")
+
+[node name="Info" type="RichTextLabel" parent="Location/Tabs/Serf"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_yhrj8")
+theme_override_fonts/bold_font = ExtResource("3_4f6ma")
+theme_override_fonts/italics_font = ExtResource("8_yvekc")
+theme_override_fonts/bold_italics_font = ExtResource("6_dm64j")
+bbcode_enabled = true
+text = "[center]An artist-led community and project space.[/center]"
+
+[node name="Padding2" type="HSeparator" parent="Location/Tabs/Serf"]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kkoc7")
+
+[node name="Artwork" type="HBoxContainer" parent="Location/Tabs/Serf"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="1" type="Button" parent="Location/Tabs/Serf/Artwork"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+icon = ExtResource("8_yn2o0")
+icon_alignment = 1
+expand_icon = true
+
+[node name="2" type="Button" parent="Location/Tabs/Serf/Artwork"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+icon = ExtResource("9_yf0ml")
+icon_alignment = 1
+expand_icon = true
+
+[node name="PaddingBottom" type="HSeparator" parent="Location/Tabs/Serf"]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kkoc7")
+
+[node name="ArtworkViewer" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="PanelContainer" type="PanelContainer" parent="ArtworkViewer"]
+custom_minimum_size = Vector2(320, 480)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -295.0
+offset_right = 160.0
+offset_bottom = 185.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_f2lhh")
+
+[node name="TextureRect" type="TextureRect" parent="ArtworkViewer/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("9_yeco2")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Navigation" type="Control" parent="ArtworkViewer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -277.0
+offset_top = -88.0
+offset_right = 277.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Previous" type="Button" parent="ArtworkViewer/Navigation"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 17.0
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_vdakd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vdakd")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_6tio5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_drff6")
+icon = ExtResource("10_y7q5x")
+
+[node name="Next" type="Button" parent="ArtworkViewer/Navigation"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_vdakd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vdakd")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_6tio5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g5utv")
+icon = ExtResource("11_0u8gj")
+
+[node name="Actions" type="HBoxContainer" parent="ArtworkViewer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -201.0
+offset_top = -91.0
+offset_right = 201.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 48
+alignment = 1
+
+[node name="Close" type="Button" parent="ArtworkViewer/Actions"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_5uxod")
+text = "Close"
+
+[node name="AddToCollection" type="Button" parent="ArtworkViewer/Actions"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_5uxod")
+text = "Add to Collection"
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Confirm" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("12_t3am0")
+bus = &"Sounds"
+
+[node name="CursorMove" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("13_ruf0i")
+bus = &"Sounds"
+
+[connection signal="focus_entered" from="Actions/StartNight" to="." method="_cursor_moved"]
+[connection signal="pressed" from="Actions/StartNight" to="." method="_end_day"]
+[connection signal="focus_entered" from="Actions/Settings" to="." method="_cursor_moved"]
+[connection signal="pressed" from="Actions/Settings" to="." method="_open_settings"]
+[connection signal="focus_entered" from="Actions/Quit" to="." method="_cursor_moved"]
+[connection signal="pressed" from="Actions/Quit" to="." method="_quit_to_title"]
+[connection signal="pressed" from="LocationList/VBoxContainer/List/HousingCoop" to="." method="_go_to_location" binds= [0]]
+[connection signal="pressed" from="LocationList/VBoxContainer/List/Printers" to="." method="_go_to_location" binds= [1]]
+[connection signal="pressed" from="LocationList/VBoxContainer/List/ArtStudio" to="." method="_go_to_location" binds= [2]]
+[connection signal="pressed" from="ArtworkViewer/Navigation/Previous" to="." method="_prev_art"]
+[connection signal="pressed" from="ArtworkViewer/Navigation/Next" to="." method="_next_art"]
+[connection signal="pressed" from="ArtworkViewer/Actions/Close" to="." method="_hide_art"]
+[connection signal="pressed" from="ArtworkViewer/Actions/AddToCollection" to="." method="_add_art_to_collection"]

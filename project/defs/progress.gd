@@ -10,3 +10,7 @@ const STARTING_ART: Array[Texture2D] = [
 @export var night_time: bool = false
 @export var subverted_advert_count: int = 0
 @export var artwork: Array[Texture2D] = STARTING_ART.duplicate() as Array[Texture2D]
+
+@export var available_artworks_housing_coop: Array[Texture2D] = []
+@export var available_artworks_printers: Array[Texture2D] = []
+@export var available_artworks_art_studio: Array[Texture2D] = []

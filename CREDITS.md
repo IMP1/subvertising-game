@@ -1,6 +1,9 @@
 # Graphics
 
   - `Dread Cola.png`: [Tom Deja](https://dribbble.com/shots/16093529-Give-in-to-the-Flavor)
+  - `Sugar Bombs.png`: [???](https://static.displate.com/857x1200/displate/2021-03-16/98b865b08a55e3759ac6763ec18e3d40_fc20fd5946418e96f1a81c4641454948.jpg)
+  - `Cellophane.png`: [???](https://i0.wp.com/themindcircle.com/wp-content/uploads/2015/08/creepy-vintage-ads-4.jpg)
+  - `Abraxo.png`: [???](https://www.redbubble.com/i/poster/Fallout-Abraxo-Ad-by-manticor225/35200468.LVTDI)
   - `A Mother's Love`: [Darren Cullen](https://www.spellingmistakescostlives.com/)
   - `Life is Great`: [Darren Cullen](https://www.spellingmistakescostlives.com/)
   - `Lies`: [Darren Cullen](https://www.spellingmistakescostlives.com/)
@@ -26,9 +29,29 @@
 
 # Icons
 
-  - `clear_day_24dp_FILL0_wght400_GRAD0_opsz24.svg`: [Material Symbols](https://fonts.google.com/icons)
-  - `clear_night_24dp_FILL0_wght400_GRAD0_opsz24.svg`: [Material Symbols](https://fonts.google.com/icons)
+  - Various UI Icons: [Material Icons](https://fonts.google.com/icons)
+  - Turd icon: [Lorc](https://game-icons.net/1x1/lorc/turd.html)
+  - Mona Lisa icon: [Delapouite](https://game-icons.net/1x1/delapouite/mona-lisa.html)
 
 # Misc
 
   - [Godot Engine](https://godotengine.org/)
+
+
+320
+480
+
+160.0
+240.0
+
+106.66666666666667
+160.0
+
+
+80.0
+120.0
+
+
+
+100.0
+150.0 
