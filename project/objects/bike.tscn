@@ -46,6 +46,7 @@ offset_bottom = -78.0
 show_percentage = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Bars" type="Control" parent="CanvasLayer"]
 layout_mode = 3

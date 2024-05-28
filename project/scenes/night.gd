@@ -1,6 +1,6 @@
 extends Node2D
 
-const MISCHIEF_LAYER := 8
+const MISCHIEF_LAYER := 4
 const CAMERA_SIZE := Vector2(256, 256)
 const MUSIC_BUS := 1
 const LOW_PASS_FILTER := 0
@@ -11,6 +11,7 @@ const LOW_PASS_FILTER := 0
 @export var night_length: float = 120 # seconds
 
 var _subvertising_count: int = 0
+var _indicating_artwork_count: bool = false
 
 @onready var _timer := $Timer as Timer
 @onready var _player := $Player as Player
@@ -18,6 +19,7 @@ var _subvertising_count: int = 0
 @onready var _subvertising_progress := $HUD/Control/SubvertisingCount/Label as Label
 @onready var _subvertising_progress_particles := $HUD/Control/SubvertisingCount/Label/GPUParticles2D as GPUParticles2D
 @onready var _subvertising_qte := $Menus/SubvertisingEvent as SubvertisingEvent
+@onready var _subvertising_art_choice := $Menus/SubvertisingArtworkPlacement as SubvertisingArtworkPlacement
 @onready var _artwork_count_hud := $HUD/Control/ArtworkCount as Control
 @onready var _artwork_count := $HUD/Control/ArtworkCount/Count as Label
 @onready var _artwork_count_buzzer := $HUD/Control/ArtworkCount/Buzzer as AudioStreamPlayer
@@ -28,6 +30,11 @@ var _subvertising_count: int = 0
 @onready var _settings := $Menus/Settings as SettingsScene
 @onready var _map := $World as Node2D
 @onready var _bike := $World/Decor/Bike as Bike
+@onready var _game_over := $Menus/GameOver as Control
+@onready var _game_over_impact := $Menus/GameOver/Impact as AnimatedSprite2D
+@onready var _game_over_sfx := $Menus/GameOver/Sound as AudioStreamPlayer
+@onready var _game_over_vignette := $Menus/GameOver/Vignette as ColorRect
+@onready var _game_over_vignette_shader := _game_over_vignette.material as ShaderMaterial
 
 
 func _set_time_scale(value: float) -> void:
@@ -41,6 +48,7 @@ func _ready() -> void:
 		MusicManager.blend_to(background_music)
 	_subvertising_qte.visible = false
 	_menu.visible = false
+	_game_over.visible = false
 	_timer.wait_time = night_length
 	_timer.start()
 	_time_progress.max_value = night_length
@@ -60,12 +68,14 @@ func _ready() -> void:
 func _setup_ads() -> void:
 	for node in get_tree().get_nodes_in_group(Advert.GROUP_NAME):
 		var ad := node as Advert
-		ad.subvertising_started.connect(_start_subvertising.bind(ad))
+		ad.unlocking_started.connect(_start_subvertising.bind(ad))
 		ad.subvertising_viewed.connect(_view_subvertising.bind(ad))
+		ad.replacement_started.connect(_start_placing_artwork.bind(ad))
 		ad.subvertising_lacking_art.connect(_indicate_artwork_count)
 		# TODO: Set path based on day and progress
-		ad.unlock_path = load("res://resources/qte_curve_zig.tres")
+		ad.unlock_path = load("res://resources/qte_curve_zig.tres") as Curve2D
 		# TODO: Set ads based on which day it is, and other progress variables
+		ad.texture = load("res://assets/graphics/adverts/Dread Cola.png") as Texture2D
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -76,6 +86,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			_hide_menu()
 		else:
 			_show_menu()
+	if event.is_action_pressed(&"toggle_cameras"):
+		_knock_out()
 
 
 func _show_menu() -> void:
@@ -119,6 +131,30 @@ func _cycle_home() -> void:
 	SceneTransition.transition_to_file("res://scenes/day.tscn", &"fade_black")
 
 
+func _knock_out() -> void:
+	_player.can_move = false
+	_game_over.visible = true
+	_game_over_impact.visible = false
+	var screen_pos := _player.get_global_transform_with_canvas().origin
+	var uv_pos := (screen_pos - Vector2(0, 30)) / get_viewport().get_visible_rect().size
+	_game_over_vignette_shader.set_shader_parameter(&"centre", uv_pos)
+	var tween := create_tween()
+	tween.tween_method(func(value: float): _game_over_vignette_shader.set_shader_parameter(&"progress", value), 0.0, 1.0, 0.6)
+	await tween.finished
+	await get_tree().create_timer(0.2).timeout
+	_game_over_sfx.play()
+	_game_over_impact.modulate = Color.WHITE
+	_game_over_impact.position = screen_pos - Vector2(0, 60)
+	_game_over_impact.play(&"stars")
+	_game_over_impact.visible = true
+	await _game_over_impact.animation_finished
+	_game_over_impact.visible = false
+	await get_tree().create_timer(0.2).timeout
+	ProgressManager.progress.night_time = false
+	ProgressManager.progress.day += 1
+	SceneTransition.transition_to_file("res://scenes/day.tscn", &"fade_black")
+
+
 func _end_night() -> void:
 	_menu_audio_accept.play()
 	_hide_menu()
@@ -142,11 +178,7 @@ func _process(_delta: float) -> void:
 
 
 func _start_subvertising(advert: Advert) -> void:
-	_set_time_scale(0.5)
-	advert._player_exit_area(_player)
-	_player.can_move = false
-	_player.collision_layer += MISCHIEF_LAYER
-	_player.focus_camera_on(advert.global_position, 1.6)
+	_start_advert_interaction(advert)
 	_subvertising_qte.advert_texture = advert.texture
 	_subvertising_qte.path = advert.unlock_path
 	_subvertising_qte.setup()
@@ -158,28 +190,53 @@ func _start_subvertising(advert: Advert) -> void:
 		await Tutorials.finished
 	
 	var success := await _subvertising_qte.finished as bool
-	_finish_subvertising(advert, success)
-
-
-func _finish_subvertising(advert: Advert, success: bool) -> void:
-	AudioServer.set_bus_effect_enabled(MUSIC_BUS, LOW_PASS_FILTER, false)
 	_subvertising_qte.visible = false
-	advert._player_enter_area(_player)
-	_player.can_move = true
-	_player.collision_layer -= MISCHIEF_LAYER
-	_player.focus_camera_on(_player.global_position, 1)
-	_set_time_scale(1.0)
 	if not success:
+		_end_advert_interaction(advert)
 		return
-	# TODO: Show option for choosing artwork
-	var art := ProgressManager.progress.artwork.pop_back() as Texture2D
-	advert.texture = art
+	advert.unlocked = true
+	_start_placing_artwork(advert)
+
+
+func _start_placing_artwork(advert: Advert) -> void:
+	_start_advert_interaction(advert)
+	var old_ad := advert.texture
+	_subvertising_art_choice.visible = true
+	_subvertising_art_choice.setup()
+	var success := await _subvertising_art_choice.finished as bool
+	_subvertising_art_choice.visible = false
+	if not success:
+		_end_advert_interaction(advert)
+		return
+	var new_art := _subvertising_art_choice.artwork
+	_subvertising_art_choice.visible = false
+	advert.texture = new_art
 	advert.subverted = true
 	_subvertising_count += 1
 	_subvertising_progress.text = str(_subvertising_count)
 	_subvertising_progress_particles.emitting = true
 	ProgressManager.progress.subverted_advert_count += 1
+	var index := ProgressManager.progress.artwork.find(new_art)
+	ProgressManager.progress.artwork.remove_at(index)
 	_artwork_count.text = str(ProgressManager.progress.artwork.size())
+	_end_advert_interaction(advert)
+
+
+func _start_advert_interaction(advert: Advert) -> void:
+	_set_time_scale(0.5)
+	advert._player_exit_area(_player)
+	_player.can_move = false
+	_player.set_collision_layer_value(MISCHIEF_LAYER, true)
+	_player.focus_camera_on(advert.global_position, 1.6)
+
+
+func _end_advert_interaction(advert: Advert) -> void:
+	AudioServer.set_bus_effect_enabled(MUSIC_BUS, LOW_PASS_FILTER, false)
+	advert._player_enter_area(_player)
+	_player.can_move = true
+	_player.set_collision_layer_value(MISCHIEF_LAYER, false)
+	_player.focus_camera_on(_player.global_position, 1)
+	_set_time_scale(1.0)
 
 
 func _view_subvertising(advert: Advert) -> void:
@@ -189,6 +246,9 @@ func _view_subvertising(advert: Advert) -> void:
 
 
 func _indicate_artwork_count(colour: Color = Color.CRIMSON) -> void:
+	if _indicating_artwork_count:
+		return
+	_indicating_artwork_count = true
 	_artwork_count_buzzer.play()
 	var old_colour := _artwork_count_hud.modulate
 	_artwork_count_hud.modulate = colour
@@ -199,3 +259,4 @@ func _indicate_artwork_count(colour: Color = Color.CRIMSON) -> void:
 	tween.tween_property(_artwork_count_hud, "scale", Vector2.ONE, 1.0)
 	await tween.finished
 	_artwork_count_hud.modulate = old_colour
+	_indicating_artwork_count = false

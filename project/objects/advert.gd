@@ -2,11 +2,13 @@ class_name Advert
 extends Node2D
 
 signal subvertising_lacking_art
-signal subvertising_started
+signal unlocking_started
+signal replacement_started
 signal subvertising_viewed
 
 const GROUP_NAME = &"adverts"
 
+@export var unlocked: bool = false
 @export var subverted: bool = false
 @export var texture: Texture2D:
 	set(value):
@@ -52,10 +54,12 @@ func _player_has_artwork() -> bool:
 
 func _input(event: InputEvent) -> void:
 	if _player_near and event.is_action_pressed(&"interact"):
-		if not _player_has_artwork():
-			subvertising_lacking_art.emit()
-		elif subverted:
+		if subverted:
 			subvertising_viewed.emit()
+		elif not unlocked:
+			unlocking_started.emit()
+		elif not _player_has_artwork():
+			subvertising_lacking_art.emit()
 		else:
-			subvertising_started.emit()
+			replacement_started.emit()
 

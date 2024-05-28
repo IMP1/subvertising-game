@@ -3,15 +3,21 @@ extends CharacterBody2D
 
 signal reached_destination
 
+const MAX_VISION_RANGE := 544.0
 const GROUP_NAME := &"npcs"
-const MOVE_SPEED := 128
+const MOVE_SPEED := 128.0
+const BASE_DETECTION_SPEED := 0.5 # seconds^(-1)
 
 @export var time_scale: float = 1.0
 @export var sprite_frames: SpriteFrames
 @export_category("Personality")
-@export_range(0, 1) var propriety: float = 0.8
-@export_range(0, 1) var happiness: float = 0.2
-@export_range(0, 1) var aggression: float = 0.5
+@export_range(-1, 1) var propriety: float = 0.3
+@export_range(-1, 1) var happiness: float = -0.2
+@export_range(-1, 1) var aggression: float = 0.0
+@export_range(-1, 1) var awareness: float = 0.0
+
+var _target: Node2D = null
+var _target_detection_progress: float = 0.0
 
 @onready var _emote := $Bubble as AnimatedSprite2D
 @onready var _nav_agent := $NavigationAgent2D as NavigationAgent2D
@@ -26,15 +32,16 @@ func _ready() -> void:
 	_emote.visible = false
 	_sprite.sprite_frames = sprite_frames
 	_personal_space.body_entered.connect(func(body: Node2D) -> void:
-		emote(&"angry", 2.0))
+		emote(&"angry", 1.0))
 
 
 func move_to(target: Vector2) -> void:
 	_nav_agent.target_position = target
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	_sprite.speed_scale = time_scale
+	_update_player_reaction(delta)
 
 
 func _physics_process(_delta: float) -> void:
@@ -70,14 +77,52 @@ func _update_sprite(movement: Vector2) -> void:
 		_sprite.play(&"right")
 
 
-func _body_entered_view(body: Node2D) -> void:
+func _update_player_reaction(delta: float) -> void:
+	if not _target:
+		return
+	var target_visible := _can_see(_target)
+	if target_visible and _target_detection_progress < 1.0:
+		_target_detection_progress += delta * _get_detection_speed()
+		if _target_detection_progress >= 1.0:
+			_target_detected()
+	else:
+		_target_exited_view()
+
+
+func _get_detection_speed() -> float:
+	var speed := BASE_DETECTION_SPEED
+	speed *= pow(2, awareness)
+	speed *= pow(1.8, propriety)
+	speed *= pow(1.8, aggression)
+	return speed
+
+
+func _can_see(target: Node2D) -> bool:
+	_ray.target_position = _ray.to_local(target.global_position)
+	if _ray.target_position.length_squared() > MAX_VISION_RANGE * MAX_VISION_RANGE:
+		_ray.target_position = _ray.target_position.normalized() * MAX_VISION_RANGE
+	_ray.force_raycast_update()
+	return _ray.is_colliding() and _ray.get_collider() == target
+
+
+func _target_entered_view(body: Node2D) -> void:
 	emote(&"question")
-	pass
+	_target = body
 
 
-func _body_exited_view(body: Node2D) -> void:
-	# TODO: Need to call this even if still in area, but ray no longer finds them
-	pass
+func _target_exited_view() -> void:
+	emote(&"question")
+	# TODO: Either chase or forget depending on personality
+
+
+func _target_detected() -> void:
+	emote(&"exclamation")
+	# TODO: Either chase, flee, or ignore depending on personality
+
+
+func _target_forgotten() -> void:
+	emote(&"waiting", 1.0)
+	_target = null
 
 
 func emote(emotion: StringName, duration: float = -1) -> void:
@@ -98,11 +143,5 @@ func emote(emotion: StringName, duration: float = -1) -> void:
 
 
 func _body_entered_area(body: Node2D) -> void:
-	_ray.target_position = _ray.to_local(body.global_position)
-	_ray.force_raycast_update()
-	if _ray.is_colliding() and _ray.get_collider() == body:
-		_body_entered_view(body)
-
-
-func _body_exited_area(body: Node2D) -> void:
-	_body_exited_view(body)
+	if _can_see(body):
+		_target_entered_view(body)

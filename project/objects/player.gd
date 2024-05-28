@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+signal knocked_out
+
 @export var move_speed: float = 320
 @export var can_move: bool = true
 

@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=20 format=3 uid="uid://cmpibgj7pcuuf"]
+[gd_resource type="SpriteFrames" load_steps=30 format=3 uid="uid://cmpibgj7pcuuf"]
 
 [ext_resource type="Texture2D" uid="uid://dpc32q4jocytj" path="res://assets/graphics/characters/bubbles.png" id="1_r8wq0"]
 
@@ -50,6 +50,22 @@ region = Rect2(80, 0, 16, 16)
 atlas = ExtResource("1_r8wq0")
 region = Rect2(96, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbqre"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ooti"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdf2t"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3q2i"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(32, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_aahsv"]
 atlas = ExtResource("1_r8wq0")
 region = Rect2(144, 0, 16, 16)
@@ -73,6 +89,30 @@ region = Rect2(16, 16, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_wl4pt"]
 atlas = ExtResource("1_r8wq0")
 region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uuudb"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sw80g"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(112, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57048"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(128, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnjbl"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hc8p"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsa8m"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(48, 32, 16, 16)
 
 [resource]
 animations = [{
@@ -128,6 +168,23 @@ animations = [{
 "speed": 10.0
 }, {
 "frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_cbqre")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ooti")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_kdf2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3q2i")
+}],
+"loop": true,
+"name": &"love",
+"speed": 10.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_aahsv")
 }, {
@@ -153,5 +210,33 @@ animations = [{
 }],
 "loop": false,
 "name": &"sad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uuudb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sw80g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57048")
+}],
+"loop": true,
+"name": &"waiting",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnjbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hc8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsa8m")
+}],
+"loop": false,
+"name": &"whistling",
 "speed": 5.0
 }]

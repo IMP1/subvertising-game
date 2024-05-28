@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://b3mpu5ygrxidf"]
+
+[ext_resource type="Theme" uid="uid://bcyi0pjljka6y" path="res://resources/theme_menu.tres" id="1_hkgup"]
+[ext_resource type="Script" path="res://scenes/subvertising_artwork_placement.gd" id="1_ie67a"]
+[ext_resource type="Shader" path="res://resources/blur.gdshader" id="2_62erw"]
+[ext_resource type="Texture2D" uid="uid://c34bl1funmto3" path="res://assets/graphics/artwork/take-a-breath.png" id="4_6ex4i"]
+[ext_resource type="AudioStream" uid="uid://duvmxj0fymp1t" path="res://assets/sounds/ui/glass_001.ogg" id="5_8ceit"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1l7w6"]
+shader = ExtResource("2_62erw")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0xj2"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[node name="SubvertisingArtworkPlacement" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_hkgup")
+script = ExtResource("1_ie67a")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_1l7w6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AdvertPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(320, 480)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 139.0
+offset_top = 86.0
+offset_right = -117.0
+offset_bottom = -82.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g0xj2")
+
+[node name="Advert" type="TextureRect" parent="AdvertPanel"]
+custom_minimum_size = Vector2(320, 480)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ArtPanel" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 148.0
+offset_right = 1115.0
+offset_bottom = 446.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g0xj2")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ArtPanel"]
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="List" type="HBoxContainer" parent="ArtPanel/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="1" type="Button" parent="ArtPanel/ScrollContainer/List"]
+custom_minimum_size = Vector2(200, 282)
+layout_mode = 2
+icon = ExtResource("4_6ex4i")
+icon_alignment = 1
+expand_icon = true
+
+[node name="2" type="Button" parent="ArtPanel/ScrollContainer/List"]
+custom_minimum_size = Vector2(200, 282)
+layout_mode = 2
+
+[node name="Confirm" type="Button" parent="."]
+layout_mode = 0
+offset_left = 745.0
+offset_top = 492.0
+offset_right = 874.0
+offset_bottom = 543.0
+text = "Confirm"
+
+[node name="Cursor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8ceit")
+bus = &"UI"
+
+[connection signal="pressed" from="Confirm" to="." method="_confirm"]

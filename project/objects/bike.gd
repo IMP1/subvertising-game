@@ -14,6 +14,7 @@ var _hide_bar_tween: Tween
 @onready var _area := $Area2D as Area2D
 @onready var _input_prompt_timer := $PromptTimer as Timer
 @onready var _interaction_progress := $InteractionBar as ProgressBar
+@onready var _bars := $CanvasLayer as CanvasLayer
 @onready var _bar_top := $CanvasLayer/Bars/Top as Control
 @onready var _bar_container := $CanvasLayer/Bars as Control
 @onready var _bar_bottom := $CanvasLayer/Bars/Bottom as Control
@@ -60,6 +61,7 @@ func _start_interacting() -> void:
 	_input_prompt_timer.stop()
 	_interaction_progress.visible = true
 	_bar_text.visible = true
+	_bars.visible = true
 
 
 func _cancel_interaction(hide_bars:=true) -> void:

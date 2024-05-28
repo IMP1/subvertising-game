@@ -19,6 +19,7 @@
   - `success-48018.mp3`: [Pixabay](https://pixabay.com/sound-effects/click-metal-loud-2-95682/)
   - `wrong-100536.mp3`: [Pixabay](https://pixabay.com/sound-effects/wrong-100536/)
   - `spotlight-91359.mp3`: [Pixabay](https://pixabay.com/sound-effects/spotlight-91359/)
+  - `punch-sound-effects-28649.mp3`: [Pixabay](https://pixabay.com/sound-effects/punch-sound-effects-28649/)
   - `bike-bell-173588`: [Irhouen](https://pixabay.com/sound-effects/bike-bell-173588/)
   - Interface Sounds: [Kenney](https://www.kenney.nl)
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bstri6dkebvwa"
-path="res://.godot/imported/icon.svg-7c8e6dfe2213e2029f33175ecfc9166b.ctex"
+uid="uid://cegugj3mip2t7"
+path="res://.godot/imported/turd-logo.svg-42659eb2d065d3094640882ba479b8e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-7c8e6dfe2213e2029f33175ecfc9166b.ctex"]
+source_file="res://assets/turd-logo.svg"
+dest_files=["res://.godot/imported/turd-logo.svg-42659eb2d065d3094640882ba479b8e1.ctex"]
 
 [params]
 
