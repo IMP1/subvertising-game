@@ -1,0 +1,143 @@
+[gd_scene load_steps=18 format=3 uid="uid://25ivngyxqchw"]
+
+[ext_resource type="PackedScene" uid="uid://bct0chw6waj6t" path="res://objects/npc_source.tscn" id="1_khpdg"]
+[ext_resource type="Texture2D" uid="uid://c85mad2ght15p" path="res://assets/graphics/map/door.png" id="2_fa7qe"]
+[ext_resource type="Texture2D" uid="uid://chd0uw72hdjj7" path="res://assets/graphics/map/doorway.png" id="2_p1paa"]
+[ext_resource type="Script" path="res://objects/door.gd" id="2_uehro"]
+[ext_resource type="Texture2D" uid="uid://dpc32q4jocytj" path="res://assets/graphics/characters/bubbles.png" id="5_3uxss"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obclm"]
+atlas = ExtResource("2_p1paa")
+region = Rect2(0, 6, 48, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3sq70"]
+atlas = ExtResource("2_p1paa")
+region = Rect2(0, 28, 48, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_to3hj"]
+atlas = ExtResource("2_fa7qe")
+region = Rect2(66, 0, 22, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wh3s"]
+atlas = ExtResource("2_fa7qe")
+region = Rect2(44, 0, 22, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2m8q"]
+atlas = ExtResource("2_fa7qe")
+region = Rect2(22, 0, 22, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flelj"]
+atlas = ExtResource("2_fa7qe")
+region = Rect2(0, 0, 22, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mduk1"]
+atlas = ExtResource("2_fa7qe")
+region = Rect2(0, 0, 22, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_780m3"]
+atlas = ExtResource("2_fa7qe")
+region = Rect2(22, 0, 22, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1v7g"]
+atlas = ExtResource("2_fa7qe")
+region = Rect2(44, 0, 22, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j423l"]
+atlas = ExtResource("2_fa7qe")
+region = Rect2(66, 0, 22, 27)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_epeka"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_to3hj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wh3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2m8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flelj")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mduk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_780m3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1v7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j423l")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fttn"]
+atlas = ExtResource("5_3uxss")
+region = Rect2(96, 0, 16, 14)
+
+[node name="Door" instance=ExtResource("1_khpdg")]
+y_sort_enabled = true
+script = ExtResource("2_uehro")
+
+[node name="Inside" type="Node2D" parent="." index="0"]
+
+[node name="ColorRect" type="ColorRect" parent="Inside" index="0"]
+offset_left = -30.0
+offset_top = -84.0
+offset_right = 30.0
+offset_bottom = -6.0
+color = Color(0.972549, 0.690196, 0.407843, 1)
+
+[node name="DoorwayTop" type="Sprite2D" parent="." index="1"]
+z_index = 2
+texture_filter = 1
+position = Vector2(0, -18)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_obclm")
+offset = Vector2(0, -17)
+
+[node name="DoorwaySteps" type="Sprite2D" parent="." index="2"]
+texture_filter = 1
+position = Vector2(0, 42)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_3sq70")
+offset = Vector2(0, -17)
+
+[node name="DoorSprite" type="AnimatedSprite2D" parent="." index="3"]
+texture_filter = 1
+position = Vector2(0, 2)
+scale = Vector2(3, 3.00283)
+sprite_frames = SubResource("SpriteFrames_epeka")
+animation = &"open"
+offset = Vector2(0, -16)
+
+[node name="Mask" type="ColorRect" parent="." index="4"]
+clip_children = 1
+z_index = 5
+offset_left = -30.0
+offset_top = -84.0
+offset_right = 30.0
+offset_bottom = 60.0
+
+[node name="Warning" type="TextureRect" parent="." index="5"]
+visible = false
+z_index = 10
+texture_filter = 1
+offset_left = -24.0
+offset_top = -150.0
+offset_right = -8.0
+offset_bottom = -136.0
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_3fttn")

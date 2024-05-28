@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://yqnyen3a5sd7"]
+
+[ext_resource type="Script" path="res://objects/building.gd" id="1_45sd2"]
+[ext_resource type="Texture2D" uid="uid://co5qvab0a388t" path="res://assets/graphics/map/roof.png" id="1_qeitu"]
+[ext_resource type="Texture2D" uid="uid://vxqyb1hcioe5" path="res://assets/graphics/map/wall.png" id="2_jb4ag"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kpsu"]
+size = Vector2(480, 360)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g550a"]
+resource_local_to_scene = true
+size = Vector2(480, 324)
+
+[node name="Building" type="Area2D"]
+texture_filter = 1
+position = Vector2(0, 180)
+collision_layer = 0
+collision_mask = 0
+input_pickable = false
+monitoring = false
+monitorable = false
+script = ExtResource("1_45sd2")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -180)
+shape = SubResource("RectangleShape2D_3kpsu")
+
+[node name="Wall" type="NinePatchRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -96.0
+offset_right = -80.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(3, 3)
+texture = ExtResource("2_jb4ag")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Roof" type="NinePatchRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -360.0
+offset_right = -80.0
+offset_bottom = -272.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(3, 3)
+texture = ExtResource("1_qeitu")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 9
+patch_margin_top = 7
+patch_margin_right = 5
+patch_margin_bottom = 8
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(0, -162)
+shape = SubResource("RectangleShape2D_g550a")

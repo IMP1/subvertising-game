@@ -1,0 +1,157 @@
+[gd_resource type="SpriteFrames" load_steps=20 format=3 uid="uid://cmpibgj7pcuuf"]
+
+[ext_resource type="Texture2D" uid="uid://dpc32q4jocytj" path="res://assets/graphics/characters/bubbles.png" id="1_r8wq0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x75c7"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udbr2"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vypm"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(32, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7p2x"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(48, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60cwp"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(64, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra5gh"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(80, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkpob"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t81v3"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1728"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22vsh"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dr2at"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tamof"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aahsv"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6o51"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy7ql"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uf7ue"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxuaw"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wl4pt"]
+atlas = ExtResource("1_r8wq0")
+region = Rect2(32, 16, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x75c7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udbr2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vypm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7p2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60cwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra5gh")
+}],
+"loop": false,
+"name": &"_show",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkpob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t81v3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1728")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22vsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dr2at")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tamof")
+}],
+"loop": false,
+"name": &"exclamation",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aahsv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6o51")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_sy7ql")
+}],
+"loop": false,
+"name": &"question",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uf7ue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxuaw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wl4pt")
+}],
+"loop": false,
+"name": &"sad",
+"speed": 5.0
+}]

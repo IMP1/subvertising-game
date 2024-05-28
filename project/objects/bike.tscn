@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://vjq6er3f3jh8"]
+
+[ext_resource type="Texture2D" uid="uid://d0vbshwk7xd6m" path="res://assets/graphics/map/bike.png" id="1_jcdre"]
+[ext_resource type="Script" path="res://objects/bike.gd" id="1_nk8b5"]
+[ext_resource type="FontFile" uid="uid://bx0jv7riwjat8" path="res://assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-BoldItalic.ttf" id="3_m0qgu"]
+[ext_resource type="AudioStream" uid="uid://bq6ua2xbek6g0" path="res://assets/sounds/bike-bell-173588.mp3" id="4_1bpeb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_na6w2"]
+size = Vector2(87, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g14vp"]
+size = Vector2(105, 54)
+
+[node name="Bike" type="StaticBody2D"]
+script = ExtResource("1_nk8b5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -21)
+shape = SubResource("RectangleShape2D_na6w2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -36)
+scale = Vector2(3, 3)
+texture = ExtResource("1_jcdre")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.5, -21)
+shape = SubResource("RectangleShape2D_g14vp")
+debug_color = Color(0.682353, 0.454902, 0.584314, 0.419608)
+
+[node name="PromptTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="InteractionBar" type="ProgressBar" parent="."]
+offset_left = -60.0
+offset_top = -94.0
+offset_right = 60.0
+offset_bottom = -78.0
+show_percentage = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Bars" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Top" type="ColorRect" parent="CanvasLayer/Bars"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -96.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Bottom" type="ColorRect" parent="CanvasLayer/Bars"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 926.0
+offset_top = 585.0
+offset_right = 1097.0
+offset_bottom = 615.0
+theme_override_fonts/font = ExtResource("3_m0qgu")
+theme_override_font_sizes/font_size = 24
+text = "End the night..."
+
+[node name="Bell" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_1bpeb")
+bus = &"Sounds"
+
+[connection signal="body_entered" from="Area2D" to="." method="_player_enter_area"]
+[connection signal="body_exited" from="Area2D" to="." method="_player_exit_area"]
+[connection signal="timeout" from="PromptTimer" to="." method="_show_player_input_prompt"]

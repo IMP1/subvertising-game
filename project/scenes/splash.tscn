@@ -1,0 +1,199 @@
+[gd_scene load_steps=10 format=3 uid="uid://60hsh237cpar"]
+
+[ext_resource type="Script" path="res://scenes/splash.gd" id="1_it4um"]
+[ext_resource type="PackedScene" uid="uid://beiae0225mksp" path="res://scenes/title.tscn" id="2_eqbex"]
+[ext_resource type="PackedScene" uid="uid://goj1wsrww7bm" path="res://scenes/obelisk.tscn" id="3_v2wdw"]
+[ext_resource type="FontFile" uid="uid://cppc0gbgscjx4" path="res://assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Bold.ttf" id="4_50nmc"]
+[ext_resource type="AudioStream" uid="uid://cpqcap2akmabv" path="res://assets/sounds/spotlight-91359.mp3" id="5_1bq8u"]
+
+[sub_resource type="Animation" id="Animation_w63xv"]
+resource_name = "dedication"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dedication:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1.7, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dedication:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_kckv2"]
+resource_name = "developer"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Light")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 1.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_1bq8u")
+}, {
+"end_offset": 2.8,
+"start_offset": 0.0,
+"stream": ExtResource("5_1bq8u")
+}],
+"times": PackedFloat32Array(0, 3.9)
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cnxb0"]
+_data = {
+"dedication": SubResource("Animation_w63xv"),
+"developer": SubResource("Animation_kckv2")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldr82"]
+bg_color = Color(0.682353, 0.682353, 0.682353, 1)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 160
+corner_radius_top_right = 160
+corner_radius_bottom_right = 160
+corner_radius_bottom_left = 160
+
+[node name="Splash" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_it4um")
+next_scene = ExtResource("2_eqbex")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cnxb0")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Dedication" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -18.0
+offset_right = 117.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "For Miles"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(329, 329)
+layout_mode = 0
+offset_left = 415.0
+offset_top = 169.0
+offset_right = 744.0
+offset_bottom = 498.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ldr82")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.5
+offset_top = -182.5
+offset_right = 169.5
+offset_bottom = 163.5
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Panel/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+gui_disable_input = true
+gui_snap_controls_to_pixels = false
+size = Vector2i(346, 346)
+render_target_update_mode = 4
+
+[node name="Obelisk" parent="Panel/SubViewportContainer/SubViewport" instance=ExtResource("3_v2wdw")]
+
+[node name="Label" type="Label" parent="Panel"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 39.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.878431, 0.878431, 0.878431, 1)
+theme_override_colors/font_shadow_color = Color(0.878431, 0.878431, 0.878431, 1)
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("4_50nmc")
+theme_override_font_sizes/font_size = 32
+text = "Obelisk Games"
+horizontal_alignment = 1
+
+[node name="Light" type="AudioStreamPlayer" parent="."]

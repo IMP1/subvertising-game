@@ -1,0 +1,474 @@
+[gd_scene load_steps=22 format=3 uid="uid://chy4orbh6xl3g"]
+
+[ext_resource type="Script" path="res://scenes/intro.gd" id="1_yt8ph"]
+[ext_resource type="Texture2D" uid="uid://cy36o5sgt8ub8" path="res://assets/graphics/life-is-great.jpg" id="2_7v4ss"]
+[ext_resource type="AudioStream" uid="uid://m5jkitp7f4y" path="res://assets/music/Unknown (Hideout Theme).mp3" id="2_luyuq"]
+[ext_resource type="FontFile" uid="uid://cvp4g666av6yk" path="res://assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Regular.ttf" id="3_471u5"]
+[ext_resource type="Texture2D" uid="uid://g1jytvsqpigh" path="res://assets/graphics/lies.png" id="3_h4jvb"]
+[ext_resource type="Texture2D" uid="uid://c6b0tvxuxyrf" path="res://assets/icons/movie_48dp_FILL0_wght400_GRAD0_opsz48.svg" id="3_p10nn"]
+[ext_resource type="Texture2D" uid="uid://c6rrpk38ofv77" path="res://assets/icons/smart_display_48dp_FILL0_wght400_GRAD0_opsz48.svg" id="4_2qbiv"]
+[ext_resource type="FontFile" uid="uid://cppc0gbgscjx4" path="res://assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Bold.ttf" id="4_5pdsd"]
+[ext_resource type="Texture2D" uid="uid://btpcd3elgqyso" path="res://assets/graphics/a-mothers-love.jpg" id="4_5ugw5"]
+[ext_resource type="Texture2D" uid="uid://chdfpw364d3rh" path="res://assets/icons/music_cast_48dp_FILL0_wght400_GRAD0_opsz48.svg" id="4_gu5mk"]
+[ext_resource type="Texture2D" uid="uid://dw54chxwt04ko" path="res://assets/icons/breaking_news_alt_1_48dp_FILL0_wght400_GRAD0_opsz48.svg" id="5_4nhkg"]
+[ext_resource type="FontFile" uid="uid://c6qcru2yfy1og" path="res://assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Italic.ttf" id="5_qvbr3"]
+[ext_resource type="Texture2D" uid="uid://btsxwai4fplj8" path="res://assets/icons/featured_video_48dp_FILL0_wght400_GRAD0_opsz48.svg" id="6_60rw3"]
+[ext_resource type="FontFile" uid="uid://bx0jv7riwjat8" path="res://assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-BoldItalic.ttf" id="6_s726m"]
+[ext_resource type="Texture2D" uid="uid://3x08yyyijta0" path="res://assets/icons/directions_bus_48dp_FILL0_wght400_GRAD0_opsz48.svg" id="7_q0p4u"]
+[ext_resource type="Texture2D" uid="uid://cvhtg6bmux832" path="res://assets/icons/roller_shades_closed_48dp_FILL0_wght400_GRAD0_opsz48.svg" id="8_04yfx"]
+[ext_resource type="Texture2D" uid="uid://duotwkwlny3np" path="res://assets/icons/subway_48dp_FILL0_wght400_GRAD0_opsz48.svg" id="9_vwqec"]
+[ext_resource type="Texture2D" uid="uid://byo0le17lk067" path="res://assets/icons/storefront_48dp_FILL0_wght400_GRAD0_opsz48.svg" id="10_e283v"]
+
+[sub_resource type="Animation" id="Animation_gi54k"]
+resource_name = "images"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Images/3:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(3, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Images/1:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Images/2:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l2syt"]
+resource_name = "intro"
+length = 15.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Textbox:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7, 1.1, 4.2, 4.7, 6.9, 7.5, 12, 12.5, 13.5, 14, 15, 15.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 54, 54, 77, 77, 116, 116, 150, 150, 187, 187, 221, 221, 262]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Examples/1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Examples/2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.3, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Examples/3:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.2, 3.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Examples/4:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 5, 5.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Examples/5:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 6, 6.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Examples/6:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 8, 8.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Examples/7:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 8.9, 9.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Examples/8:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 9.8, 10.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Examples/9:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 10.8, 11.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gi7lc"]
+_data = {
+"images": SubResource("Animation_gi54k"),
+"intro": SubResource("Animation_l2syt")
+}
+
+[node name="Intro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yt8ph")
+background_music = ExtResource("2_luyuq")
+metadata/_edit_vertical_guides_ = [-294.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.752941, 0.752941, 0.752941, 1)
+
+[node name="Textbox" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(192, 192)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.0
+offset_top = -173.0
+offset_right = 247.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_471u5")
+theme_override_fonts/bold_font = ExtResource("4_5pdsd")
+theme_override_fonts/italics_font = ExtResource("5_qvbr3")
+theme_override_fonts/bold_italics_font = ExtResource("6_s726m")
+theme_override_font_sizes/normal_font_size = 19
+theme_override_font_sizes/bold_font_size = 19
+bbcode_enabled = true
+text = "Our world is filled to the brim with advertisements.
+
+They're in our art...
+
+They're in our information sources...
+
+They're in our public spaces...
+
+
+And what messages are they sending?
+
+And who is sending the messages?
+
+[b]It's time we take back our public spaces.[/b]"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Examples" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 321.0
+offset_top = 37.0
+offset_right = 361.0
+offset_bottom = 77.0
+
+[node name="1" type="Label" parent="Examples"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -240.0
+offset_top = 59.0
+offset_right = -24.0
+offset_bottom = 82.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Product placements in films"
+
+[node name="TextureRect" type="TextureRect" parent="Examples/1"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 67.0
+offset_top = 30.0
+offset_right = 115.0
+offset_bottom = 78.0
+texture = ExtResource("3_p10nn")
+
+[node name="2" type="Label" parent="Examples"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 575.0
+offset_top = 174.0
+offset_right = 780.0
+offset_bottom = 197.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Adverts in YouTube videos"
+
+[node name="TextureRect" type="TextureRect" parent="Examples/2"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 66.0
+offset_top = 30.0
+offset_right = 106.0
+offset_bottom = 70.0
+texture = ExtResource("4_2qbiv")
+
+[node name="3" type="Label" parent="Examples"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 297.0
+offset_top = 531.0
+offset_right = 502.0
+offset_bottom = 554.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Jingles to target children"
+
+[node name="TextureRect" type="TextureRect" parent="Examples/3"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 68.0
+offset_top = 28.0
+offset_right = 116.0
+offset_bottom = 76.0
+texture = ExtResource("4_gu5mk")
+
+[node name="4" type="Label" parent="Examples"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -295.0
+offset_top = 283.0
+offset_right = -47.0
+offset_bottom = 306.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Full page adverts in newspapers"
+
+[node name="TextureRect" type="TextureRect" parent="Examples/4"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 96.0
+offset_top = 29.0
+offset_right = 144.0
+offset_bottom = 77.0
+texture = ExtResource("5_4nhkg")
+
+[node name="5" type="Label" parent="Examples"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 486.0
+offset_top = 48.0
+offset_right = 734.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Banner ads on websites"
+
+[node name="TextureRect" type="TextureRect" parent="Examples/5"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 67.0
+offset_top = 19.0
+offset_right = 115.0
+offset_bottom = 67.0
+texture = ExtResource("6_60rw3")
+
+[node name="6" type="Label" parent="Examples"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 523.0
+offset_top = 455.0
+offset_right = 771.0
+offset_bottom = 478.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Banner ads on busses"
+
+[node name="TextureRect" type="TextureRect" parent="Examples/6"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 55.0
+offset_top = 31.0
+offset_right = 95.0
+offset_bottom = 71.0
+texture = ExtResource("7_q0p4u")
+
+[node name="7" type="Label" parent="Examples"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 67.0
+offset_top = -1.0
+offset_right = 380.0
+offset_bottom = 22.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Billboards blocking out people's sunlight"
+
+[node name="TextureRect" type="TextureRect" parent="Examples/7"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 124.0
+offset_top = 26.0
+offset_right = 172.0
+offset_bottom = 74.0
+texture = ExtResource("8_04yfx")
+
+[node name="8" type="Label" parent="Examples"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -208.0
+offset_top = 502.0
+offset_right = 40.0
+offset_bottom = 525.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Plastered across our high streets"
+
+[node name="TextureRect" type="TextureRect" parent="Examples/8"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 91.0
+offset_top = 30.0
+offset_right = 139.0
+offset_bottom = 78.0
+texture = ExtResource("10_e283v")
+
+[node name="9" type="Label" parent="Examples"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 469.0
+offset_top = 305.0
+offset_right = 787.0
+offset_bottom = 328.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Adverts at bus-stops and in train stations"
+
+[node name="TextureRect" type="TextureRect" parent="Examples/9"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 129.0
+offset_top = 34.0
+offset_right = 169.0
+offset_bottom = 74.0
+texture = ExtResource("9_vwqec")
+
+[node name="Images" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="1" type="TextureRect" parent="Images"]
+layout_mode = 0
+offset_left = 669.0
+offset_top = -18.0
+offset_right = 1152.0
+offset_bottom = 665.0
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(241, 341)
+texture = ExtResource("2_7v4ss")
+expand_mode = 1
+
+[node name="2" type="TextureRect" parent="Images"]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 140.0
+offset_right = 1029.0
+offset_bottom = 501.0
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(445, 180)
+texture = ExtResource("4_5ugw5")
+expand_mode = 1
+
+[node name="3" type="TextureRect" parent="Images"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = -4.0
+offset_right = 609.0
+offset_bottom = 652.0
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(203, 328)
+texture = ExtResource("3_h4jvb")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gi7lc")
+}
+speed_scale = 0.5

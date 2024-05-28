@@ -1,0 +1,1219 @@
+[gd_scene load_steps=80 format=3 uid="uid://dlpi30fgfj1co"]
+
+[ext_resource type="Script" path="res://scenes/night.gd" id="1_va0q5"]
+[ext_resource type="PackedScene" uid="uid://calyfds33u8g5" path="res://objects/npc_manager.tscn" id="2_hh45f"]
+[ext_resource type="PackedScene" uid="uid://cxladiad5t371" path="res://objects/player.tscn" id="2_lnal2"]
+[ext_resource type="Texture2D" uid="uid://bplt4dhx30ojm" path="res://assets/map/light-cone.png" id="3_4ped2"]
+[ext_resource type="PackedScene" uid="uid://cjs544vn8kvp5" path="res://objects/advert.tscn" id="4_l7e14"]
+[ext_resource type="Texture2D" uid="uid://cnjcqbjxgu4ul" path="res://assets/graphics/adverts/Dread Cola.png" id="5_11wb5"]
+[ext_resource type="Texture2D" uid="uid://cdtclt4o04y5v" path="res://assets/graphics/map/bike-lock.png" id="5_xo2as"]
+[ext_resource type="PackedScene" uid="uid://yqnyen3a5sd7" path="res://objects/building.tscn" id="6_jwxhs"]
+[ext_resource type="PackedScene" uid="uid://vjq6er3f3jh8" path="res://objects/bike.tscn" id="7_1ekk1"]
+[ext_resource type="PackedScene" uid="uid://cuxr24qjbwetg" path="res://scenes/subvertising_event.tscn" id="7_2wim6"]
+[ext_resource type="Texture2D" uid="uid://14jyjtgxl63h" path="res://assets/icons/clear_day_24dp_FILL0_wght400_GRAD0_opsz24.svg" id="7_3xj5u"]
+[ext_resource type="Texture2D" uid="uid://di76jfp7ugkwx" path="res://assets/icons/clear_night_24dp_FILL0_wght400_GRAD0_opsz24.svg" id="7_4wkix"]
+[ext_resource type="Texture2D" uid="uid://02s64rre81av" path="res://assets/graphics/map/lamppost_2.png" id="7_xtjo0"]
+[ext_resource type="AudioStream" uid="uid://cp55ymqwo5e61" path="res://assets/music/Unknown.mp3" id="10_bl1ut"]
+[ext_resource type="PackedScene" uid="uid://c0jpbjujdpxnm" path="res://scenes/settings.tscn" id="10_ggb8a"]
+[ext_resource type="PackedScene" uid="uid://bct0chw6waj6t" path="res://objects/npc_source.tscn" id="10_gp8cs"]
+[ext_resource type="PackedScene" uid="uid://25ivngyxqchw" path="res://objects/door.tscn" id="12_vb871"]
+[ext_resource type="Theme" uid="uid://bcyi0pjljka6y" path="res://resources/theme_menu.tres" id="14_jgq1b"]
+[ext_resource type="Texture2D" uid="uid://cds73jioo6nsh" path="res://assets/icons/notifications_off_128dp_FILL0_wght400_GRAD0_opsz48.svg" id="17_1qpjv"]
+[ext_resource type="Texture2D" uid="uid://cld5kayva6bgo" path="res://assets/icons/mona-lisa.svg" id="17_ldv6g"]
+[ext_resource type="AudioStream" uid="uid://ct8wlcxlumu40" path="res://assets/sounds/ui/error_006.ogg" id="19_eh8mq"]
+[ext_resource type="FontFile" uid="uid://bx0jv7riwjat8" path="res://assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-BoldItalic.ttf" id="21_jd8lv"]
+[ext_resource type="AudioStream" uid="uid://duvmxj0fymp1t" path="res://assets/sounds/ui/glass_001.ogg" id="22_71yx5"]
+[ext_resource type="AudioStream" uid="uid://dttoiu1wt246w" path="res://assets/sounds/ui/toggle_002.ogg" id="23_4117r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oelvy"]
+size = Vector2(1128, 360)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_577i8"]
+resource_local_to_scene = true
+size = Vector2(1128, 324)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wiej"]
+size = Vector2(408, 504)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ya8h"]
+resource_local_to_scene = true
+size = Vector2(408, 468)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rkcm"]
+size = Vector2(480, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dx8uq"]
+resource_local_to_scene = true
+size = Vector2(480, 612)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nr687"]
+size = Vector2(648, 384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gvvi"]
+resource_local_to_scene = true
+size = Vector2(648, 348)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cl11w"]
+size = Vector2(528, 288)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j02pb"]
+resource_local_to_scene = true
+size = Vector2(528, 252)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nybn"]
+size = Vector2(360, 528)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8xij"]
+resource_local_to_scene = true
+size = Vector2(360, 492)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdb0u"]
+size = Vector2(528, 312)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhsm6"]
+resource_local_to_scene = true
+size = Vector2(528, 276)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bcgul"]
+resource_local_to_scene = true
+size = Vector2(480, 324)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_560gq"]
+size = Vector2(624, 240)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73uno"]
+resource_local_to_scene = true
+size = Vector2(624, 204)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0q7qr"]
+size = Vector2(768, 264)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p41ot"]
+resource_local_to_scene = true
+size = Vector2(768, 228)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d468l"]
+size = Vector2(480, 1272)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwqdh"]
+resource_local_to_scene = true
+size = Vector2(480, 1236)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1d1fd"]
+size = Vector2(744, 600)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1iklp"]
+resource_local_to_scene = true
+size = Vector2(744, 564)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ay64h"]
+size = Vector2(312, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jkk1"]
+resource_local_to_scene = true
+size = Vector2(312, 612)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i80dq"]
+size = Vector2(600, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ic5y7"]
+resource_local_to_scene = true
+size = Vector2(600, 612)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3kix"]
+size = Vector2(432, 1128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwepl"]
+resource_local_to_scene = true
+size = Vector2(432, 1092)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rpk8"]
+size = Vector2(168, 288)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4yaps"]
+resource_local_to_scene = true
+size = Vector2(168, 252)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sacix"]
+resource_local_to_scene = true
+size = Vector2(168, 252)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ip5j5"]
+size = Vector2(72, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21enb"]
+size = Vector2(24, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydkjk"]
+size = Vector2(286, 490)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e53ax"]
+size = Vector2(1067, 235)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbu52"]
+size = Vector2(902, 349)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7kfv"]
+size = Vector2(717, 497)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfv67"]
+size = Vector2(924.5, 195)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_dtnga"]
+vertices = PackedVector2Array(468, 985, 435, 985, 433, 946, 468, 946, 466, -56, 450, -56, 448, -95, 465, -95, 1912, -606, 2091, -613, 2221, -609, 2085, -594, 810, -587, 1796, -606, 823, 130, 838, -78, 840, 230, 822, 208, 2239, -667, 3080, -976, 3080, -443, 2433, -437, 482, -288, 149, -283, 190, -365, 398, -373, 495, -330, 2433, 661, 2437, 1062, 2111, 770, 2110, 691, 2236, -751, -300, -981, 2098, -754, 2177, 132, 2355, 81, 2357, 160, 2176, 210, 2520, 250, 2631, 247, 2626, 295, 2438, 291, 2438, 279, 895, -157, 1011, -157, 1014, -63, 818, -122, 2089, -709, 1911, -685, 1794, -685, 478, -703, 2600, 1063, 2594, 1226, 2061, 1270, 2050, 770, 494, 454, 486, -36, 546, -36, 749, 129, 751, 208, -301, -695, 2081, -150, 1885, -148, 1885, -255, 1984, -257, 2073, -205, -323, 1458, -322, 1300, 490, 1313, 3084, 1447, 2437, 81, 488, 1005, 531, 1005, 829, 1198, 485, -115, 545, -115, 3084, 1226, 530, 926, 488, 926, 486, 594, 2041, 374, 2437, 160, 2048, 691, 160, 581, 160, 405, 381, 402, 2103, 131, 2070, 239, 2105, 210, 1919, 244, 829, 382, 1778, 241, 1790, 203, 1899, 204, 1180, 246, 1167, 208, 1043, 241, 1056, 205, 1445, 1198, 1481, 1278)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(8, 11, 12, 13), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(18, 19, 20, 21, 10), PackedInt32Array(22, 23, 24, 25, 26), PackedInt32Array(27, 28, 29, 30), PackedInt32Array(19, 18, 31), PackedInt32Array(32, 19, 31, 33), PackedInt32Array(34, 35, 36, 37), PackedInt32Array(38, 39, 40, 41, 42), PackedInt32Array(43, 44, 45, 15, 46), PackedInt32Array(32, 33, 47, 48, 49, 50), PackedInt32Array(28, 51, 52, 53), PackedInt32Array(9, 8, 48, 47), PackedInt32Array(53, 54, 29, 28), PackedInt32Array(55, 56, 57, 58, 59), PackedInt32Array(50, 60, 32), PackedInt32Array(61, 62, 63, 64, 65), PackedInt32Array(66, 67, 68, 69), PackedInt32Array(10, 21, 70, 35, 61, 65, 11), PackedInt32Array(68, 71, 72, 73), PackedInt32Array(49, 13, 12, 50), PackedInt32Array(26, 50, 12, 46), PackedInt32Array(74, 22, 26, 46, 75), PackedInt32Array(52, 76, 69, 53), PackedInt32Array(77, 78, 79), PackedInt32Array(80, 37, 36, 81, 42, 41, 27, 30, 82), PackedInt32Array(58, 57, 75, 46, 15, 14), PackedInt32Array(79, 83, 84, 85, 55), PackedInt32Array(61, 35, 34, 86), PackedInt32Array(87, 61, 86, 88), PackedInt32Array(88, 37, 80, 87), PackedInt32Array(89, 87, 80, 90), PackedInt32Array(91, 92, 93, 89), PackedInt32Array(91, 89, 90, 94), PackedInt32Array(95, 94, 90, 96), PackedInt32Array(96, 97, 95), PackedInt32Array(16, 96, 90), PackedInt32Array(73, 98, 99, 68), PackedInt32Array(59, 17, 16, 90, 55), PackedInt32Array(79, 55, 90, 73, 77), PackedInt32Array(72, 77, 73), PackedInt32Array(53, 69, 68, 99)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-310, -992, 3090, -986, 3094, 1457, -334, 1469)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="Curve" id="Curve_uyk03"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.81182, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_5ccr4"]
+curve = SubResource("Curve_uyk03")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a4yhb"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 32.0
+initial_velocity_max = 64.0
+gravity = Vector3(0, 0, 0)
+damping_max = 8.0
+alpha_curve = SubResource("CurveTexture_5ccr4")
+
+[sub_resource type="Gradient" id="Gradient_mr5y7"]
+offsets = PackedFloat32Array(0, 0.831169, 0.902597)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s5tuw"]
+gradient = SubResource("Gradient_mr5y7")
+width = 4
+height = 4
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yha7u"]
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 2
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_g7oiu"]
+offsets = PackedFloat32Array(0, 0.45082, 0.52459, 1)
+colors = PackedColorArray(0.121569, 0.894118, 0.894118, 1, 0.121569, 0.894118, 0.894118, 1, 0.223529, 0.780392, 0.780392, 1, 0.223529, 0.780392, 0.780392, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_40ldu"]
+gradient = SubResource("Gradient_g7oiu")
+fill_to = Vector2(0.5, 0.5)
+repeat = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ofsmk"]
+texture = SubResource("GradientTexture2D_40ldu")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hef06"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tbao4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7iiw"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+expand_margin_left = 12.0
+expand_margin_right = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpmv3"]
+bg_color = Color(0.25098, 0.25098, 0.25098, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+expand_margin_left = 12.0
+expand_margin_right = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mukdt"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1iskc"]
+draw_center = false
+border_width_left = 6
+border_width_right = 6
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 24.0
+expand_margin_right = 24.0
+
+[node name="Night" type="Node2D"]
+process_mode = 3
+y_sort_enabled = true
+script = ExtResource("1_va0q5")
+background_music = ExtResource("10_bl1ut")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="NPCManager" parent="." node_paths=PackedStringArray("npc_list", "sources", "random_areas", "destinations", "timer") instance=ExtResource("2_hh45f")]
+npc_list = NodePath("../NPCs")
+sources = NodePath("../World/Sources")
+random_areas = NodePath("../World/RandomAreas")
+destinations = NodePath("../World/Destinations")
+timer = NodePath("../Timer")
+
+[node name="World" type="Node2D" parent="."]
+process_mode = 1
+y_sort_enabled = true
+
+[node name="Streets" type="Node2D" parent="World"]
+z_index = -2
+
+[node name="Polygon2D" type="Polygon2D" parent="World/Streets"]
+color = Color(0.231373, 0.231373, 0.231373, 1)
+polygon = PackedVector2Array(417, -49, 408, 382, 93, 373, 117, 677, 385, 677, 376, 1206, -325, 1206, -348, 1540, 1575, 1574, 1564, 736, 896, 646, 894, 377, 1087, 379, 1091, 176, 898, 172, 896, -28, 1048, -23, 1051, -180, 873, -180, 865, -544, 1507, -538, 1534, -1009, -340, -1006, -328, -581, 424, -584, 426, -404, 120, -406, 116, -256, 414, -268)
+
+[node name="Polygon2D2" type="Polygon2D" parent="World/Streets"]
+position = Vector2(1604, 27)
+color = Color(0.231373, 0.231373, 0.231373, 1)
+polygon = PackedVector2Array(400, 55, 399, 144, -782, 147, -777, 403, 388, 394, 397, 841, 362, 1151, -136, 1224, -80, 1524, 1487, 1513, 1482, 1111, 1069, 1128, 1069, 958, 882, 970, 886, 857, 889, 710, 1054, 718, 1046, 577, 878, 571, 881, 323, 1033, 323, 1030, 206, 881, 211, 863, -414, 1504, -414, 1511, -1026, -141, -1040, -140, -543, 408, -566, 404, -320, 211, -306, 220, -117, 402, -119)
+
+[node name="Buildings" type="Node2D" parent="World"]
+y_sort_enabled = true
+
+[node name="1" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
+position = Vector2(1438, 771)
+height = 20
+
+[node name="Shape" parent="World/Buildings/1" index="0"]
+shape = SubResource("RectangleShape2D_oelvy")
+
+[node name="Wall" parent="World/Buildings/1" index="1"]
+offset_left = -564.0
+offset_top = -176.0
+offset_right = -188.0
+offset_bottom = -117.333
+
+[node name="Roof" parent="World/Buildings/1" index="2"]
+offset_left = -564.0
+offset_right = -188.0
+offset_bottom = -298.667
+
+[node name="CollisionShape2D" parent="World/Buildings/1/StaticBody2D" index="0"]
+shape = SubResource("RectangleShape2D_577i8")
+
+[node name="2" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
+position = Vector2(1078, 1164)
+
+[node name="Shape" parent="World/Buildings/2" index="0"]
+position = Vector2(0, -252)
+shape = SubResource("RectangleShape2D_8wiej")
+
+[node name="Wall" parent="World/Buildings/2" index="1"]
+offset_left = -204.0
+offset_right = -68.0
+
+[node name="Roof" parent="World/Buildings/2" index="2"]
+offset_left = -204.0
+offset_top = -504.0
+offset_right = -68.0
+offset_bottom = -368.0
+
+[node name="CollisionShape2D" parent="World/Buildings/2/StaticBody2D" index="0"]
+position = Vector2(0, -234)
+shape = SubResource("RectangleShape2D_2ya8h")
+
+[node name="3" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
+position = Vector2(1762, 1228)
+height = 20
+
+[node name="Shape" parent="World/Buildings/3" index="0"]
+position = Vector2(0, -324)
+shape = SubResource("RectangleShape2D_5rkcm")
+
+[node name="Wall" parent="World/Buildings/3" index="1"]
+offset_top = -176.0
+offset_bottom = -117.333
+
+[node name="Roof" parent="World/Buildings/3" index="2"]
+offset_top = -648.0
+offset_bottom = -490.667
+
+[node name="CollisionShape2D" parent="World/Buildings/3/StaticBody2D" index="0"]
+position = Vector2(0, -306)
+shape = SubResource("RectangleShape2D_dx8uq")
+
+[node name="4" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
+position = Vector2(1179, -170)
+height = 20
+
+[node name="Shape" parent="World/Buildings/4" index="0"]
+position = Vector2(0, -192)
+shape = SubResource("RectangleShape2D_nr687")
+
+[node name="Wall" parent="World/Buildings/4" index="1"]
+offset_left = -324.0
+offset_top = -176.0
+offset_right = -108.0
+offset_bottom = -117.333
+
+[node name="Roof" parent="World/Buildings/4" index="2"]
+offset_left = -324.0
+offset_top = -384.0
+offset_right = -108.0
+offset_bottom = -314.667
+
+[node name="CollisionShape2D" parent="World/Buildings/4/StaticBody2D" index="0"]
+position = Vector2(0, -174)
+shape = SubResource("RectangleShape2D_5gvvi")
+
+[node name="5" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
+position = Vector2(1764, -266)
+height = 20
+
+[node name="Shape" parent="World/Buildings/5" index="0"]
+position = Vector2(0, -144)
+shape = SubResource("RectangleShape2D_cl11w")
+
+[node name="Wall" parent="World/Buildings/5" index="1"]
+offset_left = -264.0
+offset_top = -176.0
+offset_right = -88.0
+offset_bottom = -117.333
+
+[node name="Roof" parent="World/Buildings/5" index="2"]
+offset_left = -264.0
+offset_top = -288.0
+offset_right = -88.0
+offset_bottom = -250.667
+
+[node name="CollisionShape2D" parent="World/Buildings/5/StaticBody2D" index="0"]
+position = Vector2(0, -126)
+shape = SubResource("RectangleShape2D_j02pb")
+
+[node name="6" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
+position = Vector2(1680, 71)
+height = 20
+
+[node name="Shape" parent="World/Buildings/6" index="0"]
+position = Vector2(0, -264)
+shape = SubResource("RectangleShape2D_4nybn")
+
+[node name="Wall" parent="World/Buildings/6" index="1"]
+offset_left = -180.0
+offset_top = -176.0
+offset_right = -60.0
+offset_bottom = -117.333
+
+[node name="Roof" parent="World/Buildings/6" index="2"]
+offset_left = -180.0
+offset_top = -528.0
+offset_right = -60.0
+offset_bottom = -410.667
+
+[node name="CollisionShape2D" parent="World/Buildings/6/StaticBody2D" index="0"]
+position = Vector2(0, -246)
+shape = SubResource("RectangleShape2D_j8xij")
+
+[node name="7" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
+position = Vector2(1764, 192)
+height = 20
+
+[node name="Shape" parent="World/Buildings/7" index="0"]
+position = Vector2(0, -156)
+shape = SubResource("RectangleShape2D_cdb0u")
+
+[node name="Wall" parent="World/Buildings/7" index="1"]
+offset_left = -264.0
+offset_top = -176.0
+offset_right = -88.0
+offset_bottom = -117.333
+
+[node name="Roof" parent="World/Buildings/7" index="2"]
+offset_left = -264.0
+offset_top = -312.0
+offset_right = -88.0
+offset_bottom = -266.667
+
+[node name="CollisionShape2D" parent="World/Buildings/7/StaticBody2D" index="0"]
+position = Vector2(0, -138)
+shape = SubResource("RectangleShape2D_rhsm6")
+
+[node name="8" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
+position = Vector2(1266, -1)
+
+[node name="CollisionShape2D" parent="World/Buildings/8/StaticBody2D" index="0"]
+shape = SubResource("RectangleShape2D_bcgul")
+
+[node name="9" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
+position = Vector2(1191, 192)
+height = 16
+
+[node name="Shape" parent="World/Buildings/9" index="0"]
+position = Vector2(0, -120)
+shape = SubResource("RectangleShape2D_560gq")
+
+[node name="Wall" parent="World/Buildings/9" index="1"]
+offset_left = -312.0
+offset_top = -144.0
+offset_right = -104.0
+offset_bottom = -96.0
+
+[node name="Roof" parent="World/Buildings/9" index="2"]
+offset_left = -312.0
+offset_top = -240.0
+offset_right = -104.0
+offset_bottom = -208.0
+
+[node name="CollisionShape2D" parent="World/Buildings/9/StaticBody2D" index="0"]
+position = Vector2(0, -102)
+shape = SubResource("RectangleShape2D_73uno")
+
+[node name="10" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
+position = Vector2(52, -387)
+
+[node name="Shape" parent="World/Buildings/10" index="0"]
+position = Vector2(0, -132)
+shape = SubResource("RectangleShape2D_0q7qr")
+
+[node name="Wall" parent="World/Buildings/10" index="1"]
+offset_left = -384.0
+offset_right = -128.0
+
+[node name="Roof" parent="World/Buildings/10" index="2"]
+offset_left = -384.0
+offset_top = -264.0
+offset_right = -128.0
+offset_bottom = -208.0
+
+[node name="CollisionShape2D" parent="World/Buildings/10/StaticBody2D" index="0"]
+position = Vector2(0, -114)
+shape = SubResource("RectangleShape2D_p41ot")
+
+[node name="11" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
+position = Vector2(-116, 720)
+height = 20
+
+[node name="Shape" parent="World/Buildings/11" index="0"]
+position = Vector2(0, -636)
+shape = SubResource("RectangleShape2D_d468l")
+
+[node name="Wall" parent="World/Buildings/11" index="1"]
+offset_top = -176.0
+offset_bottom = -117.333
+
+[node name="Roof" parent="World/Buildings/11" index="2"]
+offset_top = -1272.0
+offset_bottom = -906.667
+
+[node name="CollisionShape2D" parent="World/Buildings/11/StaticBody2D" index="0"]
+position = Vector2(0, -618)
+shape = SubResource("RectangleShape2D_mwqdh")
+
+[node name="12" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
+position = Vector2(40, 1225)
+height = 16
+
+[node name="Shape" parent="World/Buildings/12" index="0"]
+position = Vector2(0, -300)
+shape = SubResource("RectangleShape2D_1d1fd")
+
+[node name="Wall" parent="World/Buildings/12" index="1"]
+offset_left = -372.0
+offset_top = -144.0
+offset_right = -124.0
+offset_bottom = -96.0
+
+[node name="Roof" parent="World/Buildings/12" index="2"]
+offset_left = -372.0
+offset_top = -600.0
+offset_right = -124.0
+offset_bottom = -448.0
+
+[node name="CollisionShape2D" parent="World/Buildings/12/StaticBody2D" index="0"]
+position = Vector2(0, -282)
+shape = SubResource("RectangleShape2D_1iklp")
+
+[node name="13" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
+position = Vector2(277, 383)
+height = 20
+
+[node name="Shape" parent="World/Buildings/13" index="0"]
+position = Vector2(0, -324)
+shape = SubResource("RectangleShape2D_ay64h")
+
+[node name="Wall" parent="World/Buildings/13" index="1"]
+offset_left = -156.0
+offset_top = -176.0
+offset_right = -52.0
+offset_bottom = -117.333
+
+[node name="Roof" parent="World/Buildings/13" index="2"]
+offset_left = -156.0
+offset_top = -648.0
+offset_right = -52.0
+offset_bottom = -490.667
+
+[node name="CollisionShape2D" parent="World/Buildings/13/StaticBody2D" index="0"]
+position = Vector2(0, -306)
+shape = SubResource("RectangleShape2D_6jkk1")
+
+[node name="14" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
+position = Vector2(2774, 241)
+height = 20
+
+[node name="Shape" parent="World/Buildings/14" index="0"]
+position = Vector2(0, -324)
+shape = SubResource("RectangleShape2D_i80dq")
+
+[node name="Wall" parent="World/Buildings/14" index="1"]
+offset_left = -300.0
+offset_top = -176.0
+offset_right = -100.0
+offset_bottom = -117.333
+
+[node name="Roof" parent="World/Buildings/14" index="2"]
+offset_left = -300.0
+offset_top = -648.0
+offset_right = -100.0
+offset_bottom = -490.667
+
+[node name="CollisionShape2D" parent="World/Buildings/14/StaticBody2D" index="0"]
+position = Vector2(0, -306)
+shape = SubResource("RectangleShape2D_ic5y7")
+
+[node name="15" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
+position = Vector2(2858, 1178)
+height = 20
+
+[node name="Shape" parent="World/Buildings/15" index="0"]
+position = Vector2(0, -564)
+shape = SubResource("RectangleShape2D_k3kix")
+
+[node name="Wall" parent="World/Buildings/15" index="1"]
+offset_left = -216.0
+offset_top = -176.0
+offset_right = -72.0
+offset_bottom = -117.333
+
+[node name="Roof" parent="World/Buildings/15" index="2"]
+offset_left = -216.0
+offset_top = -1128.0
+offset_right = -72.0
+offset_bottom = -810.667
+
+[node name="CollisionShape2D" parent="World/Buildings/15/StaticBody2D" index="0"]
+position = Vector2(0, -546)
+shape = SubResource("RectangleShape2D_iwepl")
+
+[node name="16" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
+position = Vector2(2561, 615)
+height = 16
+
+[node name="Shape" parent="World/Buildings/16" index="0"]
+position = Vector2(0, -144)
+shape = SubResource("RectangleShape2D_6rpk8")
+
+[node name="Wall" parent="World/Buildings/16" index="1"]
+offset_left = -84.0
+offset_top = -144.0
+offset_right = -28.0
+offset_bottom = -96.0
+
+[node name="Roof" parent="World/Buildings/16" index="2"]
+offset_left = -84.0
+offset_top = -288.0
+offset_right = -28.0
+offset_bottom = -240.0
+
+[node name="CollisionShape2D" parent="World/Buildings/16/StaticBody2D" index="0"]
+position = Vector2(0, -126)
+shape = SubResource("RectangleShape2D_4yaps")
+
+[node name="17" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
+position = Vector2(2561, 1015)
+height = 16
+
+[node name="Shape" parent="World/Buildings/17" index="0"]
+position = Vector2(0, -144)
+shape = SubResource("RectangleShape2D_6rpk8")
+
+[node name="Wall" parent="World/Buildings/17" index="1"]
+offset_left = -84.0
+offset_top = -144.0
+offset_right = -28.0
+offset_bottom = -96.0
+
+[node name="Roof" parent="World/Buildings/17" index="2"]
+offset_left = -84.0
+offset_top = -288.0
+offset_right = -28.0
+offset_bottom = -240.0
+
+[node name="CollisionShape2D" parent="World/Buildings/17/StaticBody2D" index="0"]
+position = Vector2(0, -126)
+shape = SubResource("RectangleShape2D_sacix")
+
+[node name="Decor" type="Node2D" parent="World"]
+y_sort_enabled = true
+
+[node name="BikeLock1" type="StaticBody2D" parent="World/Decor"]
+position = Vector2(2156, -633)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Decor/BikeLock1"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_ip5j5")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Decor/BikeLock1"]
+texture_filter = 1
+position = Vector2(0, -24)
+scale = Vector2(3, 3)
+texture = ExtResource("5_xo2as")
+
+[node name="BikeLock2" type="StaticBody2D" parent="World/Decor"]
+position = Vector2(2155, -693)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Decor/BikeLock2"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_ip5j5")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Decor/BikeLock2"]
+texture_filter = 1
+position = Vector2(0, -24)
+scale = Vector2(3, 3)
+texture = ExtResource("5_xo2as")
+
+[node name="Bike" parent="World/Decor" instance=ExtResource("7_1ekk1")]
+position = Vector2(2164, -678)
+
+[node name="Lights" type="Node2D" parent="World"]
+y_sort_enabled = true
+
+[node name="1" type="Node2D" parent="World/Lights"]
+position = Vector2(786, 178)
+metadata/_edit_group_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="World/Lights/1"]
+position = Vector2(-28, -52)
+scale = Vector2(0.6875, 0.474359)
+color = Color(1, 0.941176, 0.643137, 1)
+shadow_enabled = true
+texture = ExtResource("3_4ped2")
+texture_scale = 3.25
+height = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Lights/1"]
+texture_filter = 1
+position = Vector2(-9, -70)
+scale = Vector2(3, 3)
+texture = ExtResource("7_xtjo0")
+flip_h = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World/Lights/1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Lights/1/StaticBody2D"]
+position = Vector2(0, -11)
+shape = SubResource("RectangleShape2D_21enb")
+
+[node name="2" type="Node2D" parent="World/Lights"]
+position = Vector2(2158, 183)
+metadata/_edit_group_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="World/Lights/2"]
+position = Vector2(11, -54)
+scale = Vector2(0.6875, 0.474359)
+color = Color(1, 0.941176, 0.643137, 1)
+shadow_enabled = true
+texture = ExtResource("3_4ped2")
+texture_scale = 3.25
+height = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Lights/2"]
+texture_filter = 1
+position = Vector2(-9, -70)
+scale = Vector2(3, 3)
+texture = ExtResource("7_xtjo0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World/Lights/2"]
+position = Vector2(-18, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Lights/2/StaticBody2D"]
+position = Vector2(0, -11)
+shape = SubResource("RectangleShape2D_21enb")
+
+[node name="Adverts" type="Node2D" parent="World"]
+y_sort_enabled = true
+
+[node name="1" parent="World/Adverts" instance=ExtResource("4_l7e14")]
+position = Vector2(486, -72)
+texture = ExtResource("5_11wb5")
+
+[node name="2" parent="World/Adverts" instance=ExtResource("4_l7e14")]
+position = Vector2(2415, 118)
+texture = ExtResource("5_11wb5")
+
+[node name="3" parent="World/Adverts" instance=ExtResource("4_l7e14")]
+position = Vector2(2052, 732)
+texture = ExtResource("5_11wb5")
+
+[node name="4" parent="World/Adverts" instance=ExtResource("4_l7e14")]
+position = Vector2(1854, -646)
+texture = ExtResource("5_11wb5")
+
+[node name="5" parent="World/Adverts" instance=ExtResource("4_l7e14")]
+position = Vector2(469, 973)
+texture = ExtResource("5_11wb5")
+
+[node name="Sources" type="Node2D" parent="World"]
+y_sort_enabled = true
+
+[node name="1" parent="World/Sources" node_paths=PackedStringArray("destinations") instance=ExtResource("10_gp8cs")]
+position = Vector2(-233, -809)
+destinations = [NodePath("../../Destinations/1"), NodePath("../../Destinations/2"), NodePath("../../Destinations/3"), NodePath("../../Destinations/4")]
+
+[node name="2" parent="World/Sources" node_paths=PackedStringArray("destinations") instance=ExtResource("10_gp8cs")]
+position = Vector2(3040, -851)
+destinations = [NodePath("../../Destinations/1"), NodePath("../../Destinations/2"), NodePath("../../Destinations/3"), NodePath("../../Destinations/4")]
+
+[node name="3" parent="World/Sources" node_paths=PackedStringArray("destinations") instance=ExtResource("10_gp8cs")]
+position = Vector2(2380, 1411)
+destinations = [NodePath("../../Destinations/1"), NodePath("../../Destinations/2"), NodePath("../../Destinations/3"), NodePath("../../Destinations/4")]
+
+[node name="4" parent="World/Sources" node_paths=PackedStringArray("destinations") instance=ExtResource("10_gp8cs")]
+position = Vector2(601, 1431)
+destinations = [NodePath("../../Destinations/1"), NodePath("../../Destinations/2"), NodePath("../../Destinations/3"), NodePath("../../Destinations/4")]
+
+[node name="Door1" parent="World/Sources" node_paths=PackedStringArray("destinations") instance=ExtResource("12_vb871")]
+position = Vector2(1938, -266)
+destinations = [NodePath("../../Destinations/1"), NodePath("../../Destinations/2"), NodePath("../../Destinations/3"), NodePath("../../Destinations/4")]
+
+[node name="Door2" parent="World/Sources" node_paths=PackedStringArray("destinations") instance=ExtResource("12_vb871")]
+position = Vector2(283, -387)
+destinations = [NodePath("../../Destinations/1"), NodePath("../../Destinations/2"), NodePath("../../Destinations/3"), NodePath("../../Destinations/4")]
+
+[node name="Door3" parent="World/Sources" node_paths=PackedStringArray("destinations") instance=ExtResource("12_vb871")]
+position = Vector2(217, 383)
+destinations = [NodePath("../../Destinations/1"), NodePath("../../Destinations/2"), NodePath("../../Destinations/3"), NodePath("../../Destinations/4")]
+
+[node name="Door4" parent="World/Sources" node_paths=PackedStringArray("destinations") instance=ExtResource("12_vb871")]
+position = Vector2(939, -170)
+destinations = [NodePath("../../Destinations/1"), NodePath("../../Destinations/2"), NodePath("../../Destinations/3"), NodePath("../../Destinations/4")]
+
+[node name="Door5" parent="World/Sources" node_paths=PackedStringArray("destinations") instance=ExtResource("12_vb871")]
+position = Vector2(2558, 241)
+destinations = [NodePath("../../Destinations/1"), NodePath("../../Destinations/2"), NodePath("../../Destinations/3"), NodePath("../../Destinations/4")]
+
+[node name="Door6" parent="World/Sources" node_paths=PackedStringArray("destinations") instance=ExtResource("12_vb871")]
+position = Vector2(1845, 192)
+destinations = [NodePath("../../Destinations/1"), NodePath("../../Destinations/2"), NodePath("../../Destinations/3"), NodePath("../../Destinations/4")]
+
+[node name="Door7" parent="World/Sources" node_paths=PackedStringArray("destinations") instance=ExtResource("12_vb871")]
+position = Vector2(1113, 192)
+destinations = [NodePath("../../Destinations/1"), NodePath("../../Destinations/2"), NodePath("../../Destinations/3"), NodePath("../../Destinations/4")]
+
+[node name="Destinations" type="Node2D" parent="World"]
+
+[node name="1" type="Marker2D" parent="World/Destinations"]
+position = Vector2(-234, -880)
+
+[node name="2" type="Marker2D" parent="World/Destinations"]
+position = Vector2(671, 1421)
+
+[node name="3" type="Marker2D" parent="World/Destinations"]
+position = Vector2(2291, 1427)
+
+[node name="4" type="Marker2D" parent="World/Destinations"]
+position = Vector2(3040, -910)
+
+[node name="RandomAreas" type="Node2D" parent="World"]
+
+[node name="1" type="Area2D" parent="World/RandomAreas"]
+position = Vector2(663, -403)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/RandomAreas/1"]
+position = Vector2(-15, -4)
+shape = SubResource("RectangleShape2D_ydkjk")
+
+[node name="2" type="Area2D" parent="World/RandomAreas"]
+position = Vector2(541, 246)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/RandomAreas/2"]
+position = Vector2(123, 235)
+shape = SubResource("RectangleShape2D_ydkjk")
+
+[node name="3" type="Area2D" parent="World/RandomAreas"]
+position = Vector2(2129, 851)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/RandomAreas/3"]
+position = Vector2(123, 235)
+shape = SubResource("RectangleShape2D_ydkjk")
+
+[node name="4" type="Area2D" parent="World/RandomAreas"]
+position = Vector2(256, -868)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/RandomAreas/4"]
+position = Vector2(-2, 27)
+shape = SubResource("RectangleShape2D_e53ax")
+
+[node name="5" type="Area2D" parent="World/RandomAreas"]
+position = Vector2(1268, -777)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/RandomAreas/5"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_xbu52")
+
+[node name="6" type="Area2D" parent="World/RandomAreas"]
+position = Vector2(3283, -952)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/RandomAreas/6"]
+position = Vector2(-597.5, 238.5)
+shape = SubResource("RectangleShape2D_o7kfv")
+
+[node name="7" type="Area2D" parent="World/RandomAreas"]
+position = Vector2(1050, 1295)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/RandomAreas/7"]
+position = Vector2(-73.25, 29.5)
+shape = SubResource("RectangleShape2D_yfv67")
+
+[node name="Navigation" type="Node2D" parent="World"]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="World/Navigation"]
+navigation_polygon = SubResource("NavigationPolygon_dtnga")
+
+[node name="Polygon2D" type="Polygon2D" parent="World/Navigation/NavigationRegion2D"]
+position = Vector2(-16.925, -1.43311)
+scale = Vector2(1.00816, 0.997546)
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(830.154, -576.983, 2075, -584, 2064, -221, 1989, -267, 1877, -264, 1878, -137, 2071, -139, 2060, 231, 1926.21, 236.012, 1907.37, 196.916, 1785.36, 194.911, 1773.46, 233.005, 1194.18, 238.017, 1181.29, 200.926, 1058.29, 196.916, 1044.41, 233.005, 859.911, 222.98, 857.927, -65.7282, 1033, -52, 1030, -167, 903.555, -165.974, 838.089, -135.9)
+
+[node name="Polygon2D2" type="Polygon2D" parent="World/Navigation/NavigationRegion2D"]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(2443, -427, 2448, 265, 2520, 240, 2643, 237, 2636, 306, 2448, 301, 2443, 661, 2447, 1052, 2611, 1054, 2604, 1216, 3118, 1216, 3099, -435)
+
+[node name="Polygon2D3" type="Polygon2D" parent="World/Navigation/NavigationRegion2D"]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(839, 392, 2031, 384, 2051, 1260, 1487, 1268, 1451, 1188, 839, 1188)
+
+[node name="Polygon2D4" type="Polygon2D" parent="World/Navigation/NavigationRegion2D"]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(-359, -685, -372, 1290, 480, 1303, 476, 604, 150, 591, 150, 396, 383, 392, 484, 438, 472, -278, 133, -273, 184, -375, 400, -384, 484, -346, 468, -693)
+
+[node name="Polygon2D5" type="Polygon2D" parent="World/Navigation/NavigationRegion2D"]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(2113, 141, 2167, 142, 2166, 200, 2115, 200)
+
+[node name="Polygon2D6" type="Polygon2D" parent="World/Navigation/NavigationRegion2D"]
+position = Vector2(-1354, -2)
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(2113, 141, 2167, 142, 2166, 200, 2115, 200)
+
+[node name="Polygon2D7" type="Polygon2D" parent="World/Navigation/NavigationRegion2D"]
+position = Vector2(-1690, 795)
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(2113, 141, 2210, 141, 2211, 200, 2115, 200)
+
+[node name="Polygon2D8" type="Polygon2D" parent="World/Navigation/NavigationRegion2D"]
+position = Vector2(-110, 560)
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(2113, 141, 2210, 141, 2211, 200, 2115, 200)
+
+[node name="Polygon2D9" type="Polygon2D" parent="World/Navigation/NavigationRegion2D"]
+position = Vector2(252, -50)
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(2113, 141, 2210, 141, 2211, 200, 2115, 200)
+
+[node name="Polygon2D10" type="Polygon2D" parent="World/Navigation/NavigationRegion2D"]
+position = Vector2(-309, -816)
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(2113, 141, 2210, 141, 2211, 200, 2115, 200)
+
+[node name="Polygon2D11" type="Polygon2D" parent="World/Navigation/NavigationRegion2D"]
+position = Vector2(-1675, -246)
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(2113, 141, 2210, 141, 2211, 200, 2115, 200)
+
+[node name="Polygon2D12" type="Polygon2D" parent="World/Navigation/NavigationRegion2D"]
+position = Vector2(-10, -813)
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(2116, 69, 2236, 72, 2239, 145, 2224, 194, 2111, 190, 2109, 105)
+
+[node name="Player" parent="." instance=ExtResource("2_lnal2")]
+process_mode = 1
+position = Vector2(2166, -595)
+
+[node name="NPCs" type="Node2D" parent="."]
+process_mode = 1
+y_sort_enabled = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("14_jgq1b")
+
+[node name="Time" type="HBoxContainer" parent="HUD/Control"]
+custom_minimum_size = Vector2(240, 24)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_right = 160.0
+offset_bottom = 24.0
+grow_horizontal = 2
+
+[node name="NightIcon" type="TextureRect" parent="HUD/Control/Time"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("7_4wkix")
+
+[node name="ProgressBar" type="ProgressBar" parent="HUD/Control/Time"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+show_percentage = false
+
+[node name="DayIcon" type="TextureRect" parent="HUD/Control/Time"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("7_3xj5u")
+
+[node name="SubvertisingCount" type="HBoxContainer" parent="HUD/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="HUD/Control/SubvertisingCount"]
+layout_mode = 2
+texture = ExtResource("17_1qpjv")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="HUD/Control/SubvertisingCount"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="HUD/Control/SubvertisingCount/Label"]
+position = Vector2(20, 18)
+emitting = false
+amount = 48
+process_material = SubResource("ParticleProcessMaterial_a4yhb")
+texture = SubResource("GradientTexture2D_s5tuw")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+
+[node name="ArtworkCount" type="HBoxContainer" parent="HUD/Control"]
+layout_mode = 0
+offset_top = 52.0
+offset_right = 57.0
+offset_bottom = 92.0
+
+[node name="TextureRect" type="TextureRect" parent="HUD/Control/ArtworkCount"]
+layout_mode = 2
+texture = ExtResource("17_ldv6g")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="Count" type="Label" parent="HUD/Control/ArtworkCount"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "2"
+
+[node name="Buzzer" type="AudioStreamPlayer" parent="HUD/Control/ArtworkCount"]
+stream = ExtResource("19_eh8mq")
+bus = &"Sounds"
+
+[node name="Menus" type="CanvasLayer" parent="."]
+
+[node name="Settings" parent="Menus" instance=ExtResource("10_ggb8a")]
+visible = false
+
+[node name="Menu" type="Control" parent="Menus"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("14_jgq1b")
+
+[node name="ColorRect" type="ColorRect" parent="Menus/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.752941)
+
+[node name="Menu" type="PanelContainer" parent="Menus/Menu"]
+custom_minimum_size = Vector2(256, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -153.0
+offset_top = -141.0
+offset_right = 153.0
+offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yha7u")
+
+[node name="PanelContainer" type="PanelContainer" parent="Menus/Menu/Menu"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ofsmk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/Menu/Menu/PanelContainer"]
+layout_mode = 2
+
+[node name="PaddingTop" type="HSeparator" parent="Menus/Menu/Menu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+theme_override_styles/separator = SubResource("StyleBoxEmpty_hef06")
+
+[node name="Title" type="Label" parent="Menus/Menu/Menu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("21_jd8lv")
+theme_override_font_sizes/font_size = 24
+text = "Menu"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Menus/Menu/Menu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tbao4")
+
+[node name="Resume" type="Button" parent="Menus/Menu/Menu/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../Quit")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_g7iiw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mpmv3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mukdt")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1iskc")
+text = "Resume"
+
+[node name="Settings" type="Button" parent="Menus/Menu/Menu/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_g7iiw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mpmv3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mukdt")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1iskc")
+text = "Settings"
+
+[node name="EndNight" type="Button" parent="Menus/Menu/Menu/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_g7iiw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mpmv3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mukdt")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1iskc")
+text = "End Night"
+
+[node name="Quit" type="Button" parent="Menus/Menu/Menu/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_bottom = NodePath("../Resume")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_g7iiw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mpmv3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mukdt")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1iskc")
+text = "Quit"
+
+[node name="Cursor" type="AudioStreamPlayer" parent="Menus/Menu/Menu"]
+stream = ExtResource("22_71yx5")
+bus = &"UI"
+
+[node name="Accept" type="AudioStreamPlayer" parent="Menus/Menu/Menu"]
+stream = ExtResource("23_4117r")
+bus = &"UI"
+
+[node name="SubvertisingEvent" parent="Menus" instance=ExtResource("7_2wim6")]
+process_mode = 1
+visible = false
+
+[node name="Debug" type="CanvasLayer" parent="."]
+visible = false
+
+[connection signal="timeout" from="Timer" to="." method="_end_night"]
+[connection signal="interacted" from="World/Decor/Bike" to="." method="_cycle_home"]
+[connection signal="focus_entered" from="Menus/Menu/Menu/PanelContainer/VBoxContainer/Resume" to="." method="_menu_cursor_moved"]
+[connection signal="pressed" from="Menus/Menu/Menu/PanelContainer/VBoxContainer/Resume" to="." method="_resume"]
+[connection signal="focus_entered" from="Menus/Menu/Menu/PanelContainer/VBoxContainer/Settings" to="." method="_menu_cursor_moved"]
+[connection signal="pressed" from="Menus/Menu/Menu/PanelContainer/VBoxContainer/Settings" to="." method="_show_settings"]
+[connection signal="focus_entered" from="Menus/Menu/Menu/PanelContainer/VBoxContainer/EndNight" to="." method="_menu_cursor_moved"]
+[connection signal="pressed" from="Menus/Menu/Menu/PanelContainer/VBoxContainer/EndNight" to="." method="_end_night"]
+[connection signal="focus_entered" from="Menus/Menu/Menu/PanelContainer/VBoxContainer/Quit" to="." method="_menu_cursor_moved"]
+[connection signal="pressed" from="Menus/Menu/Menu/PanelContainer/VBoxContainer/Quit" to="." method="_quit"]
+
+[editable path="World/Buildings/1"]
+[editable path="World/Buildings/2"]
+[editable path="World/Buildings/3"]
+[editable path="World/Buildings/4"]
+[editable path="World/Buildings/5"]
+[editable path="World/Buildings/6"]
+[editable path="World/Buildings/7"]
+[editable path="World/Buildings/8"]
+[editable path="World/Buildings/9"]
+[editable path="World/Buildings/10"]
+[editable path="World/Buildings/11"]
+[editable path="World/Buildings/12"]
+[editable path="World/Buildings/13"]
+[editable path="World/Buildings/14"]
+[editable path="World/Buildings/15"]
+[editable path="World/Buildings/16"]
+[editable path="World/Buildings/17"]
+[editable path="World/Sources/Door1"]
+[editable path="World/Sources/Door2"]
+[editable path="World/Sources/Door3"]
+[editable path="World/Sources/Door4"]
+[editable path="World/Sources/Door5"]
+[editable path="World/Sources/Door6"]
+[editable path="World/Sources/Door7"]

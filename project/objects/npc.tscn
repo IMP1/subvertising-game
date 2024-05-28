@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://dvnxothvatoih"]
+
+[ext_resource type="Script" path="res://objects/npc.gd" id="1_8yfvv"]
+[ext_resource type="SpriteFrames" uid="uid://bwvk8w5onyfuw" path="res://resources/sprites/worker_2.tres" id="2_on7vf"]
+[ext_resource type="SpriteFrames" uid="uid://cvmxlwoir7gp4" path="res://resources/sprites/person_1.tres" id="3_qvjlp"]
+[ext_resource type="SpriteFrames" uid="uid://cmpibgj7pcuuf" path="res://resources/bubbles.tres" id="3_wnb61"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvgb3"]
+size = Vector2(42, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oor2f"]
+radius = 88.0511
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bv24f"]
+radius = 88.0057
+
+[node name="NPC" type="CharacterBody2D"]
+collision_layer = 5
+script = ExtResource("1_8yfvv")
+sprite_frames = ExtResource("2_on7vf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_cvgb3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -36)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("3_qvjlp")
+animation = &"down"
+autoplay = "down"
+
+[node name="Bubble" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -99)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("3_wnb61")
+animation = &"question"
+frame = 2
+frame_progress = 1.0
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 64.0
+time_horizon_obstacles = 1.0
+
+[node name="Vision" type="Area2D" parent="."]
+position = Vector2(0, -9)
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
+shape = SubResource("CircleShape2D_oor2f")
+debug_color = Color(0.87451, 0.65098, 0.403922, 0.207843)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vision"]
+polygon = PackedVector2Array(493, -284, 550, -147, 570, 0, 550, 147, 494, 283, 0, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="Vision"]
+position = Vector2(0, 9)
+color = Color(1, 1, 1, 0.329412)
+polygon = PackedVector2Array(491, -291, 550, -156, 572, -3, 550, 136, 496, 271, 0, -10)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(500, 0)
+collision_mask = 7
+
+[node name="PersonalSpace" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PersonalSpace"]
+position = Vector2(0, -9)
+shape = SubResource("CircleShape2D_bv24f")
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_adjust_velocity"]
+[connection signal="body_entered" from="Vision" to="." method="_body_entered_area"]
+[connection signal="body_exited" from="Vision" to="." method="_body_exited_area"]

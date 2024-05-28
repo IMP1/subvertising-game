@@ -1,0 +1,201 @@
+[gd_scene load_steps=8 format=3 uid="uid://djjswb7p14526"]
+
+[ext_resource type="Script" path="res://scenes/day.gd" id="1_l3t6y"]
+[ext_resource type="Texture2D" uid="uid://c34bl1funmto3" path="res://assets/graphics/artwork/take-a-breath.png" id="2_jh4e0"]
+[ext_resource type="Texture2D" uid="uid://co1w41kjs7e15" path="res://assets/graphics/artwork/nearest-park.png" id="3_qnfxu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfwbo"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rj8bm"]
+bg_color = Color(0.6, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4skr7"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.188235, 0.188235, 0.188235, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qyfsl"]
+
+[node name="Day" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_l3t6y")
+
+[node name="DayNumber" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 92.0
+
+[node name="Panel" type="Panel" parent="DayNumber"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yfwbo")
+
+[node name="RedStripe" type="Panel" parent="DayNumber/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 22.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rj8bm")
+
+[node name="Label" type="Label" parent="DayNumber/Panel/RedStripe"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Day"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DayNumber" type="Label" parent="DayNumber/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartNight" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -117.0
+offset_top = -55.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Start Night"
+
+[node name="Artworks" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -203.0
+offset_right = -141.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4skr7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Artworks"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Artworks/VBoxContainer"]
+layout_mode = 2
+text = "Collected Artworks"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Artworks/VBoxContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Artworks/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="1" type="Button" parent="Artworks/VBoxContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(96, 144)
+layout_mode = 2
+icon = ExtResource("2_jh4e0")
+icon_alignment = 1
+expand_icon = true
+
+[node name="2" type="Button" parent="Artworks/VBoxContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(96, 144)
+layout_mode = 2
+icon = ExtResource("3_qnfxu")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Locations" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 113.0
+offset_right = 204.0
+offset_bottom = 423.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Locations"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Locations/VBoxContainer"]
+layout_mode = 2
+text = "Locations to Visit"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Locations/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+theme_override_styles/separator = SubResource("StyleBoxEmpty_qyfsl")
+
+[node name="List" type="VBoxContainer" parent="Locations/VBoxContainer"]
+layout_mode = 2
+
+[node name="HousingCoop" type="Button" parent="Locations/VBoxContainer/List"]
+layout_mode = 2
+text = "Anarres"
+
+[node name="Printers" type="Button" parent="Locations/VBoxContainer/List"]
+layout_mode = 2
+text = "Footprint"
+
+[node name="ArtStudio" type="Button" parent="Locations/VBoxContainer/List"]
+layout_mode = 2
+text = "Serf"
+
+[connection signal="pressed" from="StartNight" to="." method="_end_day"]

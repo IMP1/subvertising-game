@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://m5jkitp7f4y"
+path="res://.godot/imported/Unknown (Hideout Theme).mp3-e04b7c3df3365f69e4e9053b31a71a09.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Unknown (Hideout Theme).mp3"
+dest_files=["res://.godot/imported/Unknown (Hideout Theme).mp3-e04b7c3df3365f69e4e9053b31a71a09.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

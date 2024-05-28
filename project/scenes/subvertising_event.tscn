@@ -1,0 +1,206 @@
+[gd_scene load_steps=19 format=3 uid="uid://cuxr24qjbwetg"]
+
+[ext_resource type="Script" path="res://scenes/subvertising_event.gd" id="1_okx4q"]
+[ext_resource type="Shader" path="res://resources/blur.gdshader" id="2_gc52g"]
+[ext_resource type="Curve2D" path="res://resources/qte_labyrinth.tres" id="3_cq2e6"]
+[ext_resource type="AudioStream" uid="uid://cvo0sssqbmlv7" path="res://assets/sounds/success-48018.mp3" id="3_yos6b"]
+[ext_resource type="AudioStream" uid="uid://n8jycee0mufe" path="res://assets/sounds/stop-13692.mp3" id="4_6wmd4"]
+[ext_resource type="AudioStream" uid="uid://bwujphkpoiv30" path="res://assets/sounds/wrong-100536.mp3" id="4_23y6q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hgwbq"]
+shader = ExtResource("2_gc52g")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5ltq"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_30le0"]
+radius = 18.0
+
+[sub_resource type="Curve" id="Curve_sfq4w"]
+_data = [Vector2(0, 1), 0.0, -0.0161604, 0, 0, Vector2(0.746667, 0.978022), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.90886, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_5fqgf"]
+curve = SubResource("Curve_sfq4w")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lwp3y"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 64.0
+initial_velocity_max = 96.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_5fqgf")
+
+[sub_resource type="Gradient" id="Gradient_qpxyk"]
+offsets = PackedFloat32Array(0, 0.876623, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_41344"]
+gradient = SubResource("Gradient_qpxyk")
+width = 8
+height = 8
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Animation" id="Animation_bhipo"]
+resource_name = "failure"
+
+[sub_resource type="Animation" id="Animation_6t3g0"]
+resource_name = "pulse"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("QTE/Start/Pulse:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("QTE/Start/Pulse:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_kmitc"]
+resource_name = "success"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_riwdf"]
+_data = {
+"failure": SubResource("Animation_bhipo"),
+"pulse": SubResource("Animation_6t3g0"),
+"success": SubResource("Animation_kmitc")
+}
+
+[node name="SubvertisingEvent" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_okx4q")
+path = ExtResource("3_cq2e6")
+sections = 16
+line_width = 16
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_hgwbq")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AdvertPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(320, 480)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 139.0
+offset_top = 86.0
+offset_right = -117.0
+offset_bottom = -82.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g5ltq")
+
+[node name="Advert" type="TextureRect" parent="AdvertPanel"]
+custom_minimum_size = Vector2(320, 480)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QTE" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.446
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.208008
+offset_top = 57.0
+offset_right = -37.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Path2D" type="Path2D" parent="QTE"]
+
+[node name="Line2D" type="Line2D" parent="QTE"]
+
+[node name="Progress" type="Line2D" parent="QTE"]
+
+[node name="Finish" type="Area2D" parent="QTE"]
+position = Vector2(569, 615)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="QTE/Finish"]
+shape = SubResource("CircleShape2D_30le0")
+
+[node name="Polygon2D" type="Polygon2D" parent="QTE/Finish"]
+position = Vector2(-570, -110)
+polygon = PackedVector2Array(570, 92, 575, 93, 579, 94, 583, 97, 586, 101, 587, 105, 588, 110, 587, 115, 585, 119, 582, 123, 579, 125, 575, 127, 570, 128, 565, 127, 562, 126, 558, 123, 555, 119, 553, 115, 552, 110, 553, 105, 555, 101, 557, 98, 561, 95, 566, 93)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="QTE/Finish"]
+emitting = false
+amount = 64
+process_material = SubResource("ParticleProcessMaterial_lwp3y")
+texture = SubResource("GradientTexture2D_41344")
+one_shot = true
+explosiveness = 0.9
+
+[node name="Start" type="Area2D" parent="QTE"]
+position = Vector2(570, 110)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="QTE/Start"]
+shape = SubResource("CircleShape2D_30le0")
+
+[node name="Polygon2D" type="Polygon2D" parent="QTE/Start"]
+polygon = PackedVector2Array(0, -18, 9, -15, 15, -9, 18, 0, 15, 9, 9, 15, 0, 18, -9, 15, -15, 9, -18, 0, -15, -9, -9, -15)
+
+[node name="Pulse" type="Polygon2D" parent="QTE/Start"]
+polygon = PackedVector2Array(0, -18, 9, -15, 15, -9, 18, 0, 15, 9, 9, 15, 0, 18, -9, 15, -15, 9, -18, 0, -15, -9, -9, -15)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_riwdf")
+}
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Success" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("3_yos6b")
+bus = &"Sounds"
+
+[node name="Failure" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("4_23y6q")
+bus = &"Sounds"
+
+[node name="Progress" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("4_6wmd4")
+bus = &"Sounds"

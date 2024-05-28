@@ -1,0 +1,317 @@
+[gd_scene load_steps=10 format=3 uid="uid://c0jpbjujdpxnm"]
+
+[ext_resource type="Script" path="res://scenes/settings.gd" id="1_4kkmy"]
+[ext_resource type="AudioStream" uid="uid://duvmxj0fymp1t" path="res://assets/sounds/ui/glass_001.ogg" id="2_560fj"]
+[ext_resource type="AudioStream" uid="uid://dttoiu1wt246w" path="res://assets/sounds/ui/toggle_002.ogg" id="2_ve2jt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_imthq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4w008"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.188235, 0.188235, 0.188235, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_guymi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ov5f3"]
+
+[sub_resource type="Animation" id="Animation_d3l17"]
+resource_name = "type"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/Label:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0, 77, 77]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s7vdd"]
+_data = {
+"type": SubResource("Animation_d3l17")
+}
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4kkmy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.313726, 0.313726, 0.376471, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 14.0
+offset_bottom = 44.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 159.0
+offset_top = 53.0
+offset_right = -159.0
+offset_bottom = -103.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="PaddingTop" type="HSeparator" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_imthq")
+
+[node name="Audio" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4w008")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Audio"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Audio/VBoxContainer"]
+layout_mode = 2
+text = "Audio
+"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/VBoxContainer/Audio/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxEmpty_guymi")
+
+[node name="MasterVolume" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Audio/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Audio/VBoxContainer/MasterVolume"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Master"
+
+[node name="HSlider" type="HSlider" parent="ScrollContainer/VBoxContainer/Audio/VBoxContainer/MasterVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../../../../../../Return")
+
+[node name="MusicVolume" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Audio/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Audio/VBoxContainer/MusicVolume"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Music"
+
+[node name="HSlider" type="HSlider" parent="ScrollContainer/VBoxContainer/Audio/VBoxContainer/MusicVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="SoundsVolume" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Audio/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Audio/VBoxContainer/SoundsVolume"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Sounds"
+
+[node name="HSlider" type="HSlider" parent="ScrollContainer/VBoxContainer/Audio/VBoxContainer/SoundsVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="UIVolume" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Audio/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Audio/VBoxContainer/UIVolume"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Interface"
+
+[node name="HSlider" type="HSlider" parent="ScrollContainer/VBoxContainer/Audio/VBoxContainer/UIVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Accessibility" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_4w008")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Accessibility"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Accessibility/VBoxContainer"]
+layout_mode = 2
+text = "Accessibility"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/VBoxContainer/Accessibility/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxEmpty_guymi")
+
+[node name="QTE" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Accessibility/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Accessibility/VBoxContainer/QTE"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "Quick Time Events"
+
+[node name="OptionButton" type="OptionButton" parent="ScrollContainer/VBoxContainer/Accessibility/VBoxContainer/QTE"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+item_count = 3
+popup/item_0/text = "Mouse Movement"
+popup/item_0/id = 0
+popup/item_1/text = "Button Press"
+popup/item_1/id = 1
+popup/item_2/text = "Auto Succeed"
+popup/item_2/id = 2
+
+[node name="TextSpeed" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Accessibility/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Accessibility/VBoxContainer/TextSpeed"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Accessibility/VBoxContainer/TextSpeed/VBoxContainer2"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_vertical = 0
+text = "Text Speed"
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/VBoxContainer/Accessibility/VBoxContainer/TextSpeed/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ov5f3")
+
+[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer/Accessibility/VBoxContainer/TextSpeed/VBoxContainer2"]
+layout_mode = 2
+toggle_mode = true
+text = "Test"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Accessibility/VBoxContainer/TextSpeed"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSlider" type="HSlider" parent="ScrollContainer/VBoxContainer/Accessibility/VBoxContainer/TextSpeed/VBoxContainer"]
+layout_mode = 2
+min_value = 0.2
+max_value = 2.0
+step = 0.1
+value = 1.0
+tick_count = 9
+ticks_on_borders = true
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Accessibility/VBoxContainer/TextSpeed/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+text = "The quick brown fox jumped over the lazy dog"
+autowrap_mode = 2
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ScrollContainer/VBoxContainer/Accessibility/VBoxContainer/TextSpeed"]
+libraries = {
+"": SubResource("AnimationLibrary_s7vdd")
+}
+
+[node name="Tutorials" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Accessibility/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Accessibility/VBoxContainer/Tutorials"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "Tutorials"
+
+[node name="CheckButton" type="CheckButton" parent="ScrollContainer/VBoxContainer/Accessibility/VBoxContainer/Tutorials"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="PaddingBottom" type="HSeparator" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_imthq")
+
+[node name="Return" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -46.0
+offset_top = -69.0
+offset_right = 47.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_neighbor_bottom = NodePath("../ScrollContainer/VBoxContainer/Audio/VBoxContainer/MasterVolume/HSlider")
+text = "Return"
+
+[node name="UISoundConfirm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ve2jt")
+bus = &"Sounds"
+
+[node name="UISoundCursor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_560fj")
+bus = &"Sounds"
+
+[connection signal="focus_entered" from="ScrollContainer/VBoxContainer/Audio/VBoxContainer/MasterVolume/HSlider" to="." method="_cursor_moved"]
+[connection signal="focus_entered" from="ScrollContainer/VBoxContainer/Audio/VBoxContainer/MusicVolume/HSlider" to="." method="_cursor_moved"]
+[connection signal="focus_entered" from="ScrollContainer/VBoxContainer/Audio/VBoxContainer/SoundsVolume/HSlider" to="." method="_cursor_moved"]
+[connection signal="focus_entered" from="ScrollContainer/VBoxContainer/Audio/VBoxContainer/UIVolume/HSlider" to="." method="_cursor_moved"]
+[connection signal="focus_entered" from="ScrollContainer/VBoxContainer/Accessibility/VBoxContainer/QTE/OptionButton" to="." method="_cursor_moved"]
+[connection signal="focus_entered" from="ScrollContainer/VBoxContainer/Accessibility/VBoxContainer/TextSpeed/VBoxContainer2/Button" to="." method="_cursor_moved"]
+[connection signal="toggled" from="ScrollContainer/VBoxContainer/Accessibility/VBoxContainer/TextSpeed/VBoxContainer2/Button" to="." method="_test_typing"]
+[connection signal="focus_entered" from="ScrollContainer/VBoxContainer/Accessibility/VBoxContainer/TextSpeed/VBoxContainer/HSlider" to="." method="_cursor_moved"]
+[connection signal="focus_entered" from="ScrollContainer/VBoxContainer/Accessibility/VBoxContainer/Tutorials/CheckButton" to="." method="_cursor_moved"]
+[connection signal="focus_entered" from="Return" to="." method="_cursor_moved"]

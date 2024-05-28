@@ -1,0 +1,295 @@
+[gd_scene load_steps=8 format=3 uid="uid://cd5ybtgv6b5cn"]
+
+[ext_resource type="Script" path="res://globals/tutorials.gd" id="1_2i34c"]
+[ext_resource type="Theme" uid="uid://bcyi0pjljka6y" path="res://resources/theme_menu.tres" id="2_j0wpc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6sli0"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rycg"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ltkil"]
+bg_color = Color(0.8, 0.8, 0.8, 1)
+border_width_left = 1
+border_width_top = 2
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kddt7"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d3p7k"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_offset = Vector2(1, 1)
+
+[node name="Tutorials" type="CanvasLayer"]
+process_mode = 3
+layer = 10
+script = ExtResource("1_2i34c")
+
+[node name="Modal" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_j0wpc")
+
+[node name="TurnOff" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -167.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 55.0
+grow_horizontal = 0
+theme = ExtResource("2_j0wpc")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_6sli0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0rycg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ltkil")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kddt7")
+text = "Turn off Tutorials"
+
+[node name="Prompt" type="RichTextLabel" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -177.0
+offset_top = -98.0
+offset_right = 177.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+text = "[center]Press [img=48]res://assets/graphics/inputs/E_Key_Light.png[/img] to continue[/center]"
+
+[node name="Tutorials" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_j0wpc")
+
+[node name="Intro" type="PanelContainer" parent="Tutorials"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.0
+offset_top = -134.0
+offset_right = 198.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d3p7k")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tutorials/Intro"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "Welcome to [i]Advertising Shits in Your Head[/i]!
+
+By day you'll find alternative images and messages to display for the public.
+
+When you've collected some alternatives, you can sneak around at night replacing adverts on the streets."
+fit_content = true
+
+[node name="Day" type="Control" parent="Tutorials"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -332.0
+offset_top = -56.0
+offset_right = -70.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Left" type="PanelContainer" parent="Tutorials/Day"]
+layout_mode = 0
+offset_left = -34.0
+offset_top = -111.0
+offset_right = 254.0
+offset_bottom = -6.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_d3p7k")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tutorials/Day/Left"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "On the left of the screen are different places you can go to find new art or messages."
+fit_content = true
+
+[node name="Bottom" type="PanelContainer" parent="Tutorials/Day"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 143.0
+offset_right = 300.0
+offset_bottom = 220.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_d3p7k")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tutorials/Day/Bottom"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "Along the bottom are pieces you've already collected."
+fit_content = true
+
+[node name="EndDay" type="PanelContainer" parent="Tutorials/Day"]
+layout_mode = 0
+offset_left = 667.0
+offset_top = 230.0
+offset_right = 899.0
+offset_bottom = 307.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_d3p7k")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tutorials/Day/EndDay"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "And when you're ready, you can begin the night!"
+fit_content = true
+
+[node name="Night" type="Control" parent="Tutorials"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Subvert" type="PanelContainer" parent="Tutorials/Night"]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 288.0
+offset_right = 370.0
+offset_bottom = 404.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_d3p7k")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tutorials/Night/Subvert"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "Now it's the evening. Find adverts to replace, but avoid passers-by who don't look sympathetic to the cause."
+fit_content = true
+
+[node name="EndNight" type="PanelContainer" parent="Tutorials/Night"]
+layout_mode = 0
+offset_left = 593.0
+offset_top = 22.0
+offset_right = 809.0
+offset_bottom = 164.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_d3p7k")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tutorials/Night/EndNight"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "When you've finished for now you can end the night in the menu or by returning here to the bicycle."
+fit_content = true
+
+[node name="Subverting" type="Control" parent="Tutorials"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Path" type="PanelContainer" parent="Tutorials/Subverting"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.0
+offset_top = 48.0
+offset_right = 124.0
+offset_bottom = 206.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d3p7k")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tutorials/Subverting/Path"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "To unlock the advert, move your mouse from the start of the path through to the end. 
+
+If you go off course, you'll need to start again."
+fit_content = true

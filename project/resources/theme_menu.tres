@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bcyi0pjljka6y"]
+
+[ext_resource type="FontFile" uid="uid://cvp4g666av6yk" path="res://assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Regular.ttf" id="1_65hus"]
+
+[resource]
+default_font = ExtResource("1_65hus")
+default_font_size = 16
