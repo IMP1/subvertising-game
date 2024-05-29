@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g1jytvsqpigh"
-path="res://.godot/imported/lies.png-5e3df642e2e8f8b6371d4f0e218e8855.ctex"
+uid="uid://b5j1ffflqcmww"
+path="res://.godot/imported/fuck-work.png-c39720265ac65f4b6dca71b700a96dfa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/lies.png"
-dest_files=["res://.godot/imported/lies.png-5e3df642e2e8f8b6371d4f0e218e8855.ctex"]
+source_file="res://assets/graphics/artwork/fuck-work.png"
+dest_files=["res://.godot/imported/fuck-work.png-c39720265ac65f4b6dca71b700a96dfa.ctex"]
 
 [params]
 

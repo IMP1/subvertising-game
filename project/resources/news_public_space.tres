@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NewsPage" load_steps=3 format=3 uid="uid://deln47kbs86ou"]
+
+[ext_resource type="Texture2D" uid="uid://ckcgcktgt20pc" path="res://assets/graphics/newspaper-photos/public-space.jpg" id="1_fyq72"]
+[ext_resource type="Script" path="res://defs/news_page.gd" id="1_xpay3"]
+
+[resource]
+script = ExtResource("1_xpay3")
+headline = "Whose Streets?"
+photo = ExtResource("1_fyq72")
+subheader = "Council declares city an advertising-free space, follows Grenoble, São Paulo."

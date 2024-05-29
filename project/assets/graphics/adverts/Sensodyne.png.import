@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btpcd3elgqyso"
-path="res://.godot/imported/a-mothers-love.jpg-5b167ec68b1b4900614fc718fb64bd6a.ctex"
+uid="uid://onkrjkn3qgnx"
+path="res://.godot/imported/Sensodyne.png-9389fa1c5fb96a1542d108e66b8aa9d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/a-mothers-love.jpg"
-dest_files=["res://.godot/imported/a-mothers-love.jpg-5b167ec68b1b4900614fc718fb64bd6a.ctex"]
+source_file="res://assets/graphics/adverts/Sensodyne.png"
+dest_files=["res://.godot/imported/Sensodyne.png-9389fa1c5fb96a1542d108e66b8aa9d5.ctex"]
 
 [params]
 

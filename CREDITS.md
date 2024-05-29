@@ -4,11 +4,35 @@
   - `Sugar Bombs.png`: [???](https://static.displate.com/857x1200/displate/2021-03-16/98b865b08a55e3759ac6763ec18e3d40_fc20fd5946418e96f1a81c4641454948.jpg)
   - `Cellophane.png`: [???](https://i0.wp.com/themindcircle.com/wp-content/uploads/2015/08/creepy-vintage-ads-4.jpg)
   - `Abraxo.png`: [???](https://www.redbubble.com/i/poster/Fallout-Abraxo-Ad-by-manticor225/35200468.LVTDI)
-  - `A Mother's Love`: [Darren Cullen](https://www.spellingmistakescostlives.com/)
-  - `Life is Great`: [Darren Cullen](https://www.spellingmistakescostlives.com/)
-  - `Lies`: [Darren Cullen](https://www.spellingmistakescostlives.com/)
+  - `Honour.png`: [Joakim Ericsson](https://www.artstation.com/joakimericsson)
+  - `Krusty Burger.png`: [REALsaintpetty](https://www.redbubble.com/people/realsaintpetty/shop)
+  - `Big Kahuna.png`: [???](https://threadheads.com/products/big-kahuna-burger-long-sleeve)
+  - `Buy N Large.png`: [Brands of the World](https://www.brandsoftheworld.com/)
+  - `Professor.png`: [Jimmy Turrell](https://www.dandehlavi.com/The-Ladbrokes-Life)
+  - `Believer.png`: [Jimmy Turrell](https://www.dandehlavi.com/The-Ladbrokes-Life)
+  - `Filter Tip.png`: [???](https://www.retrocards.co.uk/barbara-stanwyck-cigarette-advert-30x40cm-art-print)
+  - `Pommery.png`: [matthieumartigny](https://dribbble.com/shots/24213278-PUBLICITY-CHAMPAGNE-POMMERY-2024)
+  - `Sensodyne.png`: [matthieumartigny](https://dribbble.com/shots/24233438-PUBLICITY-SENSODYNE)
+  
   - Character Sprites: [EarthBound / Mother 2](https://www.spriters-resource.com/snes/earthbound/)
   - Emote Bubbles [Harvest Moon](https://www.spriters-resource.com/ds_dsi/harvestmoon/sheet/39017/)
+  - Newspaper Photo (High Street): [Centre for Cities](https://www.centreforcities.org/high-streets/)
+  - Newspaper Photo (Riot): [Getty Images](https://www.bbc.co.uk/news/world-europe-66084677)
+  - Newspaper Photo (Police): [Getty Images](https://www.bbc.co.uk/news/65377091)
+  - Newspaper Photo (Public Space): [Essex County Council](https://www.essexdesignguide.co.uk/uttlesford-design-code/district-wide-coding/public-spaces/)
+  - `tony-says.png`: [Unknown](http://brandalism.ch/issues/advertising-shits-in-your-head/)
+  - `brain.png`: Subvertisers for London
+  - `ergo-sum.png`: Barbara Kruger
+  - `sonic.png`: [Everything4Everyone](https://www.reddit.com/r/SonicTheHedgehog/comments/6c5ah3/there_is_no_ethical_consumption_under_capitalism/)
+  - `saint-or-communist.png`: [Ricardo Levins Morales](https://www.rlmartstudio.com/product/paradox/)
+  - `fuck-work.png`: Unknown
+  - `leaves.png`: [Autonomous Design Group](https://www.weareadg.org/anti-capitalism)
+  - `boss-haiku.png`: [Autonomous Design Group](https://www.weareadg.org/anti-capitalism)
+  - `lies.png`: [Darren Cullen](https://www.spellingmistakescostlives.com/)
+  - `life-is-great.png`: [Darren Cullen](https://www.spellingmistakescostlives.com/)
+  - `garden.png`: [Black Lodge Press](https://www.instagram.com/blacklodgepress/)
+  - `common.png`: [Black Lodge Press](https://www.instagram.com/blacklodgepress/)
+  - `trickle-down.png`: [Wyatt Hesemeyer](https://www.instagram.com/thelinedefined/)
 
 # Music
 
@@ -37,21 +61,3 @@
 
   - [Godot Engine](https://godotengine.org/)
 
-
-320
-480
-
-160.0
-240.0
-
-106.66666666666667
-160.0
-
-
-80.0
-120.0
-
-
-
-100.0
-150.0 

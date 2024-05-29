@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://djjswb7p14526"]
+[gd_scene load_steps=60 format=3 uid="uid://djjswb7p14526"]
 
 [ext_resource type="Theme" uid="uid://bcyi0pjljka6y" path="res://resources/theme_menu.tres" id="1_d4hlm"]
 [ext_resource type="Script" path="res://scenes/day.gd" id="1_l3t6y"]
@@ -7,15 +7,20 @@
 [ext_resource type="StyleBox" uid="uid://dkhghgi114fp" path="res://resources/style_button_collection_normal.tres" id="4_fyv8w"]
 [ext_resource type="StyleBox" uid="uid://b23cven8cqtcl" path="res://resources/style_button_collection_pressed.tres" id="5_p3rey"]
 [ext_resource type="FontFile" uid="uid://bx0jv7riwjat8" path="res://assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-BoldItalic.ttf" id="6_dm64j"]
+[ext_resource type="Texture2D" uid="uid://dx40mhsfn4xwq" path="res://assets/icons/cottage_24dp_FILL0_wght400_GRAD0_opsz24.svg" id="7_go11u"]
 [ext_resource type="FontFile" uid="uid://cvp4g666av6yk" path="res://assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Regular.ttf" id="7_yhrj8"]
-[ext_resource type="Texture2D" uid="uid://cy36o5sgt8ub8" path="res://assets/graphics/life-is-great.jpg" id="8_yn2o0"]
+[ext_resource type="Texture2D" uid="uid://cv2echuspunfh" path="res://assets/icons/print_24dp_FILL0_wght400_GRAD0_opsz24.svg" id="8_i4v83"]
 [ext_resource type="FontFile" uid="uid://c6qcru2yfy1og" path="res://assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Italic.ttf" id="8_yvekc"]
+[ext_resource type="Texture2D" uid="uid://cokqch4pv5ujm" path="res://assets/icons/palette_24dp_FILL0_wght400_GRAD0_opsz24.svg" id="9_nemr1"]
 [ext_resource type="Texture2D" uid="uid://dqsh67mf0usmj" path="res://icon.svg" id="9_yeco2"]
-[ext_resource type="Texture2D" uid="uid://g1jytvsqpigh" path="res://assets/graphics/lies.png" id="9_yf0ml"]
+[ext_resource type="Texture2D" uid="uid://7g4ighfov47h" path="res://assets/icons/book_2_24dp_FILL0_wght400_GRAD0_opsz24.svg" id="10_61vcy"]
 [ext_resource type="Texture2D" uid="uid://otre30k5fjsu" path="res://assets/icons/arrow_left_48dp_FILL0_wght400_GRAD0_opsz48.svg" id="10_y7q5x"]
 [ext_resource type="Texture2D" uid="uid://qnxc44ij5nbt" path="res://assets/icons/arrow_right_48dp_FILL0_wght400_GRAD0_opsz48.svg" id="11_0u8gj"]
 [ext_resource type="AudioStream" uid="uid://dttoiu1wt246w" path="res://assets/sounds/ui/toggle_002.ogg" id="12_t3am0"]
 [ext_resource type="AudioStream" uid="uid://duvmxj0fymp1t" path="res://assets/sounds/ui/glass_001.ogg" id="13_ruf0i"]
+[ext_resource type="FontFile" uid="uid://brtks4thi3ne2" path="res://assets/fonts/Special_Elite/SpecialElite-Regular.ttf" id="17_4ax56"]
+[ext_resource type="Shader" path="res://resources/newspaper-image.gdshader" id="18_11f80"]
+[ext_resource type="Texture2D" uid="uid://ckcgcktgt20pc" path="res://assets/graphics/newspaper-photos/public-space.jpg" id="19_k6bb5"]
 
 [sub_resource type="Gradient" id="Gradient_c8370"]
 offsets = PackedFloat32Array(0, 0.993506)
@@ -47,63 +52,37 @@ border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfvip"]
-content_margin_top = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.12549, 0.12549, 0.12549, 1)
-skew = Vector2(0.2, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-expand_margin_left = 24.0
-expand_margin_right = 24.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jftqe"]
-content_margin_top = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.313726, 0.313726, 0.313726, 1)
-skew = Vector2(0.2, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-expand_margin_left = 24.0
-expand_margin_right = 24.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23cfs"]
-content_margin_top = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.878431, 0.878431, 0.878431, 1)
-skew = Vector2(0.2, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-expand_margin_left = 16.0
-expand_margin_right = 16.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mk2vo"]
-draw_center = false
-skew = Vector2(0.2, 0)
-border_width_left = 6
-border_width_right = 6
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-expand_margin_left = 32.0
-expand_margin_right = 32.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kdqni"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4skr7"]
 content_margin_left = 6.0
 content_margin_top = 6.0
 content_margin_right = 6.0
 content_margin_bottom = 6.0
 bg_color = Color(0.188235, 0.188235, 0.188235, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msmlm"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
@@ -114,6 +93,53 @@ expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qyfsl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqlir"]
+bg_color = Color(0.188235, 0.188235, 0.188235, 1)
+skew = Vector2(-0.05, 0.05)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 6.0
+expand_margin_right = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0lns"]
+bg_color = Color(0.313726, 0.313726, 0.313726, 1)
+skew = Vector2(-0.05, 0.05)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 6.0
+expand_margin_right = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2n8sp"]
+bg_color = Color(0.890196, 0.588235, 0.411765, 1)
+skew = Vector2(0.05, -0.05)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vf8ny"]
+draw_center = false
+border_width_left = 4
+border_width_right = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 20.0
+expand_margin_top = 2.0
+expand_margin_right = 20.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_1uh7j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_32j1x"]
 bg_color = Color(0.878431, 0.878431, 0.878431, 1)
@@ -183,6 +209,120 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfvip"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+skew = Vector2(0.2, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+expand_margin_left = 24.0
+expand_margin_right = 24.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jftqe"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.313726, 0.313726, 0.313726, 1)
+skew = Vector2(0.2, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+expand_margin_left = 24.0
+expand_margin_right = 24.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23cfs"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+skew = Vector2(0.2, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+expand_margin_left = 16.0
+expand_margin_right = 16.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jartl"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.25098, 0.25098, 0.25098, 1)
+skew = Vector2(0.2, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.501961, 0.501961, 0.501961, 1)
+expand_margin_left = 24.0
+expand_margin_right = 24.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mk2vo"]
+draw_center = false
+skew = Vector2(0.2, 0)
+border_width_left = 6
+border_width_right = 6
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 32.0
+expand_margin_right = 32.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kdqni"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0w8nq"]
+bg_color = Color(0, 0, 0, 0.501961)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdkea"]
+bg_color = Color(0, 0, 0, 0.501961)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_343uk"]
+bg_color = Color(0, 0, 0, 0.501961)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cm0sc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypg4q"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.878431, 0.8, 0.752941, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v7kyk"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ehuo5"]
+thickness = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y8qhg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gesh"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bf37m"]
+shader = ExtResource("18_11f80")
+shader_parameter/gamma = 1.0
+shader_parameter/col1 = Color(0.631373, 0.576471, 0.517647, 1)
+shader_parameter/col2 = Color(0.490196, 0.447059, 0.388235, 1)
+shader_parameter/col3 = Color(0.411765, 0.372549, 0.317647, 1)
+shader_parameter/col4 = Color(0.329412, 0.298039, 0.254902, 1)
+shader_parameter/col5 = Color(0.270588, 0.239216, 0.203922, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_itbkr"]
+vertical = true
 
 [node name="Day" type="Control"]
 layout_mode = 3
@@ -355,54 +495,6 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Actions" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 972.0
-offset_top = 448.0
-offset_right = 1132.0
-offset_bottom = 624.0
-theme_override_constants/separation = 16
-alignment = 1
-
-[node name="StartNight" type="Button" parent="Actions"]
-custom_minimum_size = Vector2(128, 40)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_yfvip")
-theme_override_styles/hover = SubResource("StyleBoxFlat_jftqe")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_23cfs")
-theme_override_styles/focus = SubResource("StyleBoxFlat_mk2vo")
-text = "Start Night"
-
-[node name="HSeparator" type="HSeparator" parent="Actions"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/separator = SubResource("StyleBoxEmpty_kdqni")
-
-[node name="Settings" type="Button" parent="Actions"]
-custom_minimum_size = Vector2(128, 32)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_yfvip")
-theme_override_styles/hover = SubResource("StyleBoxFlat_jftqe")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_23cfs")
-theme_override_styles/focus = SubResource("StyleBoxFlat_mk2vo")
-text = "Settings"
-
-[node name="Quit" type="Button" parent="Actions"]
-custom_minimum_size = Vector2(128, 32)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_yfvip")
-theme_override_styles/hover = SubResource("StyleBoxFlat_jftqe")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_23cfs")
-theme_override_styles/focus = SubResource("StyleBoxFlat_mk2vo")
-text = "Quit"
-
 [node name="Collection" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 12
@@ -462,12 +554,16 @@ offset_left = 15.0
 offset_top = 113.0
 offset_right = 204.0
 offset_bottom = 423.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_msmlm")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LocationList"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="LocationList/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_4f6ma")
+theme_override_font_sizes/font_size = 18
 text = "Locations to Visit"
 horizontal_alignment = 1
 
@@ -478,18 +574,83 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_qyfsl")
 
 [node name="List" type="VBoxContainer" parent="LocationList/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Home" type="Button" parent="LocationList/VBoxContainer/List"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_qqlir")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b0lns")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2n8sp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vf8ny")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_1uh7j")
+text = "T.A.Z"
+icon = ExtResource("7_go11u")
 
 [node name="HousingCoop" type="Button" parent="LocationList/VBoxContainer/List"]
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_qqlir")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b0lns")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2n8sp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vf8ny")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_1uh7j")
 text = "Anarres"
+icon = ExtResource("7_go11u")
 
 [node name="Printers" type="Button" parent="LocationList/VBoxContainer/List"]
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_qqlir")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b0lns")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2n8sp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vf8ny")
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_1uh7j")
 text = "Footprint"
+icon = ExtResource("8_i4v83")
 
 [node name="ArtStudio" type="Button" parent="LocationList/VBoxContainer/List"]
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_qqlir")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b0lns")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2n8sp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vf8ny")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_1uh7j")
 text = "Serf"
+icon = ExtResource("9_nemr1")
+
+[node name="Bookshop" type="Button" parent="LocationList/VBoxContainer/List"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_qqlir")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b0lns")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2n8sp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vf8ny")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_1uh7j")
+text = "Housemans"
+icon = ExtResource("10_61vcy")
 
 [node name="Location" type="PanelContainer" parent="."]
 layout_mode = 0
@@ -502,11 +663,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_32j1x")
 [node name="Tabs" type="TabContainer" parent="Location"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ydyql")
-current_tab = 2
 tabs_visible = false
 
 [node name="Anarres" type="VBoxContainer" parent="Location/Tabs"]
-visible = false
 layout_mode = 2
 
 [node name="Title" type="Label" parent="Location/Tabs/Anarres"]
@@ -544,13 +703,6 @@ custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
-
-[node name="1" type="Button" parent="Location/Tabs/Anarres/Artwork"]
-custom_minimum_size = Vector2(100, 141)
-layout_mode = 2
-icon = ExtResource("9_yeco2")
-icon_alignment = 1
-expand_icon = true
 
 [node name="PaddingBottom" type="HSeparator" parent="Location/Tabs/Anarres"]
 layout_mode = 2
@@ -597,19 +749,13 @@ layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="1" type="Button" parent="Location/Tabs/Footprint/Artwork"]
-custom_minimum_size = Vector2(100, 150)
-layout_mode = 2
-icon = ExtResource("9_yeco2")
-icon_alignment = 1
-expand_icon = true
-
 [node name="PaddingBottom" type="HSeparator" parent="Location/Tabs/Footprint"]
 layout_mode = 2
 theme_override_constants/separation = 8
 theme_override_styles/separator = SubResource("StyleBoxEmpty_kkoc7")
 
 [node name="Serf" type="VBoxContainer" parent="Location/Tabs"]
+visible = false
 layout_mode = 2
 
 [node name="Title" type="Label" parent="Location/Tabs/Serf"]
@@ -634,7 +780,8 @@ theme_override_fonts/bold_font = ExtResource("3_4f6ma")
 theme_override_fonts/italics_font = ExtResource("8_yvekc")
 theme_override_fonts/bold_italics_font = ExtResource("6_dm64j")
 bbcode_enabled = true
-text = "[center]An artist-led community and project space.[/center]"
+text = "[center]An artist-led community and project space.
+Their art is experimental and forward-thinking.[/center]"
 
 [node name="Padding2" type="HSeparator" parent="Location/Tabs/Serf"]
 layout_mode = 2
@@ -647,21 +794,97 @@ layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="1" type="Button" parent="Location/Tabs/Serf/Artwork"]
-custom_minimum_size = Vector2(100, 150)
-layout_mode = 2
-icon = ExtResource("8_yn2o0")
-icon_alignment = 1
-expand_icon = true
-
-[node name="2" type="Button" parent="Location/Tabs/Serf/Artwork"]
-custom_minimum_size = Vector2(100, 150)
-layout_mode = 2
-icon = ExtResource("9_yf0ml")
-icon_alignment = 1
-expand_icon = true
-
 [node name="PaddingBottom" type="HSeparator" parent="Location/Tabs/Serf"]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kkoc7")
+
+[node name="Housmans" type="VBoxContainer" parent="Location/Tabs"]
+visible = false
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Location/Tabs/Housmans"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_dm64j")
+theme_override_font_sizes/font_size = 32
+text = "Housmans"
+horizontal_alignment = 1
+
+[node name="Padding1" type="HSeparator" parent="Location/Tabs/Housmans"]
+layout_mode = 2
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kkoc7")
+
+[node name="Info" type="RichTextLabel" parent="Location/Tabs/Housmans"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_yhrj8")
+theme_override_fonts/bold_font = ExtResource("3_4f6ma")
+theme_override_fonts/italics_font = ExtResource("8_yvekc")
+theme_override_fonts/bold_italics_font = ExtResource("6_dm64j")
+bbcode_enabled = true
+text = "[center]A not-for-profit and non-sectarian bookshop, specialising in books, zines, and periodicals of radical interest and progressive politics.
+Their art is explicitly politically radical.[/center]"
+
+[node name="Padding2" type="HSeparator" parent="Location/Tabs/Housmans"]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kkoc7")
+
+[node name="Artwork" type="HBoxContainer" parent="Location/Tabs/Housmans"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="PaddingBottom" type="HSeparator" parent="Location/Tabs/Housmans"]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kkoc7")
+
+[node name="TAZ" type="VBoxContainer" parent="Location/Tabs"]
+visible = false
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Location/Tabs/TAZ"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_dm64j")
+theme_override_font_sizes/font_size = 32
+text = "Temporary Autonomous Zone"
+horizontal_alignment = 1
+
+[node name="Padding1" type="HSeparator" parent="Location/Tabs/TAZ"]
+layout_mode = 2
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kkoc7")
+
+[node name="Info" type="RichTextLabel" parent="Location/Tabs/TAZ"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_yhrj8")
+theme_override_fonts/bold_font = ExtResource("3_4f6ma")
+theme_override_fonts/italics_font = ExtResource("8_yvekc")
+theme_override_fonts/bold_italics_font = ExtResource("6_dm64j")
+bbcode_enabled = true
+text = "[center]This is where you're based. The concept comes from a book by Hakim Bey exploring spaces that elude formal structures of control.
+The art is very DIY but its charm is in its simplicity.[/center]"
+
+[node name="Padding2" type="HSeparator" parent="Location/Tabs/TAZ"]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kkoc7")
+
+[node name="Artwork" type="HBoxContainer" parent="Location/Tabs/TAZ"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="PaddingBottom" type="HSeparator" parent="Location/Tabs/TAZ"]
 layout_mode = 2
 theme_override_constants/separation = 8
 theme_override_styles/separator = SubResource("StyleBoxEmpty_kkoc7")
@@ -770,6 +993,56 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_5uxod")
 text = "Add to Collection"
 
+[node name="Actions" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 972.0
+offset_top = 448.0
+offset_right = 1132.0
+offset_bottom = 624.0
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="StartNight" type="Button" parent="Actions"]
+custom_minimum_size = Vector2(96, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_yfvip")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jftqe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_23cfs")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_jartl")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mk2vo")
+disabled = true
+text = "Start Night"
+
+[node name="HSeparator" type="HSeparator" parent="Actions"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kdqni")
+
+[node name="Settings" type="Button" parent="Actions"]
+custom_minimum_size = Vector2(96, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_yfvip")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jftqe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_23cfs")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mk2vo")
+text = "Settings"
+
+[node name="Quit" type="Button" parent="Actions"]
+custom_minimum_size = Vector2(96, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_yfvip")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jftqe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_23cfs")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mk2vo")
+text = "Quit"
+
 [node name="Sounds" type="Node" parent="."]
 
 [node name="Confirm" type="AudioStreamPlayer" parent="Sounds"]
@@ -780,16 +1053,214 @@ bus = &"Sounds"
 stream = ExtResource("13_ruf0i")
 bus = &"Sounds"
 
+[node name="Modal" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_0w8nq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mdkea")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_343uk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cm0sc")
+
+[node name="Newspaper" type="PanelContainer" parent="Modal"]
+custom_minimum_size = Vector2(400, 480)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -240.0
+offset_right = 200.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(200, 240)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ypg4q")
+
+[node name="Contents" type="VBoxContainer" parent="Modal/Newspaper"]
+layout_mode = 2
+
+[node name="NewspaperName" type="HBoxContainer" parent="Modal/Newspaper/Contents"]
+layout_mode = 2
+
+[node name="Issue" type="Label" parent="Modal/Newspaper/Contents/NewspaperName"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_yhrj8")
+theme_override_font_sizes/font_size = 12
+text = "Issue #1"
+
+[node name="VSeparator" type="VSeparator" parent="Modal/Newspaper/Contents/NewspaperName"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_v7kyk")
+
+[node name="NewspaperName" type="Label" parent="Modal/Newspaper/Contents/NewspaperName"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_yhrj8")
+theme_override_font_sizes/font_size = 12
+text = "Daily News"
+
+[node name="Line1" type="HSeparator" parent="Modal/Newspaper/Contents"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_ehuo5")
+
+[node name="Headline" type="Label" parent="Modal/Newspaper/Contents"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("17_4ax56")
+theme_override_font_sizes/font_size = 48
+text = "Whose Streets?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Line2" type="HSeparator" parent="Modal/Newspaper/Contents"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_ehuo5")
+
+[node name="Subheading" type="Label" parent="Modal/Newspaper/Contents"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("17_4ax56")
+theme_override_font_sizes/font_size = 20
+text = "Council declares city an advertising-free space, follows Grenoble, São Paulo."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Modal/Newspaper/Contents"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="Modal/Newspaper/Contents/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_y8qhg")
+
+[node name="Image" type="PanelContainer" parent="Modal/Newspaper/Contents/HBoxContainer"]
+custom_minimum_size = Vector2(160, 128)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3gesh")
+
+[node name="TextureRect" type="TextureRect" parent="Modal/Newspaper/Contents/HBoxContainer/Image"]
+material = SubResource("ShaderMaterial_bf37m")
+layout_mode = 2
+texture = ExtResource("19_k6bb5")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Modal/Newspaper/Contents/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("17_4ax56")
+theme_override_font_sizes/font_size = 6
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Suspendisse sed nisi lacus sed viverra tellus in hac. Id ornare arcu odio ut sem. Ut etiam sit amet nisl purus in mollis nunc. Et leo duis ut diam quam. Adipiscing at in tellus integer feugiat scelerisque varius. 
+
+Egestas purus viverra accumsan in nisl. Varius quam quisque id diam vel quam. Sit amet est placerat in egestas erat imperdiet sed. Ultricies integer quis auctor elit. Parturient montes nascetur ridiculus mus. At erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Id nibh tortor id aliquet lectus proin. Pretium vulputate sapien nec sagittis. Purus in mollis nunc sed id semper. Lacus viverra vitae congue eu consequat ac felis donec. At tempor commodo ullamcorper a lacus vestibulum sed arcu. Pellentesque adipiscing commodo elit at imperdiet dui accumsan sit."
+horizontal_alignment = 3
+autowrap_mode = 2
+justification_flags = 227
+clip_text = true
+
+[node name="Label" type="Label" parent="Modal/Newspaper/Contents"]
+custom_minimum_size = Vector2(160, 96)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("17_4ax56")
+theme_override_font_sizes/font_size = 6
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Suspendisse sed nisi lacus sed viverra tellus in hac. Id ornare arcu odio ut sem. Ut etiam sit amet nisl purus in mollis nunc. Et leo duis ut diam quam. Adipiscing at in tellus integer feugiat scelerisque varius. 
+
+Egestas purus viverra accumsan in nisl. Varius quam quisque id diam vel quam. Sit amet est placerat in egestas erat imperdiet sed. Ultricies integer quis auctor elit. Parturient montes nascetur ridiculus mus. At erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Id nibh tortor id aliquet lectus proin. Pretium vulputate sapien nec sagittis. Purus in mollis nunc sed id semper. Lacus viverra vitae congue eu consequat ac felis donec. At tempor commodo ullamcorper a lacus vestibulum sed arcu. Pellentesque adipiscing commodo elit at imperdiet dui accumsan sit."
+horizontal_alignment = 3
+autowrap_mode = 2
+
+[node name="Line3" type="HSeparator" parent="Modal/Newspaper/Contents"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_ehuo5")
+
+[node name="OtherStories" type="HBoxContainer" parent="Modal/Newspaper/Contents"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="1" type="Label" parent="Modal/Newspaper/Contents/OtherStories"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("17_4ax56")
+theme_override_font_sizes/font_size = 6
+text = "Egestas purus viverra accumsan in nisl. Varius quam quisque id diam vel quam. Sit amet est placerat in egestas erat imperdiet sed. Ultricies integer quis auctor elit. Parturient montes nascetur ridiculus mus. At erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Id nibh tortor id aliquet lectus proin. Pretium vulputate sapien nec sagittis. Purus in mollis nunc sed id semper. Lacus viverra vitae congue eu consequat ac felis donec. At tempor commodo ullamcorper a lacus vestibulum sed arcu. Pellentesque adipiscing commodo elit at imperdiet dui accumsan sit."
+horizontal_alignment = 3
+autowrap_mode = 2
+clip_text = true
+
+[node name="Line1" type="VSeparator" parent="Modal/Newspaper/Contents/OtherStories"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_itbkr")
+
+[node name="2" type="Label" parent="Modal/Newspaper/Contents/OtherStories"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("17_4ax56")
+theme_override_font_sizes/font_size = 6
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Suspendisse sed nisi lacus sed viverra tellus in hac. Id ornare arcu odio ut sem. Ut etiam sit amet nisl purus in mollis nunc. Et leo duis ut diam quam. Adipiscing at in tellus integer feugiat scelerisque varius. 
+
+Egestas purus viverra accumsan in nisl. Varius quam quisque id diam vel quam. Sit amet est placerat in egestas erat imperdiet sed. Ultricies integer quis auctor elit. Parturient montes nascetur ridiculus mus. At erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Id nibh tortor id aliquet lectus proin. Pretium vulputate sapien nec sagittis. Purus in mollis nunc sed id semper. Lacus viverra vitae congue eu consequat ac felis donec. At tempor commodo ullamcorper a lacus vestibulum sed arcu. Pellentesque adipiscing commodo elit at imperdiet dui accumsan sit."
+horizontal_alignment = 3
+autowrap_mode = 2
+clip_text = true
+
+[node name="Line2" type="VSeparator" parent="Modal/Newspaper/Contents/OtherStories"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_itbkr")
+
+[node name="3" type="Label" parent="Modal/Newspaper/Contents/OtherStories"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("17_4ax56")
+theme_override_font_sizes/font_size = 6
+text = "Ultricies integer quis auctor elit. Parturient montes nascetur ridiculus mus. At erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Id nibh tortor id aliquet lectus proin. Pretium vulputate sapien nec sagittis. Purus in mollis nunc sed id semper. Lacus viverra vitae congue eu consequat ac felis donec. At tempor commodo ullamcorper a lacus vestibulum sed arcu. Pellentesque adipiscing commodo elit at imperdiet dui accumsan sit."
+horizontal_alignment = 3
+autowrap_mode = 2
+clip_text = true
+
+[connection signal="focus_entered" from="LocationList/VBoxContainer/List/Home" to="." method="_cursor_moved"]
+[connection signal="pressed" from="LocationList/VBoxContainer/List/Home" to="." method="_go_to_location" binds= [4]]
+[connection signal="focus_entered" from="LocationList/VBoxContainer/List/HousingCoop" to="." method="_cursor_moved"]
+[connection signal="pressed" from="LocationList/VBoxContainer/List/HousingCoop" to="." method="_go_to_location" binds= [0]]
+[connection signal="focus_entered" from="LocationList/VBoxContainer/List/Printers" to="." method="_cursor_moved"]
+[connection signal="pressed" from="LocationList/VBoxContainer/List/Printers" to="." method="_go_to_location" binds= [1]]
+[connection signal="focus_entered" from="LocationList/VBoxContainer/List/ArtStudio" to="." method="_cursor_moved"]
+[connection signal="pressed" from="LocationList/VBoxContainer/List/ArtStudio" to="." method="_go_to_location" binds= [2]]
+[connection signal="focus_entered" from="LocationList/VBoxContainer/List/Bookshop" to="." method="_cursor_moved"]
+[connection signal="pressed" from="LocationList/VBoxContainer/List/Bookshop" to="." method="_go_to_location" binds= [3]]
+[connection signal="pressed" from="ArtworkViewer/Navigation/Previous" to="." method="_prev_art"]
+[connection signal="pressed" from="ArtworkViewer/Navigation/Next" to="." method="_next_art"]
+[connection signal="pressed" from="ArtworkViewer/Actions/Close" to="." method="_hide_art"]
+[connection signal="pressed" from="ArtworkViewer/Actions/AddToCollection" to="." method="_add_art_to_collection"]
 [connection signal="focus_entered" from="Actions/StartNight" to="." method="_cursor_moved"]
 [connection signal="pressed" from="Actions/StartNight" to="." method="_end_day"]
 [connection signal="focus_entered" from="Actions/Settings" to="." method="_cursor_moved"]
 [connection signal="pressed" from="Actions/Settings" to="." method="_open_settings"]
 [connection signal="focus_entered" from="Actions/Quit" to="." method="_cursor_moved"]
 [connection signal="pressed" from="Actions/Quit" to="." method="_quit_to_title"]
-[connection signal="pressed" from="LocationList/VBoxContainer/List/HousingCoop" to="." method="_go_to_location" binds= [0]]
-[connection signal="pressed" from="LocationList/VBoxContainer/List/Printers" to="." method="_go_to_location" binds= [1]]
-[connection signal="pressed" from="LocationList/VBoxContainer/List/ArtStudio" to="." method="_go_to_location" binds= [2]]
-[connection signal="pressed" from="ArtworkViewer/Navigation/Previous" to="." method="_prev_art"]
-[connection signal="pressed" from="ArtworkViewer/Navigation/Next" to="." method="_next_art"]
-[connection signal="pressed" from="ArtworkViewer/Actions/Close" to="." method="_hide_art"]
-[connection signal="pressed" from="ArtworkViewer/Actions/AddToCollection" to="." method="_add_art_to_collection"]
+[connection signal="pressed" from="Modal" to="." method="_hide_news"]

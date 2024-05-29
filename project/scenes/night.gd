@@ -1,5 +1,33 @@
 extends Node2D
 
+const EASY_LOCKS: Array[Curve2D] = [
+	preload("res://resources/qte_curve_zig.tres"),
+]
+const MEDIUM_LOCKS: Array[Curve2D] = [
+	preload("res://resources/qte_curve_wave.tres"),
+	preload("res://resources/qte_curve_split_circle.tres"),
+]
+const HARD_LOCKS: Array[Curve2D] = [
+	preload("res://resources/qte_curve_spiral.tres"),
+]
+const EXTREME_LOCKS: Array[Curve2D] = [
+	preload("res://resources/qte_curve_labyrinth.tres"),
+]
+const ADVERTS: Array[Texture2D] = [
+	preload("res://assets/graphics/adverts/Abraxo.png"),
+	preload("res://assets/graphics/adverts/Believer.png"),
+	preload("res://assets/graphics/adverts/Big Kahuna.png"),
+	preload("res://assets/graphics/adverts/Buy N Large.png"),
+	preload("res://assets/graphics/adverts/Cellophane.png"),
+	preload("res://assets/graphics/adverts/Dread Cola.png"),
+	preload("res://assets/graphics/adverts/Filter Tip.png"),
+	preload("res://assets/graphics/adverts/Honour.png"),
+	preload("res://assets/graphics/adverts/Krusty Burger.png"),
+	preload("res://assets/graphics/adverts/Pommery.png"),
+	preload("res://assets/graphics/adverts/Professor.png"),
+	preload("res://assets/graphics/adverts/Sugar Bombs.png"),
+]
+
 const MISCHIEF_LAYER := 4
 const CAMERA_SIZE := Vector2(256, 256)
 const MUSIC_BUS := 1
@@ -20,6 +48,7 @@ var _indicating_artwork_count: bool = false
 @onready var _subvertising_progress_particles := $HUD/Control/SubvertisingCount/Label/GPUParticles2D as GPUParticles2D
 @onready var _subvertising_qte := $Menus/SubvertisingEvent as SubvertisingEvent
 @onready var _subvertising_art_choice := $Menus/SubvertisingArtworkPlacement as SubvertisingArtworkPlacement
+@onready var _subvertising_art_view := $Menus/ViewArtwork as SubvertisingArtworkViewer
 @onready var _artwork_count_hud := $HUD/Control/ArtworkCount as Control
 @onready var _artwork_count := $HUD/Control/ArtworkCount/Count as Label
 @onready var _artwork_count_buzzer := $HUD/Control/ArtworkCount/Buzzer as AudioStreamPlayer
@@ -72,10 +101,16 @@ func _setup_ads() -> void:
 		ad.subvertising_viewed.connect(_view_subvertising.bind(ad))
 		ad.replacement_started.connect(_start_placing_artwork.bind(ad))
 		ad.subvertising_lacking_art.connect(_indicate_artwork_count)
-		# TODO: Set path based on day and progress
-		ad.unlock_path = load("res://resources/qte_curve_zig.tres") as Curve2D
-		# TODO: Set ads based on which day it is, and other progress variables
-		ad.texture = load("res://assets/graphics/adverts/Dread Cola.png") as Texture2D
+		var past_count := ProgressManager.progress.advert_subverted_count[ad.get_index()]
+		if past_count < 2:
+			ad.unlock_path = EASY_LOCKS.pick_random() as Curve2D
+		elif past_count < 3:
+			ad.unlock_path = MEDIUM_LOCKS.pick_random() as Curve2D
+		elif past_count < 5:
+			ad.unlock_path = HARD_LOCKS.pick_random() as Curve2D
+		else:
+			ad.unlock_path = EXTREME_LOCKS.pick_random() as Curve2D
+		ad.texture = ADVERTS.pick_random() as Texture2D
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -185,7 +220,7 @@ func _start_subvertising(advert: Advert) -> void:
 	_subvertising_qte.visible = true
 	AudioServer.set_bus_effect_enabled(MUSIC_BUS, LOW_PASS_FILTER, true)
 	
-	if SettingsManager.settings.show_tutorials and ProgressManager.progress.subverted_advert_count == 0:
+	if SettingsManager.settings.show_tutorials and ProgressManager.progress.get_total_subvertisement_count() == 0:
 		Tutorials.queue_tutorial(^"Subverting", true, true)
 		await Tutorials.finished
 	
@@ -195,12 +230,16 @@ func _start_subvertising(advert: Advert) -> void:
 		_end_advert_interaction(advert)
 		return
 	advert.unlocked = true
+	if ProgressManager.progress.artwork.is_empty():
+		_end_advert_interaction(advert)
+		return
 	_start_placing_artwork(advert)
 
 
 func _start_placing_artwork(advert: Advert) -> void:
 	_start_advert_interaction(advert)
 	var old_ad := advert.texture
+	_subvertising_art_choice.old_texture = old_ad
 	_subvertising_art_choice.visible = true
 	_subvertising_art_choice.setup()
 	var success := await _subvertising_art_choice.finished as bool
@@ -215,7 +254,7 @@ func _start_placing_artwork(advert: Advert) -> void:
 	_subvertising_count += 1
 	_subvertising_progress.text = str(_subvertising_count)
 	_subvertising_progress_particles.emitting = true
-	ProgressManager.progress.subverted_advert_count += 1
+	ProgressManager.progress.increase_subvertisement_count(advert.get_index())
 	var index := ProgressManager.progress.artwork.find(new_art)
 	ProgressManager.progress.artwork.remove_at(index)
 	_artwork_count.text = str(ProgressManager.progress.artwork.size())
@@ -240,9 +279,13 @@ func _end_advert_interaction(advert: Advert) -> void:
 
 
 func _view_subvertising(advert: Advert) -> void:
-	# TODO: Show the thing :)
-	print("Already subverted :)")
-	pass
+	_start_advert_interaction(advert)
+	_subvertising_art_view.artwork = advert.texture
+	_subvertising_art_view.visible = true
+	_subvertising_art_view.setup()
+	await _subvertising_art_view.finished
+	_subvertising_art_view.visible = false
+	_end_advert_interaction(advert)
 
 
 func _indicate_artwork_count(colour: Color = Color.CRIMSON) -> void:

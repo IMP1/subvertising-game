@@ -7,7 +7,7 @@ signal finished(success: bool)
 var artwork: Texture2D = null
 
 @onready var _ad_artwork := $AdvertPanel/Advert as TextureRect
-@onready var _artwork_list := $ArtPanel/ScrollContainer/List as Control
+@onready var _artwork_list := $ArtPanel/Contents/ScrollContainer/List as Control
 @onready var _confirm_button := $Confirm as Button
 @onready var _cursor_sfx := $Cursor as AudioStreamPlayer
 
@@ -28,8 +28,9 @@ func setup() -> void:
 		button.focus_entered.connect(_cursor_moved)
 	_confirm_button.disabled = true
 	await get_tree().process_frame
-	(_artwork_list.get_child(0) as Button).grab_focus()
-	_cursor_sfx.stop()
+	if _artwork_list.get_child_count() > 0:
+		(_artwork_list.get_child(0) as Button).grab_focus()
+		_cursor_sfx.stop()
 
 
 func _set_art(artwork: Texture2D) -> void:

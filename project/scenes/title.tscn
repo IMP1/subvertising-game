@@ -9,12 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://ba6bdgpq46yl3" path="res://assets/icons/turd.svg" id="5_jmon3"]
 [ext_resource type="AudioStream" uid="uid://dttoiu1wt246w" path="res://assets/sounds/ui/toggle_002.ogg" id="6_e762c"]
 
-[sub_resource type="Gradient" id="Gradient_awawo"]
+[sub_resource type="Gradient" id="Gradient_qngke"]
 offsets = PackedFloat32Array(0, 0.993506)
 colors = PackedColorArray(0, 0, 0, 0.8, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_leuaa"]
-gradient = SubResource("Gradient_awawo")
+gradient = SubResource("Gradient_qngke")
 fill_from = Vector2(1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yimhi"]

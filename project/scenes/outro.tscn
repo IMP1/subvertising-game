@@ -1,0 +1,278 @@
+[gd_scene load_steps=12 format=3 uid="uid://b3vey0r0nvysm"]
+
+[ext_resource type="Script" path="res://scenes/outro.gd" id="1_scqd8"]
+[ext_resource type="FontFile" uid="uid://bx0jv7riwjat8" path="res://assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-BoldItalic.ttf" id="2_78g7t"]
+[ext_resource type="FontFile" uid="uid://cvp4g666av6yk" path="res://assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Regular.ttf" id="2_dqpoi"]
+[ext_resource type="Texture2D" uid="uid://ba6bdgpq46yl3" path="res://assets/icons/turd.svg" id="3_2sbel"]
+[ext_resource type="PackedScene" uid="uid://goj1wsrww7bm" path="res://scenes/obelisk.tscn" id="4_8juii"]
+[ext_resource type="FontFile" uid="uid://c6qcru2yfy1og" path="res://assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Italic.ttf" id="5_x4byx"]
+[ext_resource type="FontFile" uid="uid://cppc0gbgscjx4" path="res://assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Bold.ttf" id="6_of1dx"]
+
+[sub_resource type="Gradient" id="Gradient_awawo"]
+offsets = PackedFloat32Array(0, 0.993506)
+colors = PackedColorArray(0, 0, 0, 0.8, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_copv8"]
+gradient = SubResource("Gradient_awawo")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rqudp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dok6m"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+corner_radius_top_left = 128
+corner_radius_top_right = 128
+corner_radius_bottom_right = 128
+corner_radius_bottom_left = 128
+
+[node name="Outro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_scqd8")
+
+[node name="Background" type="ColorRect" parent="."]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.878431, 0.878431, 0.878431, 1)
+
+[node name="Stripe1" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -320.0
+offset_right = -1024.0
+offset_bottom = 312.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(64, 640)
+
+[node name="Stripe0" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -360.0
+offset_top = -320.0
+offset_right = -1384.0
+offset_bottom = 312.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(64, 640)
+
+[node name="Stripe2" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 360.0
+offset_top = -320.0
+offset_right = -664.0
+offset_bottom = 312.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(64, 640)
+
+[node name="Stripe3" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 720.0
+offset_top = -320.0
+offset_right = -304.0
+offset_bottom = 312.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(64, 640)
+
+[node name="Stripe4" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1080.0
+offset_top = -320.0
+offset_right = 56.0
+offset_bottom = 312.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(64, 640)
+
+[node name="Stripe5" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1440.0
+offset_top = -320.0
+offset_right = 416.0
+offset_bottom = 312.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(64, 640)
+
+[node name="Gradient" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_copv8")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 335.0
+offset_right = -335.0
+grow_horizontal = 2
+grow_vertical = 2
+scroll_vertical = 1717
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="List" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PaddingTop" type="HSeparator" parent="ScrollContainer/List"]
+layout_mode = 2
+theme_override_constants/separation = 640
+theme_override_styles/separator = SubResource("StyleBoxEmpty_rqudp")
+
+[node name="Label" type="Label" parent="ScrollContainer/List"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_dqpoi")
+theme_override_font_sizes/font_size = 18
+text = "Unfortunately, this is a work of fiction, but there are groups out there working to remove advertising from our public spaces.
+
+Cities like Grenoble in France, and São Paulo in Brazil, have banned advertising in public spaces.
+
+Public spaces are meant to be public, but yet advertisers can shove their messaging in our faces without us having any say in the matter."
+autowrap_mode = 2
+
+[node name="Padding1" type="HSeparator" parent="ScrollContainer/List"]
+layout_mode = 2
+theme_override_constants/separation = 256
+theme_override_styles/separator = SubResource("StyleBoxEmpty_rqudp")
+
+[node name="Title" type="Label" parent="ScrollContainer/List"]
+custom_minimum_size = Vector2(320, 32)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_78g7t")
+theme_override_font_sizes/font_size = 32
+text = "Advertising Shits in Your Head"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Logo" type="TextureRect" parent="ScrollContainer/List"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("3_2sbel")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Padding2" type="HSeparator" parent="ScrollContainer/List"]
+layout_mode = 2
+theme_override_constants/separation = 96
+theme_override_styles/separator = SubResource("StyleBoxEmpty_rqudp")
+
+[node name="Credits" type="VBoxContainer" parent="ScrollContainer/List"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/List/Credits"]
+layout_mode = 2
+
+[node name="Proverb" type="Label" parent="ScrollContainer/List"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_x4byx")
+theme_override_font_sizes/font_size = 16
+text = "\"I see advertising as the face of capitalism. And I want to punch that face - in the face.\""
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Padding3" type="HSeparator" parent="ScrollContainer/List"]
+layout_mode = 2
+theme_override_constants/separation = 320
+theme_override_styles/separator = SubResource("StyleBoxEmpty_rqudp")
+
+[node name="Obelisk" type="PanelContainer" parent="ScrollContainer/List"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_dok6m")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="ScrollContainer/List/Obelisk"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="ScrollContainer/List/Obelisk/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+
+[node name="Obelisk" parent="ScrollContainer/List/Obelisk/SubViewportContainer/SubViewport" instance=ExtResource("4_8juii")]
+
+[node name="ObeliskName" type="Label" parent="ScrollContainer/List"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.878431, 0.878431, 0.878431, 1)
+theme_override_colors/font_shadow_color = Color(0.878431, 0.878431, 0.878431, 1)
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("6_of1dx")
+theme_override_font_sizes/font_size = 32
+text = "Obelisk Games"
+horizontal_alignment = 1
+
+[node name="PaddingBottom" type="HSeparator" parent="ScrollContainer/List"]
+layout_mode = 2
+theme_override_constants/separation = 240
+theme_override_styles/separator = SubResource("StyleBoxEmpty_rqudp")
+
+[node name="Prompt" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = -74.0
+offset_right = 215.0
+offset_bottom = -26.0
+grow_vertical = 0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+text = "[center]Press [img=48]res://assets/graphics/inputs/Esc_Key_Light.png[/img] to continue[/center]"
+fit_content = true
+autowrap_mode = 0

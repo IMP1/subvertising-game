@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NewsPage" load_steps=3 format=3 uid="uid://cylolj2s82vt5"]
+
+[ext_resource type="Texture2D" uid="uid://b85fsbdldng37" path="res://assets/graphics/newspaper-photos/High-Street.png" id="1_l5lr3"]
+[ext_resource type="Script" path="res://defs/news_page.gd" id="1_tbvgg"]
+
+[resource]
+script = ExtResource("1_tbvgg")
+headline = "Bad-vertising!"
+photo = ExtResource("1_l5lr3")
+subheader = "High-street adverts are targetted by new radical anarchists."

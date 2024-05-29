@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy36o5sgt8ub8"
-path="res://.godot/imported/life-is-great.jpg-761311e06546ee4a500ea4b421a40122.ctex"
+uid="uid://duei4k6qikfl0"
+path="res://.godot/imported/ergo-sum.png-729c103afb6c204039959fce4bcf9198.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/life-is-great.jpg"
-dest_files=["res://.godot/imported/life-is-great.jpg-761311e06546ee4a500ea4b421a40122.ctex"]
+source_file="res://assets/graphics/artwork/ergo-sum.png"
+dest_files=["res://.godot/imported/ergo-sum.png-729c103afb6c204039959fce4bcf9198.ctex"]
 
 [params]
 

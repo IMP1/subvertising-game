@@ -1,14 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://chy4orbh6xl3g"]
+[gd_scene load_steps=18 format=3 uid="uid://chy4orbh6xl3g"]
 
 [ext_resource type="Script" path="res://scenes/intro.gd" id="1_yt8ph"]
-[ext_resource type="Texture2D" uid="uid://cy36o5sgt8ub8" path="res://assets/graphics/life-is-great.jpg" id="2_7v4ss"]
 [ext_resource type="AudioStream" uid="uid://m5jkitp7f4y" path="res://assets/music/Unknown (Hideout Theme).mp3" id="2_luyuq"]
 [ext_resource type="FontFile" uid="uid://cvp4g666av6yk" path="res://assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Regular.ttf" id="3_471u5"]
-[ext_resource type="Texture2D" uid="uid://g1jytvsqpigh" path="res://assets/graphics/lies.png" id="3_h4jvb"]
 [ext_resource type="Texture2D" uid="uid://c6b0tvxuxyrf" path="res://assets/icons/movie_48dp_FILL0_wght400_GRAD0_opsz48.svg" id="3_p10nn"]
 [ext_resource type="Texture2D" uid="uid://c6rrpk38ofv77" path="res://assets/icons/smart_display_48dp_FILL0_wght400_GRAD0_opsz48.svg" id="4_2qbiv"]
 [ext_resource type="FontFile" uid="uid://cppc0gbgscjx4" path="res://assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Bold.ttf" id="4_5pdsd"]
-[ext_resource type="Texture2D" uid="uid://btpcd3elgqyso" path="res://assets/graphics/a-mothers-love.jpg" id="4_5ugw5"]
 [ext_resource type="Texture2D" uid="uid://chdfpw364d3rh" path="res://assets/icons/music_cast_48dp_FILL0_wght400_GRAD0_opsz48.svg" id="4_gu5mk"]
 [ext_resource type="Texture2D" uid="uid://dw54chxwt04ko" path="res://assets/icons/breaking_news_alt_1_48dp_FILL0_wght400_GRAD0_opsz48.svg" id="5_4nhkg"]
 [ext_resource type="FontFile" uid="uid://c6qcru2yfy1og" path="res://assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Italic.ttf" id="5_qvbr3"]
@@ -18,46 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://cvhtg6bmux832" path="res://assets/icons/roller_shades_closed_48dp_FILL0_wght400_GRAD0_opsz48.svg" id="8_04yfx"]
 [ext_resource type="Texture2D" uid="uid://duotwkwlny3np" path="res://assets/icons/subway_48dp_FILL0_wght400_GRAD0_opsz48.svg" id="9_vwqec"]
 [ext_resource type="Texture2D" uid="uid://byo0le17lk067" path="res://assets/icons/storefront_48dp_FILL0_wght400_GRAD0_opsz48.svg" id="10_e283v"]
-
-[sub_resource type="Animation" id="Animation_gi54k"]
-resource_name = "images"
-length = 3.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Images/3:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(3, 3.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(2, 2)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Images/1:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Images/2:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1.5, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_l2syt"]
 resource_name = "intro"
@@ -185,7 +142,6 @@ tracks/9/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gi7lc"]
 _data = {
-"images": SubResource("Animation_gi54k"),
 "intro": SubResource("Animation_l2syt")
 }
 
@@ -425,47 +381,6 @@ offset_top = 34.0
 offset_right = 169.0
 offset_bottom = 74.0
 texture = ExtResource("9_vwqec")
-
-[node name="Images" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="1" type="TextureRect" parent="Images"]
-layout_mode = 0
-offset_left = 669.0
-offset_top = -18.0
-offset_right = 1152.0
-offset_bottom = 665.0
-scale = Vector2(1e-05, 1e-05)
-pivot_offset = Vector2(241, 341)
-texture = ExtResource("2_7v4ss")
-expand_mode = 1
-
-[node name="2" type="TextureRect" parent="Images"]
-layout_mode = 0
-offset_left = 138.0
-offset_top = 140.0
-offset_right = 1029.0
-offset_bottom = 501.0
-scale = Vector2(1e-05, 1e-05)
-pivot_offset = Vector2(445, 180)
-texture = ExtResource("4_5ugw5")
-expand_mode = 1
-
-[node name="3" type="TextureRect" parent="Images"]
-layout_mode = 0
-offset_left = 202.0
-offset_top = -4.0
-offset_right = 609.0
-offset_bottom = 652.0
-scale = Vector2(1e-05, 1e-05)
-pivot_offset = Vector2(203, 328)
-texture = ExtResource("3_h4jvb")
-expand_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

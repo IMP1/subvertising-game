@@ -10,6 +10,7 @@ func _ready() -> void:
 
 
 func reset() -> void:
+	DirAccess.remove_absolute(PROGRESS_FILEPATH)
 	progress = Progress.new()
 
 

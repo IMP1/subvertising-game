@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NewsPage" load_steps=3 format=3 uid="uid://bat245ovqqh7g"]
+
+[ext_resource type="Texture2D" uid="uid://bop4i1k2cgtxh" path="res://assets/graphics/newspaper-photos/riot.jpg" id="1_3c6t6"]
+[ext_resource type="Script" path="res://defs/news_page.gd" id="1_jte3j"]
+
+[resource]
+script = ExtResource("1_jte3j")
+headline = "Anarchy!"
+photo = ExtResource("1_3c6t6")
+subheader = "Vandals damage private property, council costs estimated to be in the tens of thousands."
