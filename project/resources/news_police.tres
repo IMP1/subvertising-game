@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_p1dri")
+issue = 104
 headline = "Post More Bills"
 photo = ExtResource("1_gmy2j")
 subheader = "More police posted to city streets to cut down on recent vandalism."

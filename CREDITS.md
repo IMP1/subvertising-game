@@ -48,6 +48,7 @@
   - `spotlight-91359.mp3`: [Pixabay](https://pixabay.com/sound-effects/spotlight-91359/)
   - `punch-sound-effects-28649.mp3`: [Pixabay](https://pixabay.com/sound-effects/punch-sound-effects-28649/)
   - `bike-bell-173588`: [Irhouen](https://pixabay.com/sound-effects/bike-bell-173588/)
+  - `owl-hooting-48028`: [Pixabay](https://pixabay.com/sound-effects/owl-hooting-48028/)
   - Interface Sounds: [Kenney](https://www.kenney.nl)
 
 

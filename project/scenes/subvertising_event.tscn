@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://cuxr24qjbwetg"]
+[gd_scene load_steps=19 format=3 uid="uid://cuxr24qjbwetg"]
 
 [ext_resource type="Script" path="res://scenes/subvertising_event.gd" id="1_okx4q"]
 [ext_resource type="Shader" path="res://resources/blur.gdshader" id="2_gc52g"]
-[ext_resource type="Curve2D" path="res://resources/qte_curve_labyrinth.tres" id="2_wpd0f"]
+[ext_resource type="Curve2D" path="res://resources/qte_curve_jellyfish.tres" id="2_ou1ro"]
+[ext_resource type="Texture2D" uid="uid://c8cjy4fc5asng" path="res://assets/graphics/adverts/Abraxo.png" id="2_pf7nf"]
 [ext_resource type="AudioStream" uid="uid://cvo0sssqbmlv7" path="res://assets/sounds/success-48018.mp3" id="3_yos6b"]
 [ext_resource type="AudioStream" uid="uid://n8jycee0mufe" path="res://assets/sounds/stop-13692.mp3" id="4_6wmd4"]
 [ext_resource type="AudioStream" uid="uid://bwujphkpoiv30" path="res://assets/sounds/wrong-100536.mp3" id="4_23y6q"]
@@ -94,7 +95,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_okx4q")
-path = ExtResource("2_wpd0f")
+advert_texture = ExtResource("2_pf7nf")
+path = ExtResource("2_ou1ro")
 sections = 16
 line_width = 16
 

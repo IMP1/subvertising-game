@@ -24,6 +24,7 @@ var _collection_button_group: ButtonGroup
 @onready var _settings_button := $Actions/Settings as Button
 @onready var _newspaper_modal := $Modal as Control
 @onready var _newspaper := $Modal/Newspaper as Control
+@onready var _newspaper_issue := $Modal/Newspaper/Contents/NewspaperName/Issue as Label
 @onready var _newspaper_header := $Modal/Newspaper/Contents/Headline as Label
 @onready var _newspaper_photo := $Modal/Newspaper/Contents/HBoxContainer/Image/TextureRect as TextureRect
 @onready var _newspaper_subheader := $Modal/Newspaper/Contents/Subheading as Label
@@ -114,6 +115,18 @@ func _setup_possible_adverts() -> void:
 		ProgressManager.progress.available_artworks_printers.append_array(ProgressManager.progress.PRINTERS_ARTWORK_DAY_7)
 		ProgressManager.progress.available_artworks_art_studio.append_array(ProgressManager.progress.ART_STUDIO_ARTWORK_DAY_7)
 		ProgressManager.progress.available_artworks_bookshop.append_array(ProgressManager.progress.BOOKSHOP_ARTWORK_DAY_7)
+	if day == 8 and ProgressManager.progress.ad_production_day == 8:
+		ProgressManager.progress.available_artworks_home.append_array(ProgressManager.progress.HOME_ARTWORK_DAY_8)
+		ProgressManager.progress.available_artworks_housing_coop.append_array(ProgressManager.progress.HOUSING_COOP_ARTWORK_DAY_8)
+		ProgressManager.progress.available_artworks_printers.append_array(ProgressManager.progress.PRINTERS_ARTWORK_DAY_8)
+		ProgressManager.progress.available_artworks_art_studio.append_array(ProgressManager.progress.ART_STUDIO_ARTWORK_DAY_8)
+		ProgressManager.progress.available_artworks_bookshop.append_array(ProgressManager.progress.BOOKSHOP_ARTWORK_DAY_8)
+	if day == 9 and ProgressManager.progress.ad_production_day == 9:
+		ProgressManager.progress.available_artworks_home.append_array(ProgressManager.progress.HOME_ARTWORK_DAY_9)
+		ProgressManager.progress.available_artworks_housing_coop.append_array(ProgressManager.progress.HOUSING_COOP_ARTWORK_DAY_9)
+		ProgressManager.progress.available_artworks_printers.append_array(ProgressManager.progress.PRINTERS_ARTWORK_DAY_9)
+		ProgressManager.progress.available_artworks_art_studio.append_array(ProgressManager.progress.ART_STUDIO_ARTWORK_DAY_9)
+		ProgressManager.progress.available_artworks_bookshop.append_array(ProgressManager.progress.BOOKSHOP_ARTWORK_DAY_9)
 	
 	if day == ProgressManager.progress.ad_production_day:
 		ProgressManager.progress.ad_production_day += 1
@@ -242,7 +255,6 @@ func _add_art_to_collection() -> void:
 	list.remove_at(index)
 	
 	ProgressManager.progress.artwork.append(texture)
-	var new_id := _collection.get_child_count()
 	var button := Button.new()
 	button.button_group = _collection_button_group
 	button.icon = texture
@@ -252,7 +264,7 @@ func _add_art_to_collection() -> void:
 	button.custom_minimum_size = Vector2(100, 150)
 	button.add_theme_stylebox_override(&"normal", NORMAL_STYLEBOX)
 	button.add_theme_stylebox_override(&"pressed", PRESSED_STYLEBOX)
-	button.pressed.connect(_show_art.bind(_collection, new_id, false))
+	button.pressed.connect(_show_art.bind(_collection, button, false))
 	_collection.add_child(button)
 	current_artwork.queue_free()
 	_hide_art()
@@ -298,6 +310,7 @@ func _show_todays_news() -> void:
 
 func _show_news(news: NewsPage) -> void:
 	_newspaper_modal.visible = true
+	_newspaper_issue.text = str(ProgressManager.progress.day + 100)
 	_newspaper_header.text = news.headline
 	_newspaper_subheader.text = news.subheader
 	_newspaper_photo.texture = news.photo

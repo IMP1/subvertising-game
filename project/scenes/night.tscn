@@ -1,9 +1,10 @@
-[gd_scene load_steps=90 format=3 uid="uid://dlpi30fgfj1co"]
+[gd_scene load_steps=95 format=3 uid="uid://dlpi30fgfj1co"]
 
 [ext_resource type="Script" path="res://scenes/night.gd" id="1_va0q5"]
 [ext_resource type="PackedScene" uid="uid://calyfds33u8g5" path="res://objects/npc_manager.tscn" id="2_hh45f"]
 [ext_resource type="PackedScene" uid="uid://cxladiad5t371" path="res://objects/player.tscn" id="2_lnal2"]
 [ext_resource type="Texture2D" uid="uid://bplt4dhx30ojm" path="res://assets/map/light-cone.png" id="3_4ped2"]
+[ext_resource type="AudioStream" uid="uid://dr17wnylkck01" path="res://assets/sounds/owl-hooting-48028.mp3" id="3_8va24"]
 [ext_resource type="PackedScene" uid="uid://cjs544vn8kvp5" path="res://objects/advert.tscn" id="4_l7e14"]
 [ext_resource type="Texture2D" uid="uid://cnjcqbjxgu4ul" path="res://assets/graphics/adverts/Dread Cola.png" id="5_11wb5"]
 [ext_resource type="Texture2D" uid="uid://cdtclt4o04y5v" path="res://assets/graphics/map/bike-lock.png" id="5_xo2as"]
@@ -17,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c0jpbjujdpxnm" path="res://scenes/settings.tscn" id="10_ggb8a"]
 [ext_resource type="PackedScene" uid="uid://bct0chw6waj6t" path="res://objects/npc_source.tscn" id="10_gp8cs"]
 [ext_resource type="PackedScene" uid="uid://25ivngyxqchw" path="res://objects/door.tscn" id="12_vb871"]
+[ext_resource type="Texture2D" uid="uid://cdgfumvp8g7ji" path="res://assets/graphics/map/barrier.png" id="13_liust"]
 [ext_resource type="Theme" uid="uid://bcyi0pjljka6y" path="res://resources/theme_menu.tres" id="14_jgq1b"]
 [ext_resource type="Texture2D" uid="uid://cds73jioo6nsh" path="res://assets/icons/notifications_off_128dp_FILL0_wght400_GRAD0_opsz48.svg" id="17_1qpjv"]
 [ext_resource type="Texture2D" uid="uid://cld5kayva6bgo" path="res://assets/icons/mona-lisa.svg" id="17_ldv6g"]
@@ -33,113 +35,113 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oelvy"]
 size = Vector2(1128, 360)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvg7j"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1rhh"]
 resource_local_to_scene = true
 size = Vector2(1128, 324)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8wiej"]
 size = Vector2(408, 504)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nt1yk"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8f3si"]
 resource_local_to_scene = true
 size = Vector2(408, 468)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5rkcm"]
 size = Vector2(480, 648)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gsrkl"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tg6q8"]
 resource_local_to_scene = true
 size = Vector2(480, 612)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nr687"]
 size = Vector2(648, 384)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_23b85"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whonu"]
 resource_local_to_scene = true
 size = Vector2(648, 348)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cl11w"]
 size = Vector2(528, 288)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dekd4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5qg7"]
 resource_local_to_scene = true
 size = Vector2(528, 252)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4nybn"]
 size = Vector2(360, 528)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_25wrc"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpe6r"]
 resource_local_to_scene = true
 size = Vector2(360, 492)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cdb0u"]
 size = Vector2(528, 312)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2a5j"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htqvt"]
 resource_local_to_scene = true
 size = Vector2(528, 276)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jce34"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_psn4q"]
 resource_local_to_scene = true
 size = Vector2(480, 324)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_560gq"]
 size = Vector2(624, 240)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mh1so"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tvtpq"]
 resource_local_to_scene = true
 size = Vector2(624, 204)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0q7qr"]
 size = Vector2(768, 264)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sit1u"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knxm5"]
 resource_local_to_scene = true
 size = Vector2(768, 228)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d468l"]
 size = Vector2(480, 1272)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2f00"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7l7c"]
 resource_local_to_scene = true
 size = Vector2(480, 1236)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1d1fd"]
 size = Vector2(744, 600)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_brwm1"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgqna"]
 resource_local_to_scene = true
 size = Vector2(744, 564)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ay64h"]
 size = Vector2(312, 648)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_87ggs"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ubma"]
 resource_local_to_scene = true
 size = Vector2(312, 612)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i80dq"]
 size = Vector2(600, 648)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucgkh"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xlfp"]
 resource_local_to_scene = true
 size = Vector2(600, 612)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3kix"]
 size = Vector2(432, 1128)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqabh"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7wu3"]
 resource_local_to_scene = true
 size = Vector2(432, 1092)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rpk8"]
 size = Vector2(168, 288)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_puvey"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jc6hd"]
 resource_local_to_scene = true
 size = Vector2(168, 252)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfoy3"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bluxh"]
 resource_local_to_scene = true
 size = Vector2(168, 252)
 
@@ -169,6 +171,15 @@ vertices = PackedVector2Array(468, 985, 435, 985, 433, 946, 468, 946, 466, -56, 
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(8, 11, 12, 13), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(18, 19, 20, 21, 10), PackedInt32Array(22, 23, 24, 25, 26), PackedInt32Array(27, 28, 29, 30), PackedInt32Array(19, 18, 31), PackedInt32Array(32, 19, 31, 33), PackedInt32Array(34, 35, 36, 37), PackedInt32Array(38, 39, 40, 41, 42), PackedInt32Array(43, 44, 45, 15, 46), PackedInt32Array(32, 33, 47, 48, 49, 50), PackedInt32Array(28, 51, 52, 53), PackedInt32Array(9, 8, 48, 47), PackedInt32Array(53, 54, 29, 28), PackedInt32Array(55, 56, 57, 58, 59), PackedInt32Array(50, 60, 32), PackedInt32Array(61, 62, 63, 64, 65), PackedInt32Array(66, 67, 68, 69), PackedInt32Array(10, 21, 70, 35, 61, 65, 11), PackedInt32Array(68, 71, 72, 73), PackedInt32Array(49, 13, 12, 50), PackedInt32Array(26, 50, 12, 46), PackedInt32Array(74, 22, 26, 46, 75), PackedInt32Array(52, 76, 69, 53), PackedInt32Array(77, 78, 79), PackedInt32Array(80, 37, 36, 81, 42, 41, 27, 30, 82), PackedInt32Array(58, 57, 75, 46, 15, 14), PackedInt32Array(79, 83, 84, 85, 55), PackedInt32Array(61, 35, 34, 86), PackedInt32Array(87, 61, 86, 88), PackedInt32Array(88, 37, 80, 87), PackedInt32Array(89, 87, 80, 90), PackedInt32Array(91, 92, 93, 89), PackedInt32Array(91, 89, 90, 94), PackedInt32Array(95, 94, 90, 96), PackedInt32Array(96, 97, 95), PackedInt32Array(16, 96, 90), PackedInt32Array(73, 98, 99, 68), PackedInt32Array(59, 17, 16, 90, 55), PackedInt32Array(79, 55, 90, 73, 77), PackedInt32Array(72, 77, 73), PackedInt32Array(53, 69, 68, 99)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-310, -992, 3090, -986, 3094, 1457, -334, 1469)])
 source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqumx"]
+size = Vector2(3458, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdy4h"]
+size = Vector2(3512, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3l5v5"]
+size = Vector2(161, 2577)
 
 [sub_resource type="Curve" id="Curve_uyk03"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.81182, 0.0, 0, 0]
@@ -306,8 +317,15 @@ process_mode = 3
 y_sort_enabled = true
 script = ExtResource("1_va0q5")
 background_music = ExtResource("10_bl1ut")
+night_length = 15.0
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="OwlHoot" type="AudioStreamPlayer" parent="Timer"]
+stream = ExtResource("3_8va24")
+volume_db = 2.0
+bus = &"Sounds"
 
 [node name="NPCManager" parent="." node_paths=PackedStringArray("npc_list", "sources", "random_areas", "destinations", "timer") instance=ExtResource("2_hh45f")]
 npc_list = NodePath("../NPCs")
@@ -326,12 +344,7 @@ z_index = -2
 
 [node name="Polygon2D" type="Polygon2D" parent="World/Streets"]
 color = Color(0.231373, 0.231373, 0.231373, 1)
-polygon = PackedVector2Array(417, -49, 408, 382, 93, 373, 117, 677, 385, 677, 376, 1206, -325, 1206, -348, 1540, 1575, 1574, 1564, 736, 896, 646, 894, 377, 1087, 379, 1091, 176, 898, 172, 896, -28, 1048, -23, 1051, -180, 873, -180, 865, -544, 1507, -538, 1534, -1009, -340, -1006, -328, -581, 424, -584, 426, -404, 120, -406, 116, -256, 414, -268)
-
-[node name="Polygon2D2" type="Polygon2D" parent="World/Streets"]
-position = Vector2(1604, 27)
-color = Color(0.231373, 0.231373, 0.231373, 1)
-polygon = PackedVector2Array(400, 55, 399, 144, -782, 147, -777, 403, 388, 394, 397, 841, 362, 1151, -136, 1224, -80, 1524, 1487, 1513, 1482, 1111, 1069, 1128, 1069, 958, 882, 970, 886, 857, 889, 710, 1054, 718, 1046, 577, 878, 571, 881, 323, 1033, 323, 1030, 206, 881, 211, 863, -414, 1504, -414, 1511, -1026, -141, -1040, -140, -543, 408, -566, 404, -320, 211, -306, 220, -117, 402, -119)
+polygon = PackedVector2Array(-1674, -1977, 4686, -2001, 4846, 2703, -1682, 2647)
 
 [node name="Buildings" type="Node2D" parent="World"]
 y_sort_enabled = true
@@ -355,7 +368,7 @@ offset_right = -188.0
 offset_bottom = -298.667
 
 [node name="CollisionShape2D" parent="World/Buildings/1/StaticBody2D" index="0"]
-shape = SubResource("RectangleShape2D_wvg7j")
+shape = SubResource("RectangleShape2D_e1rhh")
 
 [node name="2" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
 position = Vector2(1078, 1164)
@@ -376,7 +389,7 @@ offset_bottom = -368.0
 
 [node name="CollisionShape2D" parent="World/Buildings/2/StaticBody2D" index="0"]
 position = Vector2(0, -234)
-shape = SubResource("RectangleShape2D_nt1yk")
+shape = SubResource("RectangleShape2D_8f3si")
 
 [node name="3" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
 position = Vector2(1762, 1228)
@@ -396,7 +409,7 @@ offset_bottom = -490.667
 
 [node name="CollisionShape2D" parent="World/Buildings/3/StaticBody2D" index="0"]
 position = Vector2(0, -306)
-shape = SubResource("RectangleShape2D_gsrkl")
+shape = SubResource("RectangleShape2D_tg6q8")
 
 [node name="4" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
 position = Vector2(1179, -170)
@@ -420,7 +433,7 @@ offset_bottom = -314.667
 
 [node name="CollisionShape2D" parent="World/Buildings/4/StaticBody2D" index="0"]
 position = Vector2(0, -174)
-shape = SubResource("RectangleShape2D_23b85")
+shape = SubResource("RectangleShape2D_whonu")
 
 [node name="5" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
 position = Vector2(1764, -266)
@@ -444,7 +457,7 @@ offset_bottom = -250.667
 
 [node name="CollisionShape2D" parent="World/Buildings/5/StaticBody2D" index="0"]
 position = Vector2(0, -126)
-shape = SubResource("RectangleShape2D_dekd4")
+shape = SubResource("RectangleShape2D_j5qg7")
 
 [node name="6" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
 position = Vector2(1680, 71)
@@ -468,7 +481,7 @@ offset_bottom = -410.667
 
 [node name="CollisionShape2D" parent="World/Buildings/6/StaticBody2D" index="0"]
 position = Vector2(0, -246)
-shape = SubResource("RectangleShape2D_25wrc")
+shape = SubResource("RectangleShape2D_jpe6r")
 
 [node name="7" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
 position = Vector2(1764, 192)
@@ -492,13 +505,13 @@ offset_bottom = -266.667
 
 [node name="CollisionShape2D" parent="World/Buildings/7/StaticBody2D" index="0"]
 position = Vector2(0, -138)
-shape = SubResource("RectangleShape2D_r2a5j")
+shape = SubResource("RectangleShape2D_htqvt")
 
 [node name="8" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
 position = Vector2(1266, -1)
 
 [node name="CollisionShape2D" parent="World/Buildings/8/StaticBody2D" index="0"]
-shape = SubResource("RectangleShape2D_jce34")
+shape = SubResource("RectangleShape2D_psn4q")
 
 [node name="9" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
 position = Vector2(1191, 192)
@@ -522,7 +535,7 @@ offset_bottom = -208.0
 
 [node name="CollisionShape2D" parent="World/Buildings/9/StaticBody2D" index="0"]
 position = Vector2(0, -102)
-shape = SubResource("RectangleShape2D_mh1so")
+shape = SubResource("RectangleShape2D_tvtpq")
 
 [node name="10" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
 position = Vector2(52, -387)
@@ -543,7 +556,7 @@ offset_bottom = -208.0
 
 [node name="CollisionShape2D" parent="World/Buildings/10/StaticBody2D" index="0"]
 position = Vector2(0, -114)
-shape = SubResource("RectangleShape2D_sit1u")
+shape = SubResource("RectangleShape2D_knxm5")
 
 [node name="11" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
 position = Vector2(-116, 720)
@@ -563,7 +576,7 @@ offset_bottom = -906.667
 
 [node name="CollisionShape2D" parent="World/Buildings/11/StaticBody2D" index="0"]
 position = Vector2(0, -618)
-shape = SubResource("RectangleShape2D_s2f00")
+shape = SubResource("RectangleShape2D_q7l7c")
 
 [node name="12" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
 position = Vector2(40, 1225)
@@ -587,7 +600,7 @@ offset_bottom = -448.0
 
 [node name="CollisionShape2D" parent="World/Buildings/12/StaticBody2D" index="0"]
 position = Vector2(0, -282)
-shape = SubResource("RectangleShape2D_brwm1")
+shape = SubResource("RectangleShape2D_qgqna")
 
 [node name="13" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
 position = Vector2(277, 383)
@@ -611,7 +624,7 @@ offset_bottom = -490.667
 
 [node name="CollisionShape2D" parent="World/Buildings/13/StaticBody2D" index="0"]
 position = Vector2(0, -306)
-shape = SubResource("RectangleShape2D_87ggs")
+shape = SubResource("RectangleShape2D_2ubma")
 
 [node name="14" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
 position = Vector2(2774, 241)
@@ -635,7 +648,7 @@ offset_bottom = -490.667
 
 [node name="CollisionShape2D" parent="World/Buildings/14/StaticBody2D" index="0"]
 position = Vector2(0, -306)
-shape = SubResource("RectangleShape2D_ucgkh")
+shape = SubResource("RectangleShape2D_4xlfp")
 
 [node name="15" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
 position = Vector2(2858, 1178)
@@ -659,7 +672,7 @@ offset_bottom = -810.667
 
 [node name="CollisionShape2D" parent="World/Buildings/15/StaticBody2D" index="0"]
 position = Vector2(0, -546)
-shape = SubResource("RectangleShape2D_fqabh")
+shape = SubResource("RectangleShape2D_m7wu3")
 
 [node name="16" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
 position = Vector2(2561, 615)
@@ -683,7 +696,7 @@ offset_bottom = -240.0
 
 [node name="CollisionShape2D" parent="World/Buildings/16/StaticBody2D" index="0"]
 position = Vector2(0, -126)
-shape = SubResource("RectangleShape2D_puvey")
+shape = SubResource("RectangleShape2D_jc6hd")
 
 [node name="17" parent="World/Buildings" instance=ExtResource("6_jwxhs")]
 position = Vector2(2561, 1015)
@@ -707,7 +720,7 @@ offset_bottom = -240.0
 
 [node name="CollisionShape2D" parent="World/Buildings/17/StaticBody2D" index="0"]
 position = Vector2(0, -126)
-shape = SubResource("RectangleShape2D_nfoy3")
+shape = SubResource("RectangleShape2D_bluxh")
 
 [node name="Decor" type="Node2D" parent="World"]
 y_sort_enabled = true
@@ -993,6 +1006,78 @@ position = Vector2(-10, -813)
 color = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(2116, 69, 2236, 72, 2239, 145, 2224, 194, 2111, 190, 2109, 105)
 
+[node name="Barriers" type="Node2D" parent="World"]
+
+[node name="Top" type="StaticBody2D" parent="World/Barriers"]
+position = Vector2(1370, -1090)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Barriers/Top"]
+position = Vector2(6, 58.5)
+shape = SubResource("RectangleShape2D_aqumx")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="World/Barriers/Top"]
+texture_filter = 1
+offset_left = -1731.0
+offset_top = 34.0
+offset_right = -574.0
+offset_bottom = 50.0
+scale = Vector2(3, 3)
+texture = ExtResource("13_liust")
+region_rect = Rect2(0, 0, 32, 16)
+patch_margin_left = 8
+patch_margin_right = 12
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Bottom" type="StaticBody2D" parent="World/Barriers"]
+position = Vector2(1357, 1437)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Barriers/Bottom"]
+position = Vector2(33, 58.5)
+shape = SubResource("RectangleShape2D_wdy4h")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="World/Barriers/Bottom"]
+texture_filter = 1
+offset_left = -1731.0
+offset_top = 34.0
+offset_right = -1044.0
+offset_bottom = 50.0
+scale = Vector2(3, 3)
+texture = ExtResource("13_liust")
+region_rect = Rect2(0, 0, 32, 16)
+patch_margin_left = 8
+patch_margin_right = 12
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="World/Barriers/Bottom"]
+texture_filter = 1
+offset_left = 318.0
+offset_top = 34.0
+offset_right = 788.0
+offset_bottom = 50.0
+scale = Vector2(3, 3)
+texture = ExtResource("13_liust")
+region_rect = Rect2(0, 0, 32, 16)
+patch_margin_left = 8
+patch_margin_right = 12
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Left" type="StaticBody2D" parent="World/Barriers"]
+position = Vector2(-480, 93)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Barriers/Left"]
+position = Vector2(70.5, 144.5)
+shape = SubResource("RectangleShape2D_3l5v5")
+
+[node name="Right" type="StaticBody2D" parent="World/Barriers"]
+position = Vector2(3123, 93)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Barriers/Right"]
+position = Vector2(70.5, 144.5)
+shape = SubResource("RectangleShape2D_3l5v5")
+
 [node name="Player" parent="." instance=ExtResource("2_lnal2")]
 process_mode = 1
 position = Vector2(2166, -595)
@@ -1260,7 +1345,7 @@ visible = false
 [node name="Debug" type="CanvasLayer" parent="."]
 visible = false
 
-[connection signal="timeout" from="Timer" to="." method="_end_night"]
+[connection signal="timeout" from="Timer" to="." method="_night_time_ended"]
 [connection signal="interacted" from="World/Decor/Bike" to="." method="_cycle_home"]
 [connection signal="knocked_out" from="Player" to="." method="_knock_out"]
 [connection signal="focus_entered" from="Menus/Menu/Menu/PanelContainer/VBoxContainer/Resume" to="." method="_menu_cursor_moved"]

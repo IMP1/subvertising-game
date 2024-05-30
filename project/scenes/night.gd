@@ -8,6 +8,7 @@ const MEDIUM_LOCKS: Array[Curve2D] = [
 	preload("res://resources/qte_curve_split_circle.tres"),
 ]
 const HARD_LOCKS: Array[Curve2D] = [
+	preload("res://resources/qte_curve_jellyfish.tres"),
 	preload("res://resources/qte_curve_spiral.tres"),
 ]
 const EXTREME_LOCKS: Array[Curve2D] = [
@@ -43,7 +44,9 @@ var _indicating_artwork_count: bool = false
 
 @onready var _timer := $Timer as Timer
 @onready var _player := $Player as Player
+@onready var _npcs := $NPCs as Node2D
 @onready var _time_progress := $HUD/Control/Time/ProgressBar as ProgressBar
+@onready var _owl_hoot := $Timer/OwlHoot as AudioStreamPlayer
 @onready var _subvertising_progress := $HUD/Control/SubvertisingCount/Label as Label
 @onready var _subvertising_progress_particles := $HUD/Control/SubvertisingCount/Label/GPUParticles2D as GPUParticles2D
 @onready var _subvertising_qte := $Menus/SubvertisingEvent as SubvertisingEvent
@@ -106,7 +109,7 @@ func _setup_ads() -> void:
 			ad.unlock_path = EASY_LOCKS.pick_random() as Curve2D
 		elif past_count < 3:
 			ad.unlock_path = MEDIUM_LOCKS.pick_random() as Curve2D
-		elif past_count < 5:
+		elif past_count < 6:
 			ad.unlock_path = HARD_LOCKS.pick_random() as Curve2D
 		else:
 			ad.unlock_path = EXTREME_LOCKS.pick_random() as Curve2D
@@ -198,6 +201,19 @@ func _end_night() -> void:
 	SceneTransition.transition_to_file("res://scenes/day.tscn", &"fade_black")
 
 
+func _night_time_ended() -> void:
+	_player.can_move = false
+	_owl_hoot.play()
+	var tween := create_tween()
+	tween.set_parallel()
+	tween.tween_property(_map, "modulate", Color(0, 0, 0), 2.0)
+	tween.tween_property(_npcs, "modulate", Color(0, 0, 0), 2.0)
+	await tween.finished
+	ProgressManager.progress.night_time = false
+	ProgressManager.progress.day += 1
+	SceneTransition.transition_to_file("res://scenes/day.tscn", &"fade_black")
+
+
 func _quit() -> void:
 	_menu_audio_accept.play()
 	_hide_menu()
@@ -210,6 +226,8 @@ func _process(_delta: float) -> void:
 	_time_progress.value = _timer.wait_time - _timer.time_left
 	var time_ratio := (_timer.wait_time - _timer.time_left) / _timer.wait_time
 	_map.modulate = lerp(Color("dbc7b5"), Color("614d7a"), time_ratio)
+	_player.modulate = lerp(Color("ecd4b7"), Color("8472b4"), time_ratio)
+	_npcs.modulate = lerp(Color("ecd4b7"), Color("8472b4"), time_ratio)
 
 
 func _start_subvertising(advert: Advert) -> void:

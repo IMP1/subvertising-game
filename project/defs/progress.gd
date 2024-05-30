@@ -51,7 +51,9 @@ const PRINTERS_ARTWORK_DAY_4: Array[Texture2D] = []
 const ART_STUDIO_ARTWORK_DAY_4: Array[Texture2D] = []
 const BOOKSHOP_ARTWORK_DAY_4: Array[Texture2D] = []
 
-const HOME_ARTWORK_DAY_5: Array[Texture2D] = []
+const HOME_ARTWORK_DAY_5: Array[Texture2D] = [
+	preload("res://assets/graphics/artwork/black.png"),
+]
 const HOUSING_COOP_ARTWORK_DAY_5: Array[Texture2D] = []
 const PRINTERS_ARTWORK_DAY_5: Array[Texture2D] = [
 	preload("res://assets/graphics/artwork/tony-says.png"),
@@ -69,39 +71,53 @@ const HOME_ARTWORK_DAY_6: Array[Texture2D] = [
 const HOUSING_COOP_ARTWORK_DAY_6: Array[Texture2D] = [
 	preload("res://assets/graphics/artwork/common.png"),
 ]
-const PRINTERS_ARTWORK_DAY_6: Array[Texture2D] = []
+const PRINTERS_ARTWORK_DAY_6: Array[Texture2D] = [
+	preload("res://assets/graphics/artwork/boss-haiku.png"),
+]
 const ART_STUDIO_ARTWORK_DAY_6: Array[Texture2D] = []
 const BOOKSHOP_ARTWORK_DAY_6: Array[Texture2D] = []
 
-# Redo all the past ones on day 7! (also have a sense of the spread and amount)
 const HOME_ARTWORK_DAY_7: Array[Texture2D] = [
 	preload("res://assets/graphics/artwork/nearest-park.png"),
 	preload("res://assets/graphics/artwork/nearest-library.png"),
-	preload("res://assets/graphics/artwork/take-a-breath.png"),
-	preload("res://assets/graphics/artwork/buy-more.png"),
-	preload("res://assets/graphics/artwork/black.png"),
 ]
 const HOUSING_COOP_ARTWORK_DAY_7: Array[Texture2D] = [
-	preload("res://assets/graphics/artwork/saint-or-communist.png"),
 	preload("res://assets/graphics/artwork/sonic.png"),
-	preload("res://assets/graphics/artwork/garden.png"),
-	preload("res://assets/graphics/artwork/common.png"),
 ]
-const PRINTERS_ARTWORK_DAY_7: Array[Texture2D] = [
-	preload("res://assets/graphics/artwork/leaves.png"),
-	preload("res://assets/graphics/artwork/boss-haiku.png"),
-	preload("res://assets/graphics/artwork/tony-says.png"),
-]
+const PRINTERS_ARTWORK_DAY_7: Array[Texture2D] = []
 const ART_STUDIO_ARTWORK_DAY_7: Array[Texture2D] = [
 	preload("res://assets/graphics/artwork/ergo-sum.png"),
-	preload("res://assets/graphics/artwork/lies.png"),
-	preload("res://assets/graphics/artwork/life-is-great.png"),
 ]
-const BOOKSHOP_ARTWORK_DAY_7: Array[Texture2D] = [
+const BOOKSHOP_ARTWORK_DAY_7: Array[Texture2D] = []
+
+const HOME_ARTWORK_DAY_8: Array[Texture2D] = [
+	preload("res://assets/graphics/artwork/take-a-breath.png"),
+]
+const HOUSING_COOP_ARTWORK_DAY_8: Array[Texture2D] = []
+const PRINTERS_ARTWORK_DAY_8: Array[Texture2D] = [
+	preload("res://assets/graphics/artwork/leaves.png"),
+]
+const ART_STUDIO_ARTWORK_DAY_8: Array[Texture2D] = []
+const BOOKSHOP_ARTWORK_DAY_8: Array[Texture2D] = [
 	preload("res://assets/graphics/artwork/fuck-work.png"),
 	preload("res://assets/graphics/artwork/brain.png"),
 	preload("res://assets/graphics/artwork/trickle-down.png"),
 ]
+
+const HOME_ARTWORK_DAY_9: Array[Texture2D] = [
+	preload("res://assets/graphics/artwork/buy-more.png"),
+]
+const HOUSING_COOP_ARTWORK_DAY_9: Array[Texture2D] = [
+	preload("res://assets/graphics/artwork/saint-or-communist.png"),
+]
+const PRINTERS_ARTWORK_DAY_9: Array[Texture2D] = [
+	preload("res://assets/graphics/artwork/tony-says.png"),
+]
+const ART_STUDIO_ARTWORK_DAY_9: Array[Texture2D] = [
+	preload("res://assets/graphics/artwork/lies.png"),
+	preload("res://assets/graphics/artwork/life-is-great.png"),
+]
+const BOOKSHOP_ARTWORK_DAY_9: Array[Texture2D] = []
 
 @export var day: int = 1
 @export var ad_production_day: int = 1

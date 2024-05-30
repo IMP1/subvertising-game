@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://tools/curve_maker.gd" id="1_nwg4u"]
 
-[sub_resource type="Curve2D" id="Curve2D_tmdof"]
+[sub_resource type="Curve2D" id="Curve2D_oemye"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 572, 8, 0, -105.839, 0, 105.839, 435, 141, 0, 0, 0, 0, 570, 277, 0, 0, 0, 0, 573, 147, -7.13524, -123.678, 7.13524, 123.678, 699, 281, 0, 0, 0, 0, 570, 412)
+"points": PackedVector2Array(0, 0, 0, 0, 461, 9, 10.7029, -38.0546, -10.7029, 38.0546, 435, 123, 5.94604, -111.786, -5.94604, 111.786, 278, 67, -40.4331, -30.9194, 40.4331, 30.9194, 394, 184, -16.6489, -53.5143, 16.6489, 53.5143, 261, 305, 5.94604, -28.541, -5.94604, 28.541, 426, 250, -101.083, 20.2165, 101.083, -20.2165, 494, 405, -83.2445, -2.37842, 83.2445, 2.37842, 555, 247, -63.028, 65.4064, 63.028, -65.4064, 666, 344, 0, 29.7302, 0, -29.7302, 579, 200, 42.8115, 35.6762, -42.8115, -35.6762, 674, 82, 56.9194, 33.7029, -56.9194, -33.7029, 516, 147, 0, 0, 0, 0, 473, 328)
 }
-point_count = 6
+point_count = 13
 
 [node name="CurveMaker" type="Control"]
 layout_mode = 3
@@ -16,7 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nwg4u")
-path_filename = "split_circle"
+path_filename = "jellyfish"
 
 [node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_tmdof")
+curve = SubResource("Curve2D_oemye")

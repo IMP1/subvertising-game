@@ -1,0 +1,82 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://bbi87isty36gs"]
+
+[ext_resource type="Texture2D" uid="uid://cdsnppkhxh3c5" path="res://assets/graphics/characters/worker_4_happy.png" id="1_jlbiq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4oj26"]
+atlas = ExtResource("1_jlbiq")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qg40f"]
+atlas = ExtResource("1_jlbiq")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87xay"]
+atlas = ExtResource("1_jlbiq")
+region = Rect2(0, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u88pl"]
+atlas = ExtResource("1_jlbiq")
+region = Rect2(16, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4w6i"]
+atlas = ExtResource("1_jlbiq")
+region = Rect2(0, 72, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qq5cc"]
+atlas = ExtResource("1_jlbiq")
+region = Rect2(16, 72, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upkbj"]
+atlas = ExtResource("1_jlbiq")
+region = Rect2(0, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr8dg"]
+atlas = ExtResource("1_jlbiq")
+region = Rect2(16, 48, 16, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4oj26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qg40f")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87xay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u88pl")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4w6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qq5cc")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upkbj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fr8dg")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]

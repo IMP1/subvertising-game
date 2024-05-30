@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_tbvgg")
+issue = 101
 headline = "Bad-vertising!"
 photo = ExtResource("1_l5lr3")
 subheader = "High-street adverts are targetted by new radical anarchists."

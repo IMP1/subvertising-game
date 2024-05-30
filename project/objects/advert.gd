@@ -21,7 +21,7 @@ var _player_near: bool = false
 var _player: Player = null
 
 @onready var _area := $Area2D as Area2D
-@onready var _board := $Board as Sprite2D
+@onready var _board := $Advert as TextureRect
 @onready var _input_prompt_timer := $PromptTimer as Timer
 
 

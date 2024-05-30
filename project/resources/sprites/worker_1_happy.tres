@@ -1,0 +1,82 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://yiyeg58ltdvq"]
+
+[ext_resource type="Texture2D" uid="uid://bkkol5kwneqps" path="res://assets/graphics/characters/worker_1_happy.png" id="1_iodh0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycp3k"]
+atlas = ExtResource("1_iodh0")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wonqb"]
+atlas = ExtResource("1_iodh0")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soc0q"]
+atlas = ExtResource("1_iodh0")
+region = Rect2(0, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtm7d"]
+atlas = ExtResource("1_iodh0")
+region = Rect2(16, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy0lf"]
+atlas = ExtResource("1_iodh0")
+region = Rect2(0, 72, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdfi7"]
+atlas = ExtResource("1_iodh0")
+region = Rect2(16, 72, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdity"]
+atlas = ExtResource("1_iodh0")
+region = Rect2(0, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nru0c"]
+atlas = ExtResource("1_iodh0")
+region = Rect2(16, 48, 16, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycp3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wonqb")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_soc0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtm7d")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy0lf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdfi7")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdity")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nru0c")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
