@@ -89,6 +89,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 3
+collision_mask = 17
 script = ExtResource("1_k660m")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -125,5 +126,5 @@ stretch_mode = 6
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 position = Vector2(0, -10)
-radius = 48.0
+radius = 64.0
 vertices = PackedVector2Array(-34, -19, 37, -19, 37, 18, -33, 18)

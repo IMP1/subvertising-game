@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvnxothvatoih"]
+[gd_scene load_steps=7 format=3 uid="uid://dvnxothvatoih"]
 
 [ext_resource type="Script" path="res://objects/npc.gd" id="1_8yfvv"]
-[ext_resource type="SpriteFrames" uid="uid://bwvk8w5onyfuw" path="res://resources/sprites/worker_2.tres" id="2_on7vf"]
 [ext_resource type="SpriteFrames" uid="uid://cvmxlwoir7gp4" path="res://resources/sprites/person_1.tres" id="3_qvjlp"]
 [ext_resource type="SpriteFrames" uid="uid://cmpibgj7pcuuf" path="res://resources/bubbles.tres" id="3_wnb61"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvgb3"]
-size = Vector2(42, 24)
+[sub_resource type="CircleShape2D" id="CircleShape2D_2x4r7"]
+radius = 21.095
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oor2f"]
 radius = 201.002
@@ -14,14 +13,14 @@ radius = 201.002
 [sub_resource type="CircleShape2D" id="CircleShape2D_bv24f"]
 radius = 65.0077
 
-[node name="NPC" type="CharacterBody2D"]
+[node name="NPC" type="CharacterBody2D" node_paths=PackedStringArray("debug_remote_transform")]
 collision_layer = 5
 script = ExtResource("1_8yfvv")
-sprite_frames = ExtResource("2_on7vf")
+debug_remote_transform = NodePath("RemoteTransform2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -9)
-shape = SubResource("RectangleShape2D_cvgb3")
+shape = SubResource("CircleShape2D_2x4r7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -36,12 +35,16 @@ texture_filter = 1
 position = Vector2(0, -99)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("3_wnb61")
-animation = &"whistling"
+animation = &"exclamation"
+frame = 2
+frame_progress = 1.0
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 radius = 64.0
-time_horizon_obstacles = 1.0
+neighbor_distance = 96.0
+time_horizon_obstacles = 2.0
+max_speed = 128.0
 
 [node name="Vision" type="Area2D" parent="."]
 position = Vector2(0, -9)
@@ -73,6 +76,8 @@ collision_mask = 6
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PersonalSpace"]
 position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_bv24f")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_adjust_velocity"]
 [connection signal="body_entered" from="Vision" to="." method="_body_entered_area"]

@@ -1,5 +1,7 @@
 extends Node
 
+signal npc_spawned(npc: NPC)
+
 const NPC_CLASS := preload("res://objects/npc.tscn")
 
 # TODO: More sprites!
@@ -92,35 +94,25 @@ func _spawn_early_work_leavers() -> void:
 		chance = 0.9
 	for door in sources.get_children().filter(func(source: Node) -> bool: return source is Door):
 		if randf() < chance:
-			var amount := clampi(floori(absf(randfn(0.0, 1.0))), 1, 3)
-			_spawn_npc_from_building(door as Door, _setup_worker, amount)
-	await get_tree().create_timer(6.0).timeout
-	for door in sources.get_children().filter(func(source: Node) -> bool: return source is Door):
-		if randf() < chance * 0.8:
-			var amount := clampi(floori(absf(randfn(0.0, 1.0))), 1, 2)
+			var amount := clampi(floori(absf(randfn(0.0, 1.0))), 1, 4)
 			_spawn_npc_from_building(door as Door, _setup_worker, amount)
 
 
 func _spawn_work_leavers() -> void:
 	var progress := ProgressManager.progress.get_total_subvertisement_count()
-	var chance := 0.0 # TODO: Tweak the numbers
+	var chance := 0.0
 	if progress < 6:
 		chance = 0.7
 	elif process_mode < 12:
-		chance = 0.5
+		chance = 0.3
 	elif process_mode < 18:
 		chance = 0.5
 	elif process_mode < 24:
 		chance = 0.9
 	for door in sources.get_children().filter(func(source: Node) -> bool: return source is Door):
 		if randf() < chance:
-			var amount := clampi(floori(absf(randfn(0.0, 1.0))), 1, 3)
+			var amount := clampi(floori(absf(randfn(0.0, 1.0))), 1, 4)
 			_spawn_npc_from_building(door as Door, _setup_worker, amount)
-	await get_tree().create_timer(6.0).timeout
-	for door in sources.get_children().filter(func(source: Node) -> bool: return source is Door):
-		if randf() < chance * 0.8:
-			var amount := clampi(floori(absf(randfn(0.0, 1.0))), 1, 2)
-			_spawn_npc_from_building(door as Door, _setup_worker, amount)  
 
 
 func _spawn_late_work_leavers() -> void:
@@ -188,7 +180,9 @@ func _spawn_npc_from_building(door: Door, setup_func: Callable, amount: int = 1)
 	for i in amount:
 		var destination := door.destinations.pick_random() as Marker2D
 		var npc := NPC_CLASS.instantiate() as NPC
+		setup_func.call(npc)
 		npc_list.add_child(npc)
+		npc.global_position = destination.global_position + Door.INITIAL_OFFSET
 		await get_tree().create_timer(1.0).timeout
 		await door.exit_npc(npc)
 		var pos := npc.global_position
@@ -216,6 +210,7 @@ func _setup_npc(npc: NPC, setup: Callable, initial_pos: Vector2, final_pos: Vect
 	npc.global_position = initial_pos
 	npc.move_to(final_pos)
 	npc.reached_destination.connect(_remove_npc.bind(npc))
+	npc_spawned.emit(npc)
 	return npc
 
 

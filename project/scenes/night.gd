@@ -34,6 +34,8 @@ const CAMERA_SIZE := Vector2(256, 256)
 const MUSIC_BUS := 1
 const LOW_PASS_FILTER := 0
 
+@export var colour_tint_world: Gradient
+@export var colour_tint_characters: Gradient
 @export var background_music: AudioStream
 @export var time_scale: float = 1.0:
 	set = _set_time_scale
@@ -41,10 +43,12 @@ const LOW_PASS_FILTER := 0
 
 var _subvertising_count: int = 0
 var _indicating_artwork_count: bool = false
+var _lights_on: bool = false
 
 @onready var _timer := $Timer as Timer
 @onready var _player := $Player as Player
 @onready var _npcs := $NPCs as Node2D
+@onready var _lights := $World/Lights as Node2D
 @onready var _time_progress := $HUD/Control/Time/ProgressBar as ProgressBar
 @onready var _owl_hoot := $Timer/OwlHoot as AudioStreamPlayer
 @onready var _subvertising_progress := $HUD/Control/SubvertisingCount/Label as Label
@@ -67,6 +71,7 @@ var _indicating_artwork_count: bool = false
 @onready var _game_over_sfx := $Menus/GameOver/Sound as AudioStreamPlayer
 @onready var _game_over_vignette := $Menus/GameOver/Vignette as ColorRect
 @onready var _game_over_vignette_shader := _game_over_vignette.material as ShaderMaterial
+@onready var _debug_cameras := $Debug/Cameras as Control
 
 
 func _set_time_scale(value: float) -> void:
@@ -75,7 +80,10 @@ func _set_time_scale(value: float) -> void:
 
 
 func _ready() -> void:
+	for child in _lights.get_children():
+		(child.get_node("PointLight2D") as PointLight2D).visible = false
 	_player.can_move = false
+	_debug_cameras.visible = false
 	if background_music:
 		MusicManager.blend_to(background_music)
 	_subvertising_qte.visible = false
@@ -125,7 +133,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			_show_menu()
 	if event.is_action_pressed(&"toggle_cameras"):
-		_knock_out()
+		_debug_cameras.visible = not _debug_cameras.visible
 
 
 func _show_menu() -> void:
@@ -225,9 +233,15 @@ func _process(_delta: float) -> void:
 		return
 	_time_progress.value = _timer.wait_time - _timer.time_left
 	var time_ratio := (_timer.wait_time - _timer.time_left) / _timer.wait_time
-	_map.modulate = lerp(Color("dbc7b5"), Color("614d7a"), time_ratio)
-	_player.modulate = lerp(Color("ecd4b7"), Color("8472b4"), time_ratio)
-	_npcs.modulate = lerp(Color("ecd4b7"), Color("8472b4"), time_ratio)
+	_map.modulate = colour_tint_world.sample(time_ratio)
+	_player.modulate = colour_tint_characters.sample(time_ratio)
+	_npcs.modulate = colour_tint_characters.sample(time_ratio)
+	
+	var hour := lerpf(4.0, 12.0, time_ratio)
+	if hour >= 4.6 and not _lights_on:
+		_lights_on = true
+		for child in _lights.get_children():
+			(child.get_node("PointLight2D") as PointLight2D).visible = true
 
 
 func _start_subvertising(advert: Advert) -> void:
@@ -321,3 +335,23 @@ func _indicate_artwork_count(colour: Color = Color.CRIMSON) -> void:
 	await tween.finished
 	_artwork_count_hud.modulate = old_colour
 	_indicating_artwork_count = false
+
+
+func _npc_spawned(npc: NPC) -> void:
+	var size := Vector2(96, 96)
+	var panel_container := PanelContainer.new()
+	panel_container.add_theme_stylebox_override(&"panel", load("res://resources/debug_camera_panel.tres"))
+	var viewport_container := SubViewportContainer.new()
+	viewport_container.custom_minimum_size = size
+	var viewport := SubViewport.new()
+	viewport.world_2d = get_viewport().world_2d
+	viewport.size = size
+	var camera := Camera2D.new()
+	camera.zoom = Vector2.ONE * 0.5
+	viewport.add_child(camera)
+	viewport_container.add_child(viewport)
+	panel_container.add_child(viewport_container)
+	_debug_cameras.add_child(panel_container)
+	npc.debug_remote_transform.remote_path = camera.get_path()
+	npc.reached_destination.connect(func() -> void:
+		panel_container.queue_free())

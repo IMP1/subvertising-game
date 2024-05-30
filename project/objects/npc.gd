@@ -8,6 +8,7 @@ const GROUP_NAME := &"npcs"
 const MOVE_SPEED := 128.0
 const BASE_DETECTION_SPEED := 0.5 # seconds^(-1)
 
+@export var debug_remote_transform: RemoteTransform2D
 @export var time_scale: float = 1.0
 @export var sprite_frames: SpriteFrames
 @export_category("Personality")
@@ -18,6 +19,10 @@ const BASE_DETECTION_SPEED := 0.5 # seconds^(-1)
 
 var _target: Node2D = null
 var _target_detection_progress: float = 0.0
+var _chasing_target: bool = false
+var _fleeing_target: bool = false
+var _anger: Dictionary = {} # Node => float 0-1
+var _avoiding_others: bool = true
 
 @onready var _emote := $Bubble as AnimatedSprite2D
 @onready var _nav_agent := $NavigationAgent2D as NavigationAgent2D
@@ -31,8 +36,7 @@ func _ready() -> void:
 	add_to_group(GROUP_NAME)
 	_emote.visible = false
 	_sprite.sprite_frames = sprite_frames
-	_personal_space.body_entered.connect(func(body: Node2D) -> void:
-		emote(&"angry", 1.0))
+	_personal_space.body_entered.connect(_personal_space_invaded)
 
 
 func move_to(target: Vector2) -> void:
@@ -51,14 +55,16 @@ func _physics_process(_delta: float) -> void:
 	var directon := global_position.direction_to(pos)
 	_vision.rotation = directon.angle()
 	velocity = directon * MOVE_SPEED * time_scale
+	_nav_agent.velocity = velocity
 	_update_sprite(velocity)
-	move_and_slide()
-	if _nav_agent.is_navigation_finished():
-		reached_destination.emit()
 
 
 func _adjust_velocity(safe_vel: Vector2) -> void:
-	_nav_agent.velocity = safe_vel
+	if _avoiding_others:
+		velocity = safe_vel
+	move_and_slide()
+	if _nav_agent.is_navigation_finished():
+		reached_destination.emit()
 
 
 func _update_sprite(movement: Vector2) -> void:
@@ -105,22 +111,55 @@ func _can_see(target: Node2D) -> bool:
 	return _ray.is_colliding() and _ray.get_collider() == target
 
 
+func _personal_space_invaded(body: Node2D) -> void:
+	if not _anger.has(body):
+		_anger[body] = 0.0
+	_anger[body] += 0.6 * clamp(aggression, 0, 1)
+	if _anger[body] >= 1.0:
+		_attack(body)
+	if _anger[body] > 0.5 or body == _target:
+		emote(&"exclamation")
+	elif _anger[body] > 0.0:
+		emote(&"angry", 1.0)
+	print(_anger[body])
+
+
 func _target_entered_view(body: Node2D) -> void:
+	print("Target seen")
+	if propriety < -0.5:
+		print("Don't care...")
+		return
 	emote(&"question")
 	_target = body
 
 
 func _target_exited_view() -> void:
+	print("Target lost")
+	if propriety < 0.0:
+		print("Don't care...")
+		_target_forgotten()
+		return # Don't care
 	emote(&"question")
 	# TODO: Either chase or forget depending on personality
 
 
 func _target_detected() -> void:
+	print("Target detected!")
+	if propriety < 0.0:
+		print("Don't care...")
+		return # Don't care
 	emote(&"exclamation")
+	if aggression > 0.1:
+		_chasing_target = true
+	elif aggression < -0.1:
+		_fleeing_target = true
+	else:
+		pass # Ignore?
 	# TODO: Either chase, flee, or ignore depending on personality
 
 
 func _target_forgotten() -> void:
+	print("Target forgotten")
 	emote(&"waiting", 1.0)
 	_target = null
 
@@ -145,3 +184,16 @@ func emote(emotion: StringName, duration: float = -1) -> void:
 func _body_entered_area(body: Node2D) -> void:
 	if _can_see(body):
 		_target_entered_view(body)
+
+
+func _attack(body: Node2D) -> void:
+	if not body is Player:
+		return # QUESTION: Can they attack each other?
+	var player := body as Player
+	move_to(player.global_position)
+	_avoiding_others = false
+	
+	var directon := global_position.direction_to(player.global_position)
+	_vision.rotation = directon.angle()
+	_update_sprite(directon)
+	player.knocked_out.emit()
