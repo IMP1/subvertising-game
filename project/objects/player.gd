@@ -59,7 +59,7 @@ func focus_camera_on(pos: Vector2, zoom: float) -> void:
 
 
 func show_input(action: StringName) -> void:
-	var icon := load("res://assets/graphics/inputs/E_Key_Light.png") as Texture2D # TODO: Get from action
+	var icon := load("res://assets/graphics/inputs/E_Key_Light.png") as Texture2D
 	_input_prompt.texture = icon
 	_emote.play(&"_show")
 	await _emote.animation_finished

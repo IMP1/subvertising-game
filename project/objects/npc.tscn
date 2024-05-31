@@ -1,17 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvnxothvatoih"]
+[gd_scene load_steps=11 format=3 uid="uid://dvnxothvatoih"]
 
 [ext_resource type="Script" path="res://objects/npc.gd" id="1_8yfvv"]
 [ext_resource type="SpriteFrames" uid="uid://cvmxlwoir7gp4" path="res://resources/sprites/person_1.tres" id="3_qvjlp"]
 [ext_resource type="SpriteFrames" uid="uid://cmpibgj7pcuuf" path="res://resources/bubbles.tres" id="3_wnb61"]
+[ext_resource type="AudioStream" uid="uid://3538w5qb7xtd" path="res://assets/sounds/dramatic-sting-118943.mp3" id="4_g4ill"]
+[ext_resource type="AudioStream" uid="uid://675r2aeqy4ly" path="res://assets/sounds/bass-clarinet-attack-4-41962.mp3" id="4_idbp5"]
+[ext_resource type="Texture2D" uid="uid://d3ychyoy3lu6p" path="res://assets/graphics/characters/threat_bar_under.png" id="6_dvh4k"]
+[ext_resource type="Texture2D" uid="uid://bxyggxp172rsi" path="res://assets/graphics/characters/threat_bar_fill.png" id="7_pigjp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2x4r7"]
 radius = 21.095
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oor2f"]
-radius = 201.002
+radius = 172.186
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bv24f"]
-radius = 65.0077
+radius = 45.2769
 
 [node name="NPC" type="CharacterBody2D" node_paths=PackedStringArray("debug_remote_transform")]
 collision_layer = 5
@@ -35,7 +39,7 @@ texture_filter = 1
 position = Vector2(0, -99)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("3_wnb61")
-animation = &"exclamation"
+animation = &"sad"
 frame = 2
 frame_progress = 1.0
 
@@ -45,39 +49,75 @@ radius = 64.0
 neighbor_distance = 96.0
 time_horizon_obstacles = 2.0
 max_speed = 128.0
+avoidance_layers = 3
 
 [node name="Vision" type="Area2D" parent="."]
-position = Vector2(0, -9)
 collision_layer = 0
 collision_mask = 8
+monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
+position = Vector2(48, 0)
 shape = SubResource("CircleShape2D_oor2f")
 debug_color = Color(0.87451, 0.65098, 0.403922, 0.207843)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vision"]
 polygon = PackedVector2Array(982, -564, 1097, -299, 1135, 6, 1101, 299, 989, 579, 0, 0)
 
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Vision"]
+polygon = PackedVector2Array(305, -451, 412, -371, 492, -266, 549, -138, 565, 1, 551, 140, 497, 264, 417, 380, 305, 450, 0, 0)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Vision"]
+polygon = PackedVector2Array(44, -274, 118, -269, 189, -237, 244, -198, 293, -137, 315, -63, 320, 2, 316, 74, 289, 135, 240, 202, 175, 244, 121, 264, 50, 276, 0, 0)
+
 [node name="Polygon2D" type="Polygon2D" parent="Vision"]
 visible = false
 position = Vector2(0, 9)
-color = Color(1, 1, 1, 0.329412)
-polygon = PackedVector2Array(491, -291, 550, -156, 572, -3, 550, 136, 496, 271, 0, -10)
+color = Color(0, 1, 0, 0.25098)
+polygon = PackedVector2Array(985, -575, 1099, -301, 1135, 5, 1097, 291, 993, 575, 0, -10)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Vision"]
+visible = false
+color = Color(0, 1, 0, 0.25098)
+polygon = PackedVector2Array(47, -201, 99, -194, 150, -173, 188, -143, 207.532, -120.022, -1, -1, 207.103, 123.178, 192, 143, 149, 175, 100, 195, 47, 201, -4, 194, -55, 175, -93, 143, -127, 100, -147, 56, -154, 0, -146, -50, -125, -100, -93, -141, -55, -173, -4, -193)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(500, 0)
-collision_mask = 7
+target_position = Vector2(1134, 3)
 
 [node name="PersonalSpace" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 6
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PersonalSpace"]
 position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_bv24f")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+
+[node name="Warning" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_idbp5")
+pitch_scale = 2.8
+bus = &"Sounds"
+
+[node name="Chasing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_g4ill")
+bus = &"Sounds"
+
+[node name="Threat" type="TextureProgressBar" parent="."]
+offset_left = -59.0
+offset_top = -19.0
+offset_right = 60.0
+offset_bottom = 67.0
+max_value = 1.0
+step = 0.1
+fill_mode = 5
+nine_patch_stretch = true
+texture_under = ExtResource("6_dvh4k")
+texture_progress = ExtResource("7_pigjp")
+tint_under = Color(0, 0, 0, 1)
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_adjust_velocity"]
 [connection signal="body_entered" from="Vision" to="." method="_body_entered_area"]

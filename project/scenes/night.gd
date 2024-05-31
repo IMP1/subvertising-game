@@ -298,7 +298,7 @@ func _start_advert_interaction(advert: Advert) -> void:
 	advert._player_exit_area(_player)
 	_player.can_move = false
 	_player.set_collision_layer_value(MISCHIEF_LAYER, true)
-	_player.focus_camera_on(advert.global_position, 1.6)
+	_player.focus_camera_on(advert.global_position, 0.8)
 
 
 func _end_advert_interaction(advert: Advert) -> void:
@@ -347,7 +347,7 @@ func _npc_spawned(npc: NPC) -> void:
 	viewport.world_2d = get_viewport().world_2d
 	viewport.size = size
 	var camera := Camera2D.new()
-	camera.zoom = Vector2.ONE * 0.5
+	camera.zoom = Vector2.ONE * 0.4
 	viewport.add_child(camera)
 	viewport_container.add_child(viewport)
 	panel_container.add_child(viewport_container)

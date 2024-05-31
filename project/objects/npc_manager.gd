@@ -4,8 +4,6 @@ signal npc_spawned(npc: NPC)
 
 const NPC_CLASS := preload("res://objects/npc.tscn")
 
-# TODO: More sprites!
-
 const WORKER_SPRITE_FRAMES := [
 	preload("res://resources/sprites/worker_1.tres"),
 	preload("res://resources/sprites/worker_2.tres"),
@@ -188,6 +186,7 @@ func _spawn_npc_from_building(door: Door, setup_func: Callable, amount: int = 1)
 		var pos := npc.global_position
 		npc.get_parent().remove_child(npc)
 		await _setup_npc(npc, setup_func, pos, destination.global_position)
+		npc.call_deferred(&"start_being_present")
 	door.close()
 
 
@@ -195,12 +194,14 @@ func _spawn_npc_from_source(source: NPCSource, setup_func: Callable) -> void:
 	var destination := source.destinations.pick_random() as Marker2D
 	var npc := NPC_CLASS.instantiate() as NPC
 	await _setup_npc(npc, setup_func, source.global_position, destination.global_position)
+	npc.call_deferred(&"start_being_present")
 
 
 func _spawn_npc_from_position(location: Vector2, setup_func: Callable) -> void:
 	var destination := destinations.get_children().pick_random() as Marker2D
 	var npc := NPC_CLASS.instantiate() as NPC
 	await _setup_npc(npc, setup_func, location, destination.global_position)
+	npc.call_deferred(&"start_being_present")
 
 
 func _setup_npc(npc: NPC, setup: Callable, initial_pos: Vector2, final_pos: Vector2) -> NPC:
@@ -215,6 +216,7 @@ func _setup_npc(npc: NPC, setup: Callable, initial_pos: Vector2, final_pos: Vect
 
 
 func _remove_npc(npc: NPC) -> void:
+	npc.prepare_to_free()
 	npc.queue_free()
 
 
@@ -253,7 +255,7 @@ func _setup_partier(npc: NPC) -> void:
 	npc.sprite_frames = PARTY_SPRITE_FRAMES.pick_random() as SpriteFrames
 	npc.propriety = randf_range(-1, 0.4)
 	npc.happiness = randf_range(-0.3, 1.0)
-	npc.aggression = randf_range(-1, 1)
+	npc.aggression = clampf(randfn(0.0, 0.5), -1, 1)
 	npc.awareness = randf_range(-1, 0)
 
 
@@ -264,19 +266,19 @@ func _setup_pedestrian(npc: NPC) -> void:
 	var progress := ProgressManager.progress.get_total_subvertisement_count()
 	if progress < 6:
 		happiness = randf_range(-1, 0.3)
-		aggression = randf_range(0, 1)
+		aggression = clampf(randfn(0.5, 0.25), 0, 1)
 		propriety = randf_range(-1, 1)
 	elif progress <= 12: 
 		happiness = randf_range(-1, 1)
-		aggression = randf_range(0, 1)
+		aggression = clampf(randfn(0.5, 0.25), 0, 1)
 		propriety = randf_range(-0.5, 1)
 	elif progress <= 18:
 		happiness = randf_range(-1, 1)
-		aggression = randf_range(-1, 1)
+		aggression = clampf(randfn(0.0, 0.5), -1, 1)
 		propriety = randf_range(-1, 1)
 	elif progress <= 20:
 		happiness = randf_range(-0.3, 1)
-		aggression = randf_range(-1, 0)
+		aggression = clampf(randfn(-0.5, 0.25), -1, 0)
 		propriety = randf_range(-1, 0)
 	npc.sprite_frames = REGULAR_PEOPLE_SPRITE_FRAMES.pick_random() as SpriteFrames
 	npc.propriety = propriety

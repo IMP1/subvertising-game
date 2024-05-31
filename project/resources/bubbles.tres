@@ -148,8 +148,17 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g1728")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkpob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t81v3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1728")
 }],
-"loop": true,
+"loop": false,
 "name": &"angry",
 "speed": 5.0
 }, {
@@ -221,8 +230,17 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_57048")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uuudb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sw80g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57048")
 }],
-"loop": true,
+"loop": false,
 "name": &"waiting",
 "speed": 5.0
 }, {

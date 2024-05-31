@@ -71,7 +71,6 @@ func _setup_day() -> void:
 
 func _setup_possible_adverts() -> void:
 	var day := ProgressManager.progress.day
-	print(day)
 	
 	if day == 1 and ProgressManager.progress.ad_production_day == 1:
 		ProgressManager.progress.available_artworks_home.append_array(ProgressManager.progress.HOME_ARTWORK_DAY_1)
@@ -130,8 +129,6 @@ func _setup_possible_adverts() -> void:
 	
 	if day == ProgressManager.progress.ad_production_day:
 		ProgressManager.progress.ad_production_day += 1
-	# TODO: Make some locations only available on certain days
-	# TODO: Add more new adverts to each location every day
 	for location in _locations.get_children():
 		var location_button_group := ButtonGroup.new()
 		var artwork_container := location.get_node("Artwork") as Control

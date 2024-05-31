@@ -14,6 +14,7 @@ func _ready() -> void:
 
 func open() -> void:
 	_animation.play(&"open")
+	await _animation.animation_finished
 
 
 func exit_npc(npc: NPC) -> void:
@@ -27,6 +28,7 @@ func exit_npc(npc: NPC) -> void:
 
 func close() -> void:
 	_animation.play(&"close")
+	await _animation.animation_finished
 
 
 func show_warning() -> void:
