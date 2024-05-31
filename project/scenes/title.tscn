@@ -436,6 +436,7 @@ stream = ExtResource("2_je2yp")
 bus = &"Sounds"
 
 [node name="Button" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 36.0
 offset_top = 549.0

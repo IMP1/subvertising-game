@@ -10,6 +10,7 @@ export_presets.cfg
 *.translation
 
 /media
+/releases
 all_sprites.png
 all_tiles.png
 road_tiles.png
